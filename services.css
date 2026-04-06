@@ -478,7 +478,7 @@ body:not(.dark-mode) .highlight-card p{
   }
 
   .highlights-grid{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr; 
     gap:18px;
   }
 
@@ -521,8 +521,7 @@ body:not(.dark-mode) .highlight-card p{
   }
 
   .highlights-grid{
-    grid-template-columns:1fr;   /* ✅ ONLY 1 CARD PER ROW */
-    gap:20px;
+    grid-template-columns:1fr !important;   /* ✅ ONLY 1 CARD PER ROW */
   }
 
   .highlight-card{
