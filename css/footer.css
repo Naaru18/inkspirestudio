@@ -176,7 +176,7 @@ body:not(.dark-mode) .footerSocials a{
 /* ================= RESPONSIVE ================= */
 
 /* 📱 MOBILE (360px) */
-@media(max-width:600px){
+@media(max-width:360px){
 
   .customFooter{
     padding:30px 15px 15px;
@@ -185,6 +185,9 @@ body:not(.dark-mode) .footerSocials a{
   .footerWrapper{
     grid-template-columns:1fr;   /* ✅ 1 column */
     gap:20px;
+  }
+   .customFooter .footerWrapper{
+    grid-template-columns:1fr !important;  /* 🔥 FORCE 1 column */
   }
 
   .footerLogo h2{
@@ -216,6 +219,10 @@ body:not(.dark-mode) .footerSocials a{
   .customFooter{
     padding:35px 18px 18px;
   }
+   .customFooter .footerWrapper{
+    grid-template-columns:1fr !important;  /* 🔥 FORCE 1 column */
+  }
+
 }
 
 /* 💻 SMALL LAPTOP (1024px) */
