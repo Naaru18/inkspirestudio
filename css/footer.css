@@ -173,17 +173,18 @@ body:not(.dark-mode) .footerSocials a{
 
   box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
+/* ================= RESPONSIVE ================= */
 
+/* 📱 MOBILE (360px) */
 @media(max-width:360px){
 
   .customFooter{
-    width:100%;
-    padding:25px 12px;
+    padding:30px 15px 15px;
   }
 
   .footerWrapper{
-    grid-template-columns:1fr;  
-    gap:15px;
+    grid-template-columns:1fr;   /* ✅ 1 column */
+    gap:20px;
   }
 
   .footerLogo h2{
@@ -198,31 +199,33 @@ body:not(.dark-mode) .footerSocials a{
   .footerList p{
     font-size:13px;
   }
-}
 
-
-@media(max-width:768px){
-
-  
-  .footerWrapper{
-    grid-template-columns:1fr;  
-    gap:20px;
+  .footerSocials{
+    justify-content:flex-start;
   }
 }
 
+/* 📲 TABLET (768px) */
+@media(max-width:768px){
 
+  .footerWrapper{
+    grid-template-columns:1fr;   /* ✅ 1 column */
+    gap:25px;
+  }
+
+  .customFooter{
+    padding:35px 18px 18px;
+  }
+}
+
+/* 💻 SMALL LAPTOP (1024px) */
 @media(max-width:1024px){
 
   .footerWrapper{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);  /* ✅ 2 columns */
     gap:30px;
   }
 }
 
-
-@media(min-width:1025px){
-
-  .footerWrapper{
-    grid-template-columns:repeat(4,1fr);
-  }
-}
+/* 🖥️ DESKTOP (DEFAULT) */
+/* Already 4 columns — no change needed */
