@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+     <div id="header"></div>
+<section class="hero">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <h1>
+      MG Road’s Premier Tattoo & Piercing Studio
+    </h1>
+
+    <p>
+      Experience world-class tattoo artistry and safe professional piercings in Bangalore.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="contact.html" class="btn primary">Book Appointment</a>
+      <a href="services.html" class="btn secondary">Explore Designs</a>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+
+document.querySelector(".btn.primary").addEventListener("click", function(e){
+  e.preventDefault();
+  window.open("https://wa.me/919876543210", "_blank");
+}); 
+</script>
+<section class="why">
+
+  <div class="why-container">
+
+    <h2 class="section-title">Why Choose Inkspire Studio</h2>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>World-Class Hygiene Standards</h3>
+        <p>
+         We strictly follow medical-grade sterilization procedures, use disposable needles, and maintain a completely sanitized environment to ensure a risk-free experience.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <i class="fa-solid fa-user-check"></i>
+        <h3>Certified & Experienced Artists</h3>
+        <p>
+          Our team consists of highly skilled and certified tattoo artists who bring years of expertise, creativity,
+          and precision to every design must be unique.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <h3>Safe & Professional Piercing</h3>
+        <p>
+          We offer safe and hygienic piercing services using advanced tools and techniques, ensuring minimal pain,
+          proper healing, and complete aftercare guidance.
+        </p>
+      </div>
+
+      <div class="why-card">
+        <i class="fa-solid fa-pen-nib"></i>
+        <h3>Custom Tattoo  & Piercing Designs</h3>
+        <p>
+          Every tattoo we create is unique. We work closely with you to design meaningful, personalized artwork
+          that reflects your story, personality, and style.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="services">
+
+  <div class="services-container">
+
+    <h2 class="section-title">Our Expertise</h2>
+
+    <div class="services-grid">
+
+      
+      <div class="service-item">
+        <img src="../Images/tattoo.jpg" alt="Tattoo Services">
+
+        <div class="service-content">
+          <h3>Custom Tattoo Artistry</h3>
+          <p>
+            From minimalist designs to full-sleeve masterpieces, our expert artists craft
+            tattoos that are deeply personal, visually stunning, and created with precision.
+          </p>
+          <a href="servicedetails1.html" class="btn primary">View Details</a>
+        </div>
+      </div>
+
+      
+      <div class="service-item">
+        <img src="../Images/Piercing1.jpg" alt="Piercing Services">
+
+        <div class="service-content">
+          <h3>Professional Piercing</h3>
+          <p>
+            Experience safe, hygienic, and expertly performed piercing services using
+            advanced tools and techniques for comfort, style, and long-lasting results.
+          </p>
+          <a href="servicedetails1.html" class="btn primary">View Details</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="gallery">
+
+  <div class="gallery-container">
+
+    <h2 class="section-title">Our Tattoo Portfolio</h2>
+
+    
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="minimal">Minimal</button>
+      <button class="filter-btn" data-filter="realistic">Realistic</button>
+      <button class="filter-btn" data-filter="religious">Religious</button>
+      <button class="filter-btn" data-filter="couple">Couple</button>
+    </div>
+
+    
+    <div class="gallery-grid">
+
+      <div class="gallery-item minimal">
+        <img src="../Images/tattoo3.jpg">
+        <div class="gallery-overlay">Minimal Tattoo</div>
+      </div>
+
+      <div class="gallery-item realistic">
+        <img src="../Images/style6.jpg">
+        <div class="gallery-overlay">Realistic Tattoo</div>
+      </div>
+
+      <div class="gallery-item religious">
+        <img src="../Images/religious.jpg">
+        <div class="gallery-overlay">Religious Tattoo</div>
+      </div>
+
+      <div class="gallery-item couple">
+        <img src="../Images/style3.jpg">
+        <div class="gallery-overlay">Couple Tattoo</div>
+      </div>
+
+      <div class="gallery-item minimal">
+        <img src="../Images/style5.jpg">
+        <div class="gallery-overlay">Minimal Tattoo</div>
+      </div>
+
+      <div class="gallery-item realistic">
+        <img src="../Images/style2.jpg">
+        <div class="gallery-overlay">Realistic Tattoo</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<script>
+    const filterButtons = document.querySelectorAll(".filter-btn");
+const items = document.querySelectorAll(".gallery-item");
+const grid = document.querySelector(".gallery-grid");
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    document.querySelector(".filter-btn.active").classList.remove("active");
+    btn.classList.add("active");
+
+    const filter = btn.getAttribute("data-filter");
+
+
+    if(filter === "all"){
+      grid.classList.remove("filtered"); // normal layout
+    } else {
+      grid.classList.add("filtered"); // 2 per row layout
+    }
+
+    items.forEach(item => {
+      if(filter === "all" || item.classList.contains(filter)){
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
+    });
+
+  });
+});
+</script>
+<section class="artists">
+
+  <div class="artists-container">
+
+    <h2 class="section-title">Meet Our Artists</h2>
+
+    <div class="artists-grid">
+
+      
+      <div class="artist-card">
+        <img src="../Images/artist1.jpg" alt="Artist 1">
+
+        <div class="artist-overlay">
+          <h3>Rahul InkMaster</h3>
+          <p>5+ Years Experience</p>
+          <span>Specialist in Realistic & Portrait Tattoos</span>
+        </div>
+      </div>
+
+      
+      <div class="artist-card">
+        <img src="../Images/artist2.jpg" alt="Artist 2">
+
+        <div class="artist-overlay">
+          <h3>Priya ArtSkin</h3>
+          <p>4+ Years Experience</p>
+          <span>Minimal & Fine Line Tattoo Expert</span>
+        </div>
+      </div>
+
+      
+      <div class="artist-card">
+        <img src="../Images/artist3.jpg" alt="Artist 3">
+
+        <div class="artist-overlay">
+          <h3>Arjun Needle</h3>
+          <p>6+ Years Experience</p>
+          <span>Religious & Traditional Tattoo Specialist</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<script>
+    const artistCards = document.querySelectorAll(".artist-card");
+
+window.addEventListener("scroll", () => {
+  artistCards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+
+    if(rect.top < window.innerHeight - 50){
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }
+  });
+});
+
+
+artistCards.forEach(card => {
+  card.style.opacity = "0";
+  card.style.transform = "translateY(40px)";
+  card.style.transition = "0.6s ease";
+});
+</script>
+
+<section class="testimonials">
+
+  <div class="testimonials-container">
+
+    <h2 class="section-title">What Our Clients Say</h2>
+
+    <div class="testimonial-slider">
+       <button class="slider-btn prev">&#10094;</button>
+  <button class="slider-btn next">&#10095;</button>
+
+      <div class="testimonial-track">
+
+        
+        <div class="testimonial-card">
+          <p>"Amazing experience! The artist understood exactly what I wanted."</p>
+          <div class="stars">★★★★★</div>
+          <h4>Rohit Kumar</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Very hygienic studio and friendly staff. Highly recommended!"</p>
+          <div class="stars">★★★★★</div>
+          <h4>Sneha Reddy</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Best tattoo studio in Bangalore. Loved the detailing."</p>
+          <div class="stars">★★★★★</div>
+          <h4>Arjun Patel</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Professional service and painless piercing experience."</p>
+          <div class="stars">★★★★☆</div>
+          <h4>Priya Sharma</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Creative designs and great atmosphere. Will visit again!"</p>
+          <div class="stars">★★★★★</div>
+          <h4>Rahul Verma</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Loved my couple tattoo. Perfect execution!"</p>
+          <div class="stars">★★★★★</div>
+          <h4>Anjali & Kiran</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Clean, safe, and very professional artists."</p>
+          <div class="stars">★★★★☆</div>
+          <h4>Vikram Singh</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Highly skilled artists with amazing creativity."</p>
+          <div class="stars">★★★★★</div>
+          <h4>Megha Nair</h4>
+        </div>
+         <div class="testimonial-card">
+          <p>"Amazing experience! The artist understood exactly what I wanted."</p>
+          <div class="stars">★★★★★</div>
+          <h4>Rohit Kumar</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Very hygienic studio and friendly staff. Highly recommended!"</p>
+          <div class="stars">★★★★★</div>
+          <h4>Sneha Reddy</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Best tattoo studio in Bangalore. Loved the detailing."</p>
+          <div class="stars">★★★★★</div>
+          <h4>Arjun Patel</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Professional service and painless piercing experience."</p>
+          <div class="stars">★★★★☆</div>
+          <h4>Priya Sharma</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Creative designs and great atmosphere. Will visit again!"</p>
+          <div class="stars">★★★★★</div>
+          <h4>Rahul Verma</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Loved my couple tattoo. Perfect execution!"</p>
+          <div class="stars">★★★★★</div>
+          <h4>Anjali & Kiran</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Clean, safe, and very professional artists."</p>
+          <div class="stars">★★★★☆</div>
+          <h4>Vikram Singh</h4>
+        </div>
+
+        <div class="testimonial-card">
+          <p>"Highly skilled artists with amazing creativity."</p>
+          <div class="stars">★★★★★</div>
+          <h4>Megha Nair</h4>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<script>
+    const track = document.querySelector(".testimonial-track");
+const cards = document.querySelectorAll(".testimonial-card");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let index = 0;
+const gap = 20;
+
+function updateSlide(){
+  const cardWidth = cards[0].offsetWidth + gap;
+  track.style.transform = `translateX(-${index * cardWidth}px)`;
+}
+
+
+nextBtn.addEventListener("click", () => {
+  index++;
+  if(index >= cards.length) index = 0;
+  updateSlide();
+});
+
+
+prevBtn.addEventListener("click", () => {
+  index--;
+  if(index < 0) index = cards.length - 1;
+  updateSlide();
+});
+
+
+setInterval(() => {
+  index++;
+  if(index >= cards.length) index = 0;
+  updateSlide();
+}, 3000);
+</script>
+<section class="stats">
+
+  <div class="stats-container">
+
+    <h2 class="section-title">Our Achievements</h2>
+
+    
+    <div class="stat-item">
+      <div class="stat-number">5000+</div>
+      <div class="stat-content">
+        <h3>Tattoos Crafted</h3>
+        <p>
+          Successfully completed thousands of custom tattoo designs with precision,
+          creativity, and client satisfaction.
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="stat-item reverse">
+      <div class="stat-number">10+</div>
+      <div class="stat-content">
+        <h3>Expert Artists</h3>
+        <p>
+          A team of highly skilled and certified tattoo artists specializing in
+          multiple styles and techniques.
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="stat-item">
+      <div class="stat-number">8+</div>
+      <div class="stat-content">
+        <h3>Years of Experience</h3>
+        <p>
+          Delivering high-quality tattoo and piercing services with years of industry
+          experience and innovation.
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="stat-item reverse">
+      <div class="stat-number">100%</div>
+      <div class="stat-content">
+        <h3>Client Satisfaction</h3>
+        <p>
+          Our clients trust us for our professionalism, hygiene standards, and
+          artistic excellence.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<section class="blogs">
+
+  <div class="blogs-container">
+
+    <h2 class="section-title">Latest Insights & Trends</h2>
+
+    <div class="blogs-grid">
+
+      
+      <div class="blog-item">
+        <div class="blog-img">
+          <img src="../Images/blog1.jpg" alt="Tattoo Care">
+        </div>
+
+        <div class="blog-content">
+          <span class="blog-tag">Tattoo Care</span>
+          <h3>Essential Aftercare Tips for Long-Lasting Tattoos</h3>
+          <p>
+            Learn how to protect your tattoo, avoid infections, and maintain
+            vibrant colors with proper aftercare routines.
+          </p>
+          <a href="blog.html" class="blog-link">Read More →</a>
+        </div>
+      </div>
+
+      
+      <div class="blog-item reverse">
+        <div class="blog-img">
+          <img src="../Images/blog2.jpg" alt="Tattoo Trends">
+        </div>
+
+        <div class="blog-content">
+          <span class="blog-tag">Trends</span>
+          <h3>Top Tattoo Trends You Must Try in 2026</h3>
+          <p>
+            Discover the latest tattoo styles including minimal, geometric,
+            and realistic designs trending this year.
+          </p>
+          <a href="blog.html" class="blog-link">Read More →</a>
+        </div>
+      </div>
+
+      
+      <div class="blog-item">
+        <div class="blog-img">
+          <img src="../Images/blog3.jpg" alt="Tattoo Meaning">
+        </div>
+
+        <div class="blog-content">
+          <span class="blog-tag">Meaning</span>
+          <h3>Hidden Meanings Behind Popular Tattoos</h3>
+          <p>
+            Explore the deep meanings behind symbols, spiritual tattoos,
+            and cultural designs before you ink.
+          </p>
+          <a href="blog.html" class="blog-link">Read More →</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="cta">
+
+  <div class="cta-box">
+
+    <h2 class="cta-title">Book Your Session Today</h2>
+
+    <p class="cta-text">
+      Ready to get inked or pierced? Connect with our expert artists and 
+      bring your ideas to life with precision and creativity.
+    </p>
+
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn primary">Book Appointment</a>
+      <a href="https://wa.me/919876543210" target="_blank" class="btn secondary">
+        Chat on WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+</section>
+<div id="footer"></div>
+<script src="../js/components.js"></script>
+</body>
+</html>

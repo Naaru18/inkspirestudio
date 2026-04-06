@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="bubbles">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="auth-box">
+
+  <a href="index.html" class="logo">
+    <i class="fa-solid fa-dragon logo-icon"></i>
+    <h2>Inkspire Studio</h2>
+  </a>
+
+  <h2 class="auth-title">Login</h2>
+
+  <form id="loginForm">
+    <input type="email" placeholder="Email" class="input" id="email">
+    <div class="error" id="emailError">Enter valid email</div>
+
+    <input type="password" placeholder="Password" class="input" id="password">
+    <div class="error" id="passError">Password required</div>
+
+    <button class="btn">Login</button>
+  </form>
+
+  <div class="divider">or continue with</div>
+
+  <button class="google-btn">
+    <i class="fab fa-google"></i> Continue with Google
+  </button>
+
+  <div class="auth-link">
+    Don’t have an account? <a href="signup.html">Signup here</a>
+  </div>
+
+</div>
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let email = document.getElementById("email");
+  let pass = document.getElementById("password");
+
+  let valid = true;
+
+  if(email.value === "" || !email.value.includes("@")){
+    document.getElementById("emailError").style.display="block";
+    valid=false;
+  } else {
+    document.getElementById("emailError").style.display="none";
+  }
+
+  if(pass.value === ""){
+    document.getElementById("passError").style.display="block";
+    valid=false;
+  } else {
+    document.getElementById("passError").style.display="none";
+  }
+
+  if(valid){
+    alert("Login Successful!");
+  }
+});
+</script>
+
+</body>
+</html>

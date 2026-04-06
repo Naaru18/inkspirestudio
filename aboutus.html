@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="aboutus.css">
+</head>
+<body>
+   
+ <div id="header"></div>
+<section class="hero">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Crafting Stories Through Ink</h1>
+
+    <p>
+      We are a professional tattoo and piercing studio dedicated to turning your ideas into timeless body art.
+      With a strong focus on precision, creativity, and hygiene, we create designs that reflect your personality and passion.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="index.html" class="btn primary">Meet Our Artists</a>
+      <a href="aboutus.html#story" class="btn secondary">Our Story</a>
+    </div>
+  </div>
+</section>
+<section class="story-section" id="story">
+
+  <div class="story-container">
+
+    
+    <h2 class="section-title">Our Story</h2>
+
+    
+    <div class="story-wrapper">
+
+      
+      <div class="story-timeline">
+
+        <div class="timeline-item">
+          <span class="year">2018</span>
+          <h3>Where It All Began</h3>
+          <p>A small vision driven by passion for tattoo art and creative expression.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="year">2020</span>
+          <h3>First Studio</h3>
+          <p>We opened our doors with a focus on quality, hygiene, and custom artwork.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="year">2022</span>
+          <h3>Growing Trust</h3>
+          <p>Hundreds of clients trusted us to turn their ideas into meaningful tattoos.</p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="year">2025</span>
+          <h3>Premium Experience</h3>
+          <p>Expanded into a modern studio delivering world-class tattoo & piercing services.</p>
+        </div>
+
+      </div>
+
+      
+      <div class="story-founder">
+
+        <h3>Founder’s Vision</h3>
+
+        <p>
+          “Every tattoo we create carries a story. Our goal is not just to ink skin,
+          but to design meaningful art with precision, safety, and passion.”
+        </p>
+
+        <p class="founder-name">— Founder Name</p>
+        <h3>Artist’s Philosophy</h3>
+
+  <p>
+    “A tattoo is a lifelong expression of identity. We focus on creativity, detail,
+    and ensuring every design reflects the personality of our clients.”
+  </p>
+
+  <p class="founder-name">— Lead Tattoo Artist</p>
+  
+  <h3>Our Commitment</h3>
+
+  <p>
+    “We are committed to providing a safe, hygienic, and professional environment,
+    ensuring every client receives the best experience and artwork possible.”
+  </p>
+
+  <p class="founder-name">— Studio Team</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="mv-section">
+
+  <div class="mv-container">
+
+    
+    <h2 class="section-title">Core Principles</h2>
+
+    
+    <div class="mv-grid">
+
+      
+      <div class="mv-card">
+        <div class="mv-icon">🎯</div>
+        <h3>Our Mission</h3>
+        <p>
+          To create high-quality, meaningful tattoo art every day with precision,
+          creativity, and strict hygiene standards.
+        </p>
+      </div>
+
+      
+      <div class="mv-card">
+        <div class="mv-icon">🚀</div>
+        <h3>Our Vision</h3>
+        <p>
+          To become a globally trusted tattoo studio known for artistic excellence,
+          innovation, and a world-class client experience.
+        </p>
+      </div>
+
+      
+      <div class="mv-card">
+        <div class="mv-icon">💎</div>
+        <h3>Our Values</h3>
+        <ul>
+          <li>🧼 Hygiene & Sterilization</li>
+          <li>🎨 Creativity & Originality</li>
+          <li>🛡️ Safety First</li>
+          <li>🤝 Customer-First Approach</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="achievements-section">
+
+  <div class="achievements-container">
+
+    
+    <h2 class="section-title">Achievements & Recognition</h2>
+
+    
+    <div class="achievements-grid">
+
+      <div class="achievement-card">
+        <div class="icon">🏅</div>
+        <h3><span class="counter" data-target="15">0</span>+</h3>
+        <p>Awards & Recognitions</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="icon">📜</div>
+        <h3><span class="counter" data-target="20">0</span>+</h3>
+        <p>Certifications</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="icon">⏳</div>
+        <h3><span class="counter" data-target="8">0</span>+</h3>
+        <p>Years of Experience</p>
+      </div>
+
+      <div class="achievement-card">
+        <div class="icon">👥</div>
+        <h3><span class="counter" data-target="5000">0</span>+</h3>
+        <p>Happy Clients</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+  const counters = document.querySelectorAll(".counter");
+
+  counters.forEach(counter => {
+    counter.innerText = "0";
+
+    const updateCounter = () => {
+      const target = +counter.getAttribute("data-target");
+      const current = +counter.innerText;
+
+      const increment = target / 100; // speed control
+
+      if (current < target) {
+        counter.innerText = Math.ceil(current + increment);
+        setTimeout(updateCounter, 20); // animation speed
+      } else {
+        counter.innerText = target;
+      }
+    };
+
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          updateCounter();
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(counter);
+  });
+
+});
+</script>
+
+<section class="experience-section">
+
+  <div class="experience-container">
+
+    
+    <h2 class="section-title">Client Experiences</h2>
+
+    
+    <div class="experience-grid">
+
+      
+      <div class="experience-card">
+
+        <img src="../Images/user1.jpg" alt="Client Tattoo">
+
+        <div class="experience-content">
+          <p class="quote">
+            “I came in with a simple idea, and they turned it into something deeply meaningful.
+            The team was patient, understanding, and incredibly professional.”
+          </p>
+
+          <h4>— Riya S.</h4>
+          <span>First Tattoo Experience</span>
+        </div>
+
+      </div>
+
+      
+      <div class="experience-card">
+
+        <img src="../Images/user2.jpg" alt="Client Tattoo">
+
+        <div class="experience-content">
+          <p class="quote">
+            “This wasn’t just a tattoo — it was a memory. The artist captured exactly what I wanted.
+            The detailing and precision were beyond my expectations.”
+          </p>
+
+          <h4>— Arjun K.</h4>
+          <span>Custom Design Tattoo</span>
+        </div>
+
+      </div>
+
+      
+      <div class="experience-card">
+
+        <img src="../Images/user4.jpg" alt="Client Tattoo">
+
+        <div class="experience-content">
+          <p class="quote">
+            “The aftercare support was amazing. They guided me at every step, even after the tattoo was done.
+            The whole experience felt personal and professional at the same time.”
+          </p>
+
+          <h4>— Sneha P.</h4>
+          <span>Piercing Experience</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="bts-section">
+
+  <div class="bts-container">
+
+    
+    <h2 class="section-title">Behind the Scenes</h2>
+
+    
+    <p class="bts-subtitle">
+      A glimpse into our process, environment, and the passion behind every tattoo we create.
+    </p>
+
+    
+    <div class="bts-grid">
+
+      <div class="bts-item">
+        <img src="../Images/minimal.jpg" alt="Tattoo Process">
+        <h4>Tattoo Process</h4>
+      </div>
+
+      <div class="bts-item">
+        <img src="../Images/studio.jpg" alt="Studio Environment">
+        <h4>Studio Environment</h4>
+      </div>
+
+      <div class="bts-item">
+        <img src="../Images/founders.jpg" alt="Artist Working">
+        <h4>Artist at Work</h4>
+      </div>
+
+      <div class="bts-item">
+        <img src="../Images/parlor.jpg" alt="Tools & Setup">
+        <h4>Tools & Setup</h4>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section class="video-section">
+
+  <div class="video-container">
+
+    
+    <h2 class="section-title">Studio Experience</h2>
+
+    
+    <p class="video-subtitle">
+      Step inside our studio and experience the passion, precision, and artistry behind every tattoo we create.
+    </p>
+
+    
+    <div class="video-wrapper">
+
+      
+      <iframe 
+        src="https://www.youtube.com/embed/PDjdPBh9_N8" 
+        title="Studio Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+    
+    <div class="video-highlights">
+
+      <div class="highlight">
+        🎬 Studio Tour
+      </div>
+
+      <div class="highlight">
+        🎨 Tattoo Process
+      </div>
+
+      <div class="highlight">
+        😊 Client Reactions
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="cta-section">
+
+  <div class="cta-container">
+
+    
+    <h2 class="cta-title">Ready to Turn Your Idea Into Art?</h2>
+
+    
+    <p class="cta-text">
+      Book your appointment today and let our expert artists create a tattoo that truly represents you.
+    </p>
+
+    
+    <div class="cta-buttons">
+
+      <a href="login.html" class="btn primary">📅 Book Appointment</a>
+
+      <a href="contact.html" class="btn secondary">💬 Chat on WhatsApp</a>
+
+    </div>
+
+    
+    <p class="cta-note">
+      ✔ Free consultation & design discussion  
+      ✔ Safe & hygienic environment  
+      ✔ Professional artists only
+    </p>
+
+  </div>
+
+</section>
+
+<div id="footer"></div>
+<script src="../js/components.js"></script>
+</body>
+</html>

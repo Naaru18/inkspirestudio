@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+   
+ <div id="header"></div>
+   
+<section class="details-hero blog-hero">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <span class="service-tag">Tattoo Care</span>
+
+    <h1>Complete Tattoo Aftercare Guide</h1>
+
+    <p class="hero-hook">
+      Protect your ink. Heal faster. Keep it looking perfect.
+    </p>
+
+    
+    <div class="blog-meta">
+      <span>✍️ By John Artist</span>
+      <span>📅 March 20, 2026</span>
+    </div>
+
+    
+    <p class="hero-subtext">
+      Learn everything you need to know about tattoo aftercare to avoid infections and maintain vibrant results.
+    </p>
+
+    
+    <div class="hero-buttons">
+      <a href="contact.html" class="btn primary">Book Appointment</a>
+      <a href="blogdetails.html" class="btn secondary">Explore blogs</a>
+    </div>
+
+  </div>
+
+</section>
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const content = document.querySelector(".blog-hero .hero-content");
+
+  content.style.opacity = "0";
+  content.style.transform = "translateY(40px)";
+
+  setTimeout(() => {
+    content.style.transition = "all 0.8s ease";
+    content.style.opacity = "1";
+    content.style.transform = "translateY(0)";
+  }, 200);
+});
+    
+</script>
+<section class="blog-filter">
+
+  <div class="services-container">
+
+    <h2 class="section-title">Explore Blogs</h2>
+
+    
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search blogs...">
+    </div>
+
+    
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="tattoo">Tattoo Care</button>
+      <button class="filter-btn" data-category="piercing">Piercing Care</button>
+      <button class="filter-btn" data-category="trends">Trends</button>
+      
+    </div>
+
+    
+    <div class="blog-grid" id="blogGrid">
+
+      
+      <div class="blog-card" data-category="tattoo">
+        <div class="blog-image">
+          <img src="../Images/blog1.jpg" alt="">
+        </div>
+        <div class="blog-content">
+          <h3>Tattoo Aftercare Guide</h3>
+          <p>Keep your tattoo clean and vibrant with proper care.</p>
+        </div>
+      </div>
+
+      <div class="blog-card" data-category="piercing">
+        <div class="blog-image">
+          <img src="../Images/blog2.jpg" alt="">
+        </div>
+        <div class="blog-content">
+          <h3>Piercing Healing Tips</h3>
+          <p>Speed up healing and avoid infections easily.</p>
+        </div>
+      </div>
+
+      <div class="blog-card" data-category="trends">
+        <div class="blog-image">
+          <img src="../Images/blog3.jpg" alt="">
+        </div>
+        <div class="blog-content">
+          <h3>Top Tattoo Trends 2026</h3>
+          <p>Explore the latest trending tattoo styles.</p>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</section>
+<script>
+    const filterBtns = document.querySelectorAll(".filter-btn");
+const cards = document.querySelectorAll(".blog-card");
+
+
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    document.querySelector(".filter-btn.active").classList.remove("active");
+    btn.classList.add("active");
+
+    const category = btn.dataset.category;
+
+    cards.forEach(card => {
+      if(category === "all" || card.dataset.category === category){
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+});
+
+
+document.getElementById("searchInput").addEventListener("keyup", function(){
+  const value = this.value.toLowerCase();
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+
+    if(text.includes(value)){
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+</script>
+<section class="featured-blog">
+
+  <div class="container">
+
+    <h2 class="section-title">Featured Blog</h2>
+
+    
+    <div class="featured-wrapper">
+
+      <div class="featured-image">
+        <img src="../Images/blogdetailsbg.jpg" alt="Tattoo Trends 2026">
+      </div>
+
+      <div class="featured-content">
+        <span class="service-tag">🔥 Trending</span>
+
+        <h3>Top Tattoo Trends Dominating 2026</h3>
+
+        <p>
+          From ultra-minimal fine line tattoos to bold blackout art, 2026 is redefining self-expression.
+          Explore the most in-demand styles, placements, and creative ideas.
+        </p>
+
+        <a href="blogdetails.html" class="btn primary">Read More</a>
+      </div>
+
+    </div>
+
+    
+    <div class="blog-grid">
+
+      
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="../Images/blog1.jpg">
+          <span class="blog-tag">Tattoo Care</span>
+        </div>
+        <div class="blog-content">
+          <h3>Complete Tattoo Aftercare Guide</h3>
+          <p>Learn how to heal faster and keep your tattoo vibrant.</p>
+          <a href="blogdetails.html" class="btn primary">Read More</a>
+        </div>
+      </div>
+      <div class="blog-card">
+    <div class="blog-image">
+      <img src="../Images/blog2.jpg" alt="">
+      <span class="blog-tag">Trends</span>
+    </div>
+    <div class="blog-content">
+      <h3>Top Tattoo Trends 2026</h3>
+      <p>Discover the most popular tattoo styles trending this year.</p>
+      <a href="blogdetails.html" class="btn primary">Read More</a>
+    </div>
+  </div>
+
+  
+  <div class="blog-card">
+    <div class="blog-image">
+      <img src="../Images/blog3.jpg" alt="">
+      <span class="blog-tag">Meaning</span>
+    </div>
+    <div class="blog-content">
+      <h3>Lotus Tattoo Meaning Explained</h3>
+      <p>Understand the deep symbolism behind lotus tattoo designs.</p>
+      <a href="blogdetails.html" class="btn primary">Read More</a>
+    </div>
+  </div>
+
+  
+  <div class="blog-card">
+    <div class="blog-image">
+      <img src="../Images/blog4.jpg" alt="">
+      <span class="blog-tag">Piercing Care</span>
+    </div>
+    <div class="blog-content">
+      <h3>Piercing Healing Tips</h3>
+      <p>Follow these tips to heal faster and avoid infections.</p>
+      <a href="blogdetails.html" class="btn primary">Read More</a>
+    </div>
+  </div>
+
+  
+  <div class="blog-card">
+    <div class="blog-image">
+      <img src="../Images/blog5.jpg" alt="">
+      <span class="blog-tag">Guide</span>
+    </div>
+    <div class="blog-content">
+      <h3>First Tattoo Guide</h3>
+      <p>Everything you need to know before getting your first tattoo.</p>
+      <a href="blogdetails.html" class="btn primary">Read More</a>
+    </div>
+  </div>
+
+  
+  <div class="blog-card">
+    <div class="blog-image">
+      <img src="../Images/blog6.jpg" alt="">
+      <span class="blog-tag">Design</span>
+    </div>
+    <div class="blog-content">
+      <h3>Minimal Tattoo Ideas</h3>
+      <p>Simple and elegant tattoo ideas for a modern look.</p>
+      <a href="blogdetails.html" class="btn primary">Read More</a>
+    </div>
+  </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+
+
+  const featured = document.querySelector(".featured-wrapper");
+  featured.style.opacity = "0";
+  featured.style.transform = "translateY(40px)";
+
+  setTimeout(() => {
+    featured.style.transition = "all 0.8s ease";
+    featured.style.opacity = "1";
+    featured.style.transform = "translateY(0)";
+  }, 200);
+
+
+  const cards = document.querySelectorAll(".blog-card");
+
+  cards.forEach((card, i) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+
+    setTimeout(() => {
+      card.style.transition = "all 0.6s ease";
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }, i * 150);
+  });
+
+});
+</script>
+<section class="newsletter">
+
+  <div class="services-container">
+
+    <h2 class="section-title">Get Tattoo Tips & Offers</h2>
+
+    <p class="newsletter-text">
+      Stay updated with the latest tattoo trends, care tips, and exclusive offers directly to your inbox.
+    </p>
+
+    
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit" class="btn primary">Subscribe</button>
+    </form>
+
+  </div>
+
+</section>
+<script>
+    document.getElementById("newsletterForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const input = this.querySelector("input");
+
+  if(input.value.trim() === ""){
+    alert("Please enter a valid email.");
+    return;
+  }
+
+  alert("🎉 Subscribed successfully!");
+  input.value = "";
+});
+</script>
+<div id="footer"></div>
+<script src="../js/components.js"></script>
+</body>
+</html>

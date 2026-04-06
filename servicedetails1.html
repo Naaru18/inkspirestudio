@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deatils1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="servicedetails1.css">
+</head>
+<body  class="dark-mode">
+   
+ <div id="header"></div>
+<section class="services-hero details-hero">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    
+    <span class="service-tag">Tattoo Service</span>
+
+    <h1>Minimal Tattoo Design</h1>
+
+    <p class="hero-hook">
+      Simple. Elegant. Timeless.
+    </p>
+
+    <p class="hero-subtext">
+      Perfect for those who love subtle yet meaningful tattoos crafted with precision and style.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="contact.html" class="btn primary">Book Now</a>
+      <a href="services.html" target="_blank" class="btn secondary">
+        Back to Services
+      </a>
+    </div>
+
+  </div>
+  </section>
+<section class="highlights overview">
+
+  <div class="highlights-container">
+
+    <h2 class="highlights-title">About This Service</h2>
+
+    <div class="highlights-grid overview-grid">
+
+      
+      <div class="highlight-card">
+        <div class="icon-box">
+          <i class="fas fa-pen"></i>
+        </div>
+        <h3>What It Is</h3>
+        <p>
+          Minimal tattoos focus on clean lines and subtle details, creating elegant 
+          designs that are simple yet deeply meaningful.
+        </p>
+      </div>
+
+      
+      <div class="highlight-card">
+        <div class="icon-box">
+          <i class="fas fa-user"></i>
+        </div>
+        <h3>Who It’s For</h3>
+        <p>
+          Perfect for first-timers or anyone who prefers a subtle and stylish tattoo 
+          that blends effortlessly into everyday life.
+        </p>
+      </div>
+
+      
+      <div class="highlight-card">
+        <div class="icon-box">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3>Why People Choose It</h3>
+        <p>
+          Minimal tattoos are timeless, less painful, and easy to maintain — making 
+          them one of the most loved modern tattoo styles.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+  const cards = document.querySelectorAll(".overview .highlight-card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach((card, i) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    card.style.transition = "all 0.6s ease " + (i * 0.15) + "s";
+    observer.observe(card);
+  });
+
+});
+</script>
+
+<section class="styles-alt">
+
+  <div class="styles-alt-container">
+
+    <h2 class="styles-alt-title">Styles & Options</h2>
+
+    <div class="styles-alt-wrapper" id="stylesWrapper"></div>
+
+  </div>
+
+</section>
+<script>
+
+const stylesData = [
+  {
+    title: "Tattoo Styles",
+    items: [
+      "Line Art",
+      "Geometric",
+      "Script",
+      "Micro Tattoos",
+      "Minimal Symbols",
+      "Fine Line Designs"
+    ]
+  },
+  {
+    title: "Piercing Options",
+    items: [
+      "Stud Piercing",
+      "Hoop Piercing",
+      "Nose Rings",
+      "Cartilage Piercing",
+      "Belly Piercing",
+      "Industrial Piercing"
+    ]
+  },
+  {
+    title: "Advanced Tattoo Styles",
+    items: [
+      "Realism Tattoos",
+      "Portrait Tattoos",
+      "3D Tattoos",
+      "Black & Grey",
+      "Color Tattoos",
+      "Cover-Up Tattoos"
+    ]
+  },
+  {
+    title: "Jewelry Options",
+    items: [
+      "Gold Jewelry",
+      "Silver Jewelry",
+      "Titanium Jewelry",
+      "Diamond Studs",
+      "Custom Jewelry",
+      "Hypoallergenic Options"
+    ]
+  }
+];
+
+
+function renderStyles() {
+  const container = document.getElementById("stylesWrapper");
+
+  stylesData.forEach(section => {
+
+    const column = document.createElement("div");
+    column.classList.add("styles-column");
+
+    column.innerHTML = `
+      <h3 class="styles-heading">${section.title}</h3>
+      <ul class="styles-list">
+        ${section.items.map((item, index) => `
+          <li>
+            <span>${String(index + 1).padStart(2, '0')}</span>
+            ${item}
+          </li>
+        `).join("")}
+      </ul>
+    `;
+
+    container.appendChild(column);
+  });
+}
+
+
+function animateStyles(){
+  const cols = document.querySelectorAll(".styles-column");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  });
+
+  cols.forEach((col, i) => {
+    col.style.opacity = "0";
+    col.style.transform = "translateY(40px)";
+    col.style.transition = "all 0.6s ease " + (i * 0.2) + "s";
+    observer.observe(col);
+  });
+}
+
+
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderStyles();
+  animateStyles();
+});
+</script>
+<section class="process">
+
+  <div class="process-container">
+
+    <h2 class="process-title">Our Process</h2>
+
+    <div class="process-timeline" id="processWrapper">
+      
+    </div>
+
+  </div>
+
+</section>
+<script>
+
+const processData = [
+  {
+    title: "Consultation",
+    desc: "Discuss your idea, placement, size, and style with our expert artists."
+  },
+  {
+    title: "Design Finalization",
+    desc: "We create and refine your custom design until it matches your vision perfectly."
+  },
+  {
+    title: "Tattoo / Piercing",
+    desc: "Our professionals perform the process with precision, hygiene, and care."
+  },
+  {
+    title: "Aftercare Guidance",
+    desc: "We provide detailed aftercare instructions to ensure proper healing and long-lasting results."
+  }
+];
+
+
+function renderProcess(){
+  const container = document.getElementById("processWrapper");
+
+  processData.forEach((step, index) => {
+
+    const div = document.createElement("div");
+    div.classList.add("process-step");
+
+    div.innerHTML = `
+      <div class="process-circle">${index + 1}</div>
+      <h3>${step.title}</h3>
+      <p>${step.desc}</p>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+
+function animateProcess(){
+  const steps = document.querySelectorAll(".process-step");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.2 });
+
+  steps.forEach((step, i) => {
+    step.style.opacity = "0";
+    step.style.transform = "translateY(40px)";
+    step.style.transition = "all 0.6s ease " + (i * 0.2) + "s";
+    observer.observe(step);
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProcess();
+  animateProcess();
+});
+</script>
+<section class="hygiene">
+
+  <div class="hygiene-container">
+
+    <h2 class="hygiene-title">Hygiene & Safety</h2>
+
+    <div class="hygiene-wrapper" id="hygieneWrapper">
+      
+    </div>
+
+  </div>
+
+</section>
+<script>
+
+const hygieneData = {
+  points: [
+    "Sterilized Tools for Every Session",
+    "100% Disposable Needles",
+    "Certified Equipment & Safety Standards",
+    "Clean & Sanitized Studio Environment"
+  ],
+  highlightTitle: "Your Safety Matters",
+  highlightText: "We follow strict hygiene protocols and industry standards to ensure every tattoo and piercing is performed safely, professionally, and with complete care."
+};
+
+
+function renderHygiene(){
+  const container = document.getElementById("hygieneWrapper");
+
+  container.innerHTML = `
+    <div class="hygiene-list">
+      <ul>
+        ${hygieneData.points.map(point => `
+          <li>
+            <i class="fas fa-check-circle"></i>
+            ${point}
+          </li>
+        `).join("")}
+      </ul>
+    </div>
+
+    <div class="hygiene-highlight">
+      <h3>${hygieneData.highlightTitle}</h3>
+      <p>${hygieneData.highlightText}</p>
+      <p class="strong-line">Your safety is our top priority.</p>
+    </div>
+  `;
+}
+
+
+function animateHygiene(){
+  const elements = document.querySelectorAll(".hygiene-list, .hygiene-highlight");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach((el, i) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "all 0.6s ease " + (i * 0.2) + "s";
+    observer.observe(el);
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderHygiene();
+  animateHygiene();
+});
+</script>
+<section class="pricing">
+
+  <div class="pricing-container">
+
+    <h2 class="pricing-title">Pricing, Duration & Pain Level</h2>
+
+    <div class="pricing-wrapper" id="pricingWrapper">
+      
+    </div>
+
+  </div>
+
+</section>
+<script>
+
+const pricingData = {
+  pricing: {
+    title: "Pricing Details",
+    desc: "Our pricing depends on design complexity, size, and placement.",
+    list: [
+      { label: "Starting Price", value: "₹999+" },
+      { label: "Small Tattoo", value: "₹999 - ₹3000" },
+      { label: "Medium Tattoo", value: "₹3000 - ₹8000" },
+      { label: "Large Tattoo", value: "₹8000+" }
+    ],
+    factors: [
+      "Size of the design",
+      "Complexity & detailing",
+      "Body placement"
+    ]
+  },
+
+  info: {
+    title: "Duration & Pain Level",
+    desc: "Time and comfort level depend on the tattoo style and placement.",
+    list: [
+      { label: "Small Tattoo", value: "30 - 60 mins" },
+      { label: "Medium Tattoo", value: "1 - 3 hrs" },
+      { label: "Large Tattoo", value: "3+ hrs" },
+      { label: "Pain Level", value: "Low - Medium - High" }
+    ]
+  }
+};
+
+
+function renderPricing(){
+  const container = document.getElementById("pricingWrapper");
+
+  container.innerHTML = `
+    
+    <div class="pricing-card">
+      <h3>${pricingData.pricing.title}</h3>
+      <p>${pricingData.pricing.desc}</p>
+
+      <ul class="pricing-list">
+        ${pricingData.pricing.list.map(item => `
+          <li>
+            ${item.label}
+            <span class="tag">${item.value}</span>
+          </li>
+        `).join("")}
+      </ul>
+
+      <p><strong>Factors affecting cost:</strong></p>
+      <ul class="pricing-list">
+        ${pricingData.pricing.factors.map(f => `
+          <li>${f}</li>
+        `).join("")}
+      </ul>
+
+      <div class="pricing-cta">
+        <a href="#" class="btn">Get Custom Quote</a>
+      </div>
+    </div>
+
+    
+    <div class="pricing-card">
+      <h3>${pricingData.info.title}</h3>
+      <p>${pricingData.info.desc}</p>
+
+      <ul class="pricing-list">
+        ${pricingData.info.list.map(item => `
+          <li>
+            ${item.label}
+            <span class="tag">${item.value}</span>
+          </li>
+        `).join("")}
+      </ul>
+
+      <div class="pricing-cta">
+        <a href="#" class="btn">Consult Artist</a>
+      </div>
+    </div>
+  `;
+}
+
+
+function animatePricing(){
+  const cards = document.querySelectorAll(".pricing-card");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  });
+
+  cards.forEach((card, i) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    card.style.transition = "all 0.6s ease " + (i * 0.2) + "s";
+    observer.observe(card);
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderPricing();
+  animatePricing();
+});
+</script>
+<section class="faq">
+
+  <div class="faq-container">
+
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+
+    <div class="faq-wrapper" id="faqWrapper">
+      
+    </div>
+
+  </div>
+
+</section>
+<script>
+
+const faqData = [
+  {
+    question: "Does getting a tattoo or piercing hurt?",
+    answer: "Pain depends on placement and your tolerance. Most clients describe it as mild to moderate discomfort, and our artists ensure the process is as comfortable as possible."
+  },
+  {
+    question: "How long does a tattoo last?",
+    answer: "Tattoos are permanent, but proper aftercare and occasional touch-ups help maintain their quality and sharpness over time."
+  },
+  {
+    question: "Is it safe to get a tattoo or piercing?",
+    answer: "Yes. We follow strict hygiene protocols including sterilized tools, disposable needles, and certified equipment to ensure complete safety."
+  },
+  {
+    question: "Can I remove or modify my tattoo later?",
+    answer: "Yes. Tattoos can be lightened or removed with laser treatments, and we also offer cover-up tattoo solutions for redesigning existing tattoos."
+  },
+  {
+    question: "How long does the healing process take?",
+    answer: "Healing typically takes 2–4 weeks depending on the size and placement. Proper aftercare is essential for faster healing."
+  }
+];
+
+
+function renderFAQs(){
+  const container = document.getElementById("faqWrapper");
+
+  container.innerHTML = faqData.map((faq, index) => `
+    <div class="faq-item">
+      <div class="faq-question">
+        ${faq.question}
+        <span class="faq-icon">&#9660;</span>
+      </div>
+      <div class="faq-answer">
+        ${faq.answer}
+      </div>
+    </div>
+  `).join("");
+}
+
+
+function initFAQ(){
+  const items = document.querySelectorAll(".faq-item");
+
+  items.forEach(item => {
+    item.querySelector(".faq-question").addEventListener("click", () => {
+
+
+      items.forEach(i => {
+        if(i !== item) i.classList.remove("active");
+      });
+
+
+      item.classList.toggle("active");
+    });
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderFAQs();
+  initFAQ();
+});
+</script>
+<div id="footer"></div>
+<script src="../js/components.js"></script>
+</body>
+</html>

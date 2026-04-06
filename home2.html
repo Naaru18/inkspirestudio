@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <title>Document</title>
+     <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="home2.css">
+</head>
+<body>
+ <div id="header"></div>
+<section class="banner">
+
+  <div class="banner-container">
+
+    
+    <div class="banner-left">
+      <h1>
+        It’s Easy to Get <br>
+        Your <span>Perfect Tattoo</span>
+      </h1>
+
+      <p>
+        Explore thousands of tattoo designs and connect with expert artists 
+        to bring your vision to life.
+      </p>
+
+      
+      <div class="banner-box">
+        <div>
+          <label>Style</label>
+          <p>Minimal / Realistic</p>
+        </div>
+
+        <div>
+          <label>Location</label>
+          <p>Bangalore</p>
+        </div>
+<a href="contact.html" class="btn primary">Explore</a>
+      </div>
+    </div>
+
+    
+    <div class="banner-right">
+
+      <img src="../Images/blog5.jpg" alt="Tattoo Model">
+
+      
+      <div class="card card1">5000+ Tattoos Done</div>
+      <div class="card card2">10+ Artists</div>
+      <div class="card card3">Top Rated Studio</div>
+
+    </div>
+
+  </div>
+
+  
+  <div class="banner-stats">
+    <div>
+      <h3>5000+</h3>
+      <p>Tattoos Done</p>
+    </div>
+    <div>
+      <h3>2000+</h3>
+      <p>Happy Clients</p>
+    </div>
+    <div>
+      <h3>50+</h3>
+      <p>Design Styles</p>
+    </div>
+  </div>
+
+</section>
+<script>
+
+document.querySelector(".btn.primary").onclick = () => {
+  document.querySelector("#services").scrollIntoView({ behavior: "smooth" });
+};
+</script>
+<section class="about-studio">
+
+  <div class="about-container">
+
+    
+    <div class="about-image">
+      <img src="../Images/studio.jpg" alt="Tattoo Artist">
+    </div>
+
+    
+    <div class="about-content">
+
+      <h2 class="section-title">Our Journey</h2>
+
+      <p class="about-text">
+        What started as a passion for art has grown into one of Bangalore’s most trusted
+        tattoo and piercing studios. At Xtreme Tattoos, we believe every tattoo tells a
+        story — and we’re here to bring yours to life.
+      </p>
+
+      <p class="about-text">
+        Our artists combine creativity, precision, and hygiene standards to deliver
+        designs that are not just visually stunning but also meaningful and long-lasting.
+      </p>
+
+      <p class="about-text">
+        From minimal designs to detailed masterpieces, our philosophy is simple —
+        **every piece of art should reflect your identity.**
+      </p>
+
+      <a href="blog.html" class="btn primary">Know More</a>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="featured-work">
+
+  <div class="featured-container">
+
+    <h2 class="section-title">Featured Work</h2>
+
+    
+    <div class="featured-grid">
+
+      
+      <div class="featured-large">
+        <img src="../Images/style2.jpg" alt="Tattoo Work">
+        <div class="overlay">
+          <h3>Realistic Sleeve Tattoo</h3>
+          <p>High-detail shading & precision artwork</p>
+        </div>
+      </div>
+
+      
+      <div class="featured-side">
+
+        <div class="featured-item">
+          <img src="../Images/style6.jpg" alt="">
+          <div class="overlay small">
+            <h4>Minimal Tattoo</h4>
+          </div>
+        </div>
+
+        <div class="featured-item">
+          <img src="../Images/style5.jpg" alt="">
+          <div class="overlay small">
+            <h4>Religious Art</h4>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    
+    <div class="before-after">
+
+      <div class="ba-item">
+        <img src="../Images/style1.jpg" alt="Before">
+        <span>Before</span>
+      </div>
+
+      <div class="ba-item">
+        <img src="../Images/tattoo2.jpg" alt="After">
+        <span>After</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<script>
+
+const featured = document.querySelector(".featured-work");
+
+window.addEventListener("scroll", () => {
+  const top = featured.getBoundingClientRect().top;
+
+  if(top < window.innerHeight - 100){
+    featured.style.opacity = "1";
+    featured.style.transform = "translateY(0)";
+  }
+});
+
+featured.style.opacity = "0";
+featured.style.transform = "translateY(40px)";
+featured.style.transition = "0.7s ease";
+</script>
+
+<section class="trending">
+
+  <div class="trending-container">
+
+    <h2 class="section-title">Top Designs This Year</h2>
+
+    <div class="trending-wrapper">
+
+      
+      <button class="nav prev">&#10094;</button>
+      <button class="nav next">&#10095;</button>
+
+      
+      <div class="trending-track">
+
+        
+        <div class="trend-card active">
+          <img src="../Images/tattoo.jpg">
+          <span class="badge">🔥 Trending</span>
+          <div class="trend-overlay">
+            <h3>Realistic Sleeve</h3>
+            <p>High-detail shading artwork</p>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <img src="../Images/Piercing5.jpg">
+          <span class="badge">Popular</span>
+          <div class="trend-overlay">
+            <h3>Minimal Tattoo</h3>
+            <p>Simple & elegant designs</p>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <img src="../Images/tattoo3.jpg">
+          <span class="badge">Hot</span>
+          <div class="trend-overlay">
+            <h3>Bold Art Style</h3>
+            <p>Creative & modern tattoos</p>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <img src="../Images/Piercing2.jpg">
+          <span class="badge">New</span>
+          <div class="trend-overlay">
+            <h3>Couple Tattoos</h3>
+            <p>Meaningful matching designs</p>
+          </div>
+        </div>
+        <div class="trend-card active">
+          <img src="../Images/tattoo.jpg">
+          <span class="badge">🔥 Trending</span>
+          <div class="trend-overlay">
+            <h3>Realistic Sleeve</h3>
+            <p>High-detail shading artwork</p>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <img src="../Images/Piercing5.jpg">
+          <span class="badge">Popular</span>
+          <div class="trend-overlay">
+            <h3>Minimal Tattoo</h3>
+            <p>Simple & elegant designs</p>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <img src="../Images/tattoo3.jpg">
+          <span class="badge">Hot</span>
+          <div class="trend-overlay">
+            <h3>Bold Art Style</h3>
+            <p>Creative & modern tattoos</p>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <img src="../Images/Piercing2.jpg">
+          <span class="badge">New</span>
+          <div class="trend-overlay">
+            <h3>Couple Tattoos</h3>
+            <p>Meaningful matching designs</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<script>
+  const track = document.querySelector(".trending-track");
+const cards = document.querySelectorAll(".trend-card");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let index = 0;
+
+
+function updateActive(){
+  cards.forEach(card => card.classList.remove("active"));
+  cards[index].classList.add("active");
+
+  const offset = index * 285;
+  track.style.transform = `translateX(-${offset}px)`;
+}
+
+
+nextBtn.onclick = () => {
+  index = (index + 1) % cards.length;
+  updateActive();
+};
+
+
+prevBtn.onclick = () => {
+  index = (index - 1 + cards.length) % cards.length;
+  updateActive();
+};
+
+
+setInterval(() => {
+  index = (index + 1) % cards.length;
+  updateActive();
+}, 3000);
+</script>
+
+<section class="process-section">
+  <div class="process-container">
+    
+    <h2 class="section-title"> Our Process</h2>
+
+    <div class="process-grid">
+
+      <div class="process-card">
+        <div class="process-number">01</div>
+        <h3>Consultation</h3>
+        <p>We understand your idea, style, and placement to create the perfect plan.</p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-number">02</div>
+        <h3>Design</h3>
+        <p>Our artists create a custom design tailored to your personality.</p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-number">03</div>
+        <h3>Tattoo</h3>
+        <p>We bring your design to life with precision, hygiene, and professionalism.</p>
+      </div>
+
+      <div class="process-card">
+        <div class="process-number">04</div>
+        <h3>Aftercare</h3>
+        <p>Guidance and support to ensure your tattoo heals perfectly.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="hygiene-section">
+  <div class="hygiene-container">
+
+    <h2 class="section-title">🧼 Hygiene & Safety Standards</h2>
+
+    <p class="hygiene-subtext">
+      We maintain the highest international hygiene protocols to ensure every tattoo is safe, sterile, and professionally executed.
+    </p>
+
+    <div class="hygiene-grid">
+
+      <div class="hygiene-card">
+        <div class="icon">🧪</div>
+        <h3>Sterilization Process</h3>
+        <p>All tools are sterilized using <b>autoclave systems</b> and medical-grade disinfectants. We follow strict single-use policies for needles.</p>
+      </div>
+
+      <div class="hygiene-card">
+        <div class="icon">⚙️</div>
+        <h3>Premium Equipment</h3>
+        <p>We use high-end, industry-certified tattoo machines, ink, and disposable supplies to ensure precision and zero contamination risk.</p>
+      </div>
+
+      <div class="hygiene-card">
+        <div class="icon">🛡️</div>
+        <h3>Safety Protocols</h3>
+        <p>Artists wear gloves, masks, and follow WHO-standard hygiene guidelines to maintain a completely safe environment.</p>
+      </div>
+
+      <div class="hygiene-card">
+        <div class="icon">📜</div>
+        <h3>Certified Artists</h3>
+        <p>Our artists are professionally trained and certified, ensuring safe techniques, proper handling, and expert-level artistry.</p>
+      </div>
+
+      <div class="hygiene-card">
+        <div class="icon">🧴</div>
+        <h3>Aftercare Guidance</h3>
+        <p>We provide detailed aftercare instructions and support to ensure proper healing and long-lasting tattoo quality.</p>
+      </div>
+
+      <div class="hygiene-card">
+        <div class="icon">🏥</div>
+        <h3>Clean Environment</h3>
+        <p>Our studio is regularly sanitized with hospital-grade cleaning procedures to maintain a hygienic and safe workspace.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="pricing-container">
+
+    <h2 class="section-title">💎 Pricing & Packages</h2>
+
+    <p class="pricing-subtext">
+      Transparent pricing with no hidden charges. Choose a package that fits your style and budget.
+    </p>
+
+    <div class="pricing-grid">
+
+      
+      <div class="pricing-card">
+        <h3>Basic Tattoo</h3>
+        <h2>₹1,999 <span>/ design</span></h2>
+
+        <ul>
+          <li>✔ Small & minimal designs</li>
+          <li>✔ Basic line work</li>
+          <li>✔ 1–2 hours session</li>
+          <li>✔ Free consultation</li>
+          <li>✔ Basic aftercare guidance</li>
+        </ul>
+<a href="contact.html" class="pricing-btn">Book Now</a>
+      </div>
+
+      
+      <div class="pricing-card popular">
+        <div class="badge">Most Popular</div>
+
+        <h3>Premium Tattoo</h3>
+        <h2>₹4,999 <span>/ design</span></h2>
+
+        <ul>
+          <li>✔ Custom detailed artwork</li>
+          <li>✔ Shading & color work</li>
+          <li>✔ 3–5 hours session</li>
+          <li>✔ Dedicated artist</li>
+          <li>✔ Premium aftercare kit</li>
+        </ul>
+<a href="contact.html" class="pricing-btn">Book Now</a>
+      </div>
+
+      
+      <div class="pricing-card">
+        <h3>Piercing Packages</h3>
+        <h2>₹799 <span>/ starting</span></h2>
+
+        <ul>
+          <li>✔ Ear, nose, eyebrow piercings</li>
+          <li>✔ Sterile environment</li>
+          <li>✔ Certified professionals</li>
+          <li>✔ Single-use equipment</li>
+          <li>✔ Free aftercare instructions</li>
+        </ul>
+<a href="contact.html" class="pricing-btn">Book Now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="instagram-section">
+  <div class="instagram-container">
+
+    <h2 class="section-title">📸 Instagram Feed</h2>
+
+    <p class="instagram-subtext">
+      Real work. Real clients. Follow our journey and latest tattoo creations.
+    </p>
+
+    <div class="instagram-grid">
+
+      <div class="insta-item">
+        <img src="../Images/geometric.jpg" alt="">
+        <div class="insta-overlay">View</div>
+      </div>
+
+      <div class="insta-item">
+        <img src="../Images/daith.jpg" alt="">
+        <div class="insta-overlay">View</div>
+      </div>
+
+      <div class="insta-item">
+        <img src="../Images/style6.jpg" alt="">
+        <div class="insta-overlay">View</div>
+      </div>
+
+      <div class="insta-item">
+        <img src="../Images/tattoo1.avif" alt="">
+        <div class="insta-overlay">View</div>
+      </div>
+
+      <div class="insta-item">
+        <img src="../Images/Piercing1.jpg" alt="">
+        <div class="insta-overlay">View</div>
+      </div>
+
+      <div class="insta-item">
+        <img src="../Images/portraits.jpg" alt="">
+        <div class="insta-overlay">View</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<div id="footer"></div>
+<script src="../js/components.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+
+<aside class="sidebar" id="sidebar">
+
+  <div class="logo-area">
+    <i class="fa fa-bars hamburger" id="menuBtn"></i>
+
+    <div class="logo">
+      <i class="fa-solid fa-dragon logo-icon"></i>
+      <h2>Inkspire Studio</h2>
+    </div>
+  </div>
+
+  <ul class="nav-menu">
+    <li class="active"><i class="fa fa-chart-line"></i><span>Dashboard</span></li>
+    <li><i class="fa fa-calendar"></i><span>Appointments</span></li>
+    <li><i class="fa fa-user"></i><span>Artists</span></li>
+    <li><i class="fa fa-box"></i><span>Inventory</span></li>
+    <li><i class="fa fa-credit-card"></i><span>Payments</span></li>
+    <li class="logout-btn"><i class="fa fa-right-from-bracket"></i><span>Logout</span></li>
+  </ul>
+
+</aside>
+
+
+<div class="main-wrapper">
+
+<header class="top-bar">
+
+  <h2 class="gradient-text">Admin Dashboard</h2>
+
+  <div class="right">
+    <input type="text" placeholder="Search...">
+
+    <i class="fa fa-bell"></i>
+    <i class="fa fa-moon" id="themeToggle"></i>
+
+    <img src="https://i.pravatar.cc/40" class="profile" id="profileBtn">
+  </div>
+
+</header>
+
+<div class="welcome">
+  <h3 class="gradient-text">Welcome back, Admin 👋</h3>
+  <p>Manage your studio efficiently.</p>
+</div>
+
+<section class="stats">
+  <div class="card"><p>Revenue</p><h2>₹2,45,000</h2></div>
+  <div class="card"><p>Sessions</p><h2>18</h2></div>
+  <div class="card"><p>Artists</p><h2>7</h2></div>
+  <div class="card"><p>Bookings</p><h2>32</h2></div>
+</section>
+<div class="overlay" id="overlay"></div>
+<i class="fa-solid fa-xmark close-btn" id="closeBtn"></i>
+
+<section class="grid">
+  <div class="card">
+    <h3 class="gradient-text">Revenue Analytics</h3>
+    <canvas id="chart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3 class="gradient-text">Today's Schedule</h3>
+    <p>10:30 AM - Rahul</p>
+    <p>01:45 PM - Saira</p>
+    <p>04:00 PM - Consultation</p>
+  </div>
+</section>
+
+<section class="grid">
+
+  <div class="card">
+    <h3 class="gradient-text">Recent Activity</h3>
+    <p>✔ New booking added</p>
+    <p>✔ Payment received ₹5000</p>
+    <p>✔ Artist updated profile</p>
+  </div>
+
+  <div class="card">
+    <h3 class="gradient-text">Notifications</h3>
+    <p>🔔 3 new bookings</p>
+    <p>🔔 Low ink stock</p>
+    <p>🔔 Artist leave request</p>
+  </div>
+
+</section>
+
+</div>
+
+<script>
+    const sidebar = document.getElementById("sidebar");
+const menuBtn = document.getElementById("menuBtn");
+const profileBtn = document.getElementById("profileBtn");
+const themeToggle = document.getElementById("themeToggle");
+
+
+menuBtn.onclick = () => {
+  if(window.innerWidth > 768){
+    sidebar.classList.toggle("collapsed");
+  } else {
+    sidebar.classList.toggle("show");
+  }
+};
+
+
+profileBtn.onclick = () => {
+  if(window.innerWidth <= 768){
+    sidebar.classList.toggle("show");
+  }
+};
+
+
+if(localStorage.getItem("theme")==="light"){
+  document.body.classList.add("light");
+}
+
+themeToggle.onclick = () => {
+  document.body.classList.toggle("light");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("light") ? "light" : "dark"
+  );
+};
+
+
+function getChartColor(){
+  return document.body.classList.contains("light")
+    ? "#999"
+    : "#444";
+}
+
+const ctx = document.getElementById("chart");
+
+let chart = new Chart(ctx,{
+  type:"line",
+  data:{
+    labels:["Jan","Feb","Mar","Apr"],
+    datasets:[{
+      data:[120,180,220,260],
+      borderColor:"#d3b016",
+      tension:0.4
+    }]
+  },
+  options:{
+    scales:{
+      x:{
+        ticks:{ color:getChartColor() },
+        grid:{ color:getChartColor() }
+      },
+      y:{
+        ticks:{ color:getChartColor() },
+        grid:{ color:getChartColor() }
+      }
+    }
+  }
+});
+
+
+themeToggle.addEventListener("click",()=>{
+  chart.options.scales.x.ticks.color = getChartColor();
+  chart.options.scales.y.ticks.color = getChartColor();
+  chart.options.scales.x.grid.color = getChartColor();
+  chart.options.scales.y.grid.color = getChartColor();
+  chart.update();
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const cards = document.querySelectorAll(".grid .card");
+
+  cards.forEach((card, i) => {
+    card.style.opacity = "0";
+    card.style.transform = "translateY(30px)";
+
+    setTimeout(() => {
+      card.style.transition = "all 0.6s ease";
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }, i * 150);
+  });
+
+});
+
+
+
+</script>
+
+</body>
+</html>
