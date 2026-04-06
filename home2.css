@@ -1151,9 +1151,11 @@ body:not(.dark-mode) .pricing-card ul li{
 
 
 @media(max-width:768px){
+
   .pricing-card{
-    flex:1 1 100%;  
-    max-width:100%;
+    flex:1 1 80%;   
+    max-width:350px;
+    margin:auto;   
   }
 
   .section-title{

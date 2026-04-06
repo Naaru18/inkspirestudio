@@ -125,7 +125,7 @@ body:not(.dark-mode) .services-hero p{
 
   .services-hero{
     height:80vh;
-    padding:50px 15px;
+    padding:100px 15px 50px;
   }
 
   .services-hero h1{
@@ -466,7 +466,7 @@ body:not(.dark-mode) .highlight-card p{
 
 
 
-@media(max-width:370px){
+@media(max-width:360px){
 
   .highlights{
     padding:60px 12px;
@@ -508,7 +508,11 @@ body:not(.dark-mode) .highlight-card p{
 
 @media(max-width:768px){
 
-  .highlights{
+  
+  .highlight-card{
+    padding:26px 20px;
+  }
+   .highlights{
     padding:70px 18px;
   }
 
@@ -517,12 +521,12 @@ body:not(.dark-mode) .highlight-card p{
   }
 
   .highlights-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
+    grid-template-columns:1fr;   /* ✅ ONLY 1 CARD PER ROW */
+    gap:20px;
   }
 
   .highlight-card{
-    padding:26px 20px;
+    padding:24px 18px;
   }
 }
 
