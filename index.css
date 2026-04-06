@@ -741,11 +741,32 @@ body:not(.dark-mode) .artist-overlay span{
   transform:translateY(0);
 }
 
+/* ================= RESPONSIVE ================= */
 
+/* TABLET */
+@media (max-width:1024px){
+  .artists-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 
+  .artist-card img{
+    height:300px;
+  }
+}
 
-@media(max-width:480px){
+/* MOBILE (IMPORTANT → FORCE 1 COLUMN) */
+@media (max-width:768px){
+  .artists-grid{
+    grid-template-columns:1fr !important; /* 🔥 force single column */
+  }
 
+  .artist-card img{
+    height:260px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width:480px){
   .artists{
     padding:70px 15px;
   }
@@ -755,28 +776,13 @@ body:not(.dark-mode) .artist-overlay span{
   }
 
   .artists-grid{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr !important; /* 🔥 again force */
   }
 
   .artist-card img{
-    height:260px;
+    height:230px;
   }
 }
-
-
-@media(max-width:768px){
-  .artists-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-
-@media(max-width:1024px){
-  .artists-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
 
 .testimonials{
   padding:50px 20px;
