@@ -92,8 +92,8 @@ body:not(.dark-mode) .blog-meta{
 @media(max-width:480px){
 
   .blog-hero-editorial{
-    height:75vh;
-    padding:40px 20px;
+    height:60vh;
+    padding:100px 20px;
   }
 
   .blog-hero-editorial h1{
@@ -481,7 +481,7 @@ body:not(.dark-mode) .takeaways-box li{
 @media(max-width:768px){
 
   .visual-grid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
   }
 }
 

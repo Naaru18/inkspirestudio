@@ -288,28 +288,14 @@ body:not(.dark-mode) .highlight-card p{
 .overview .highlight-card p{
   line-height:1.8;
 }
+@media(max-width:480px){
 
-
-
-
-@media(max-width:370px){
-
-  .highlights{
-    padding:60px 12px;
-  }
-
-  .highlights-title{
-    font-size:24px;
-    margin-bottom:40px;
-  }
-
-  .overview-grid{
-    grid-template-columns:1fr;
-    gap:18px;
+  .highlights-grid{
+    grid-template-columns:1fr;   /* ✅ force single column */
   }
 
   .highlight-card{
-    padding:22px 16px;
+    padding:20px 16px;
   }
 
   .highlight-card h3{
@@ -319,34 +305,28 @@ body:not(.dark-mode) .highlight-card p{
   .highlight-card p{
     font-size:13px;
   }
-
-  .icon-box{
-    width:48px;
-    height:48px;
-  }
-
-  .icon-box i{
-    font-size:18px;
-  }
 }
-
-
+/* ================= MOBILE FIX ================= */
 @media(max-width:768px){
+
+  .highlights-grid{
+    grid-template-columns:1fr;   /* ✅ 1 card per row */
+    gap:20px;
+  }
 
   .highlights{
     padding:70px 18px;
   }
 
   .highlights-title{
-    font-size:30px;
+    font-size:28px;
+    margin-bottom:40px;
   }
 
-  .overview-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:22px;
+  .highlight-card{
+    padding:24px 18px;
   }
 }
-
 
 @media(max-width:1024px){
 
@@ -650,6 +630,7 @@ body:not(.dark-mode) .process-step p{
 }
 
 
+/* ================= MOBILE ================= */
 @media(max-width:768px){
 
   .process{
@@ -657,18 +638,32 @@ body:not(.dark-mode) .process-step p{
   }
 
   .process-title{
-    font-size:30px;
+    font-size:28px;
+    margin-bottom:40px;
   }
 
   .process-timeline{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;   /* ✅ 1 step per row */
+    gap:25px;
   }
 
   .process-timeline::before{
-    display:none;
+    display:none;   /* remove line */
+  }
+
+  .process-circle{
+    width:55px;
+    height:55px;
+  }
+
+  .process-step h3{
+    font-size:16px;
+  }
+
+  .process-step p{
+    font-size:13px;
   }
 }
-
 
 @media(max-width:1024px){
 
