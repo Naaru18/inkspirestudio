@@ -583,19 +583,19 @@ body:not(.dark-mode) .filter-btn{
 .gallery-grid.filtered .gallery-item img{
   height:350px;
 }
-/* ================= RESPONSIVE ================= */
 
-/* 💻 1024px */
+
+
 @media(max-width:1024px){
   .gallery-grid{
     grid-template-columns:repeat(2,1fr);
   }
 }
 
-/* 📲 768px (FORCE 1 COLUMN) */
+
 @media(max-width:768px){
   .gallery-grid{
-    grid-template-columns:1fr !important;  /* 🔥 FIX */
+    grid-template-columns:1fr !important;  
   }
 
   .gallery-item img{
@@ -603,7 +603,7 @@ body:not(.dark-mode) .filter-btn{
   }
 }
 
-/* 📱 480px */
+
 @media(max-width:480px){
 
   .gallery{
@@ -615,7 +615,7 @@ body:not(.dark-mode) .filter-btn{
   }
 
   .gallery-grid{
-    grid-template-columns:1fr;  /* already 1 */
+    grid-template-columns:1fr;  
   }
 
   .gallery-item img{
@@ -741,9 +741,9 @@ body:not(.dark-mode) .artist-overlay span{
   transform:translateY(0);
 }
 
-/* ================= RESPONSIVE ================= */
 
-/* TABLET */
+
+
 @media (max-width:1024px){
   .artists-grid{
     grid-template-columns:repeat(2,1fr);
@@ -754,10 +754,10 @@ body:not(.dark-mode) .artist-overlay span{
   }
 }
 
-/* MOBILE (IMPORTANT → FORCE 1 COLUMN) */
+
 @media (max-width:768px){
   .artists-grid{
-    grid-template-columns:1fr !important; /* 🔥 force single column */
+    grid-template-columns:1fr !important; 
   }
 
   .artist-card img{
@@ -765,7 +765,7 @@ body:not(.dark-mode) .artist-overlay span{
   }
 }
 
-/* SMALL MOBILE */
+
 @media (max-width:480px){
   .artists{
     padding:70px 15px;
@@ -776,7 +776,7 @@ body:not(.dark-mode) .artist-overlay span{
   }
 
   .artists-grid{
-    grid-template-columns:1fr !important; /* 🔥 again force */
+    grid-template-columns:1fr !important; 
   }
 
   .artist-card img{
