@@ -176,7 +176,7 @@ body:not(.dark-mode) .footerSocials a{
 /* ================= RESPONSIVE ================= */
 
 /* 📱 MOBILE (360px) */
-@media(max-width:360px){
+@media(max-width:480px){
 
   .customFooter{
     padding:30px 15px 15px;
@@ -226,6 +226,3 @@ body:not(.dark-mode) .footerSocials a{
     gap:30px;
   }
 }
-
-/* 🖥️ DESKTOP (DEFAULT) */
-/* Already 4 columns — no change needed */
