@@ -176,7 +176,7 @@ body:not(.dark-mode) .footerSocials a{
 /* ================= RESPONSIVE ================= */
 
 /* 📱 MOBILE (360px) */
-@media(max-width:480px){
+@media(max-width:600px){
 
   .customFooter{
     padding:30px 15px 15px;
