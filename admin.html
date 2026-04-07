@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard</title>
-
+<title>Inkify Studio Admin Dashboard</title>
+<link rel="icon" type="image/png" href="../Images/logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,7 +17,7 @@
 
 
 <aside class="sidebar" id="sidebar">
-
+ <i class="fa-solid fa-xmark close-btn" id="closeBtn"></i>
   <div class="logo-area">
     <i class="fa fa-bars hamburger" id="menuBtn"></i>
 
@@ -68,7 +68,6 @@
   <div class="card"><p>Bookings</p><h2>32</h2></div>
 </section>
 <div class="overlay" id="overlay"></div>
-<i class="fa-solid fa-xmark close-btn" id="closeBtn"></i>
 
 <section class="grid">
   <div class="card">
@@ -198,7 +197,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+const overlay = document.getElementById("overlay");
 
+profileBtn.onclick = () => {
+  if(window.innerWidth <= 768){
+    sidebar.classList.add("show");
+    overlay.classList.add("show");
+  }
+};
+
+closeBtn.onclick = () => {
+  sidebar.classList.remove("show");
+  overlay.classList.remove("show");
+};
+
+overlay.onclick = () => {
+  sidebar.classList.remove("show");
+  overlay.classList.remove("show");
+};
 
 
 </script>

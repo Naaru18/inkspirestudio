@@ -282,9 +282,6 @@ body:not(.dark-mode) .why-card p{
   box-shadow:0 15px 35px rgba(0,0,0,0.35);
 }
 
-
-
-
 @media(max-width:480px){
 
   .why{
@@ -473,9 +470,6 @@ body:not(.dark-mode) .service-content p{
     height:350px;
   }
 }
-
-
-
 
 .gallery{
   padding:50px 20px;
@@ -740,9 +734,6 @@ body:not(.dark-mode) .artist-overlay span{
   opacity:1;
   transform:translateY(0);
 }
-
-
-
 
 @media (max-width:1024px){
   .artists-grid{

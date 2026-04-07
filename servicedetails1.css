@@ -632,7 +632,6 @@ body:not(.dark-mode) .process-step p{
 }
 
 
-/* ================= MOBILE ================= */
 @media(max-width:768px){
 
   .process{

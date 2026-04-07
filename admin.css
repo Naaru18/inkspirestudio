@@ -60,6 +60,7 @@ body{
   font-size:22px;
   background:linear-gradient(135deg,var(--primary),var(--secondary));
   -webkit-background-clip:text;
+   background-clip: text;
   -webkit-text-fill-color:transparent;
 }
 
@@ -166,6 +167,7 @@ body.light .nav-menu li:hover{
 .gradient-text{
   background:linear-gradient(135deg,var(--primary),var(--secondary));
   -webkit-background-clip:text;
+   background-clip: text;
   -webkit-text-fill-color:transparent;
 }
 
@@ -233,9 +235,7 @@ body.light .nav-menu li:hover{
   gap:8px;
   transition:0.3s;
 }
-.close-btn{
-  display:none;
-}
+
 
 
 
@@ -249,7 +249,9 @@ body.light .card{
   box-shadow:0 10px 25px rgba(0,0,0,0.05);
 }
 
-
+.close-btn{
+  display:none;
+}
 
 @media(max-width:1024px){
 
@@ -313,22 +315,21 @@ body.light .card{
     width:100%;
   }
 
-  
-  .hamburger{
-    display:none;
-  }
-
-  
   .close-btn{
     display:block;
     position:absolute;
     top:15px;
     right:15px;
-    font-size:20px;
+    font-size:22px;
     cursor:pointer;
     color:var(--text);
     z-index:1001;
   }
+
+  .hamburger{
+    display:none;
+  }
+
 }
 
 
@@ -345,4 +346,19 @@ body.light .card{
   .card p{
     font-size:13px;
   }
+  .close-btn{
+    display:block;
+    position:absolute;
+    top:15px;
+    right:15px;
+    font-size:22px;
+    cursor:pointer;
+    color:var(--text);
+    z-index:1001;
+  }
+
+  .hamburger{
+    display:none;
+  }
+
 }
