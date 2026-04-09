@@ -20,6 +20,9 @@
   <span></span><span></span><span></span><span></span><span></span>
   <span></span><span></span><span></span><span></span><span></span>
 </div>
+<button id="themeToggle" class="theme-toggle">
+  <i class="fa-solid fa-moon"></i>
+</button>
 
 <div class="auth-box">
 
@@ -106,6 +109,22 @@
 
   if(valid){
     alert("Registration Successful!");
+  }
+});
+
+const toggleBtn = document.getElementById("themeToggle");
+
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  // change icon
+  const icon = toggleBtn.querySelector("i");
+  if(document.body.classList.contains("light-mode")){
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
   }
 });
 </script>
