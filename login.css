@@ -11,8 +11,12 @@
 
   --text-dark:#fff;
   --text-light:#000;
+    --text:#fff;
 }
 
+body.light-mode{
+  --text:#000;
+}
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -131,7 +135,7 @@ body.light-mode .auth-box{
 
 
 .auth-title{
-  color:var(--text-dark);
+  color:var(--text);
   margin-bottom:15px;
 }
 
