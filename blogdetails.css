@@ -15,10 +15,9 @@ body {
 
 .blog-hero-editorial{
   position:relative;
-  height:80vh;
   display:flex;
   align-items:flex-end; 
-  padding:60px 80px 100px;
+  padding:200px 80px 130px;
 
   background:url("../Images/blogd2.webp") center/cover no-repeat;
 }

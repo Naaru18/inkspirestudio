@@ -162,7 +162,24 @@ body{
 body:not(.dark-mode) .icon-btn{
   border:1px solid rgba(0,0,0,0.2);
 }
+.icon-btn,
+.btn{
+  height:38px;              
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.icon-btn{
+  width:38px;
+  border-radius:50%;
+}
 
+
+.btn{
+  padding:0 18px;           
+  border-radius:25px;
+  font-size:13px;
+}
 .icon-btn:hover{
   border-color:var(--primary);
   color:var(--primary);

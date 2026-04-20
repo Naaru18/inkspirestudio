@@ -521,7 +521,7 @@ body:not(.dark-mode) .highlight-card p{
   }
 
   .highlights-grid{
-    grid-template-columns:1fr !important;   /* ✅ ONLY 1 CARD PER ROW */
+    grid-template-columns:1fr !important;   
   }
 
   .highlight-card{

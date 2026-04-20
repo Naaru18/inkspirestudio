@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inkify Studio Login</title>
+  <title>Inkspire Studio Login</title>
   <link rel="icon" type="image/png" href="../Images/logo.png">
   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,89 +12,97 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <link rel="stylesheet" href="login.css">
+  
 </head>
 <body>
 
-<div class="bubbles">
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
-</div>
+<button id="rtlToggle" class="rtl-toggle">RTL</button>
+
 <button id="themeToggle" class="theme-toggle">
   <i class="fa-solid fa-moon"></i>
 </button>
+
 <div class="auth-box">
 
-  <a href="index.html" class="logo">
-    <i class="fa-solid fa-dragon logo-icon"></i>
-    <h2>Inkspire Studio</h2>
-  </a>
+<a href="index.html" class="logo">
+  
+  <span class="logo-text">Inkspire Studio</span>
+</a>
 
-  <h2 class="auth-title">Login</h2>
+<h2 class="auth-title">Login</h2>
 
-  <form id="loginForm">
-    <input type="email" placeholder="Email" class="input" id="email">
-    <div class="error" id="emailError">Enter valid email</div>
+<form id="loginForm">
 
-    <input type="password" placeholder="Password" class="input" id="password">
-    <div class="error" id="passError">Password required</div>
+<input type="email" placeholder="Email" class="input" id="email">
+<div class="error" id="emailError">Enter valid email</div>
 
-    <button class="btn">Login</button>
-  </form>
+<div class="input-group">
+  <input type="password" placeholder="Password" class="input" id="password">
+  <i class="fa-solid fa-eye toggle-pass" id="eye"></i>
+</div>
+<div class="error" id="passError">Password required</div>
 
-  <div class="divider">or continue with</div>
 
-  <button class="google-btn">
-    <i class="fab fa-google"></i> Continue with Google
-  </button>
+<div class="options">
+  <label><input type="checkbox"> Remember Me</label>
+  <a href="#">Forgot Password?</a>
+</div>
 
-  <div class="auth-link">
-    Don’t have an account? <a href="signup.html">Signup here</a>
-  </div>
+<button class="btn">Login</button>
+
+</form>
+
+<div class="social-row">
+  <button class="social-btn"><i class="fab fa-google"></i></button>
+  <button class="social-btn"><i class="fab fa-apple"></i></button>
+  <button class="social-btn"><i class="fab fa-facebook-f"></i></button>
+</div>
+
+<div class="auth-link">
+  Don’t have an account? <a href="signup.html">Signup</a>
+</div>
 
 </div>
-<script>
-document.getElementById("loginForm").addEventListener("submit", function(e){
-  e.preventDefault();
 
-  let email = document.getElementById("email");
-  let pass = document.getElementById("password");
+<script>
+
+
+loginForm.addEventListener("submit", function(e){
+  e.preventDefault();
 
   let valid = true;
 
-  if(email.value === "" || !email.value.includes("@")){
-    document.getElementById("emailError").style.display="block";
+  if(!email.value.includes("@")){
+    emailError.style.display="block";
     valid=false;
-  } else {
-    document.getElementById("emailError").style.display="none";
-  }
+  } else emailError.style.display="none";
 
-  if(pass.value === ""){
-    document.getElementById("passError").style.display="block";
+  if(password.value===""){
+    passError.style.display="block";
     valid=false;
-  } else {
-    document.getElementById("passError").style.display="none";
-  }
+  } else passError.style.display="none";
 
-  if(valid){
-    alert("Login Successful!");
-  }
+  if(valid) alert("Login Successful!");
 });
-const toggleBtn = document.getElementById("themeToggle");
 
-toggleBtn.addEventListener("click", () => {
+
+eye.onclick = () => {
+  password.type = password.type === "password" ? "text" : "password";
+};
+
+
+themeToggle.onclick = () => {
   document.body.classList.toggle("light-mode");
+  themeToggle.querySelector("i").classList.toggle("fa-sun");
+};
 
-  // change icon
-  const icon = toggleBtn.querySelector("i");
-  if(document.body.classList.contains("light-mode")){
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
-  } else {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
-  }
-});
+
+rtlToggle.onclick = () => {
+  document.body.classList.toggle("rtl");
+};
+
 </script>
+
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Inkify Studio Register</title>
+  <title> Inkspire Studio Register</title>
 <link rel="icon" type="image/png" href="../Images/logo.png">
   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,119 +15,113 @@
 </head>
 <body>
 
-
-<div class="bubbles">
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
+<div class="bg">
+  <span></span>
+  <span></span>
 </div>
+
+<button id="rtlToggle" class="rtl-toggle">RTL</button>
+
 <button id="themeToggle" class="theme-toggle">
   <i class="fa-solid fa-moon"></i>
 </button>
 
 <div class="auth-box">
 
-  
-  <a href="index.html" class="logo">
-    <i class="fa-solid fa-dragon logo-icon"></i>
-    <h2>Inkspire Studio</h2>
-  </a>
+<a href="index.html" class="logo">
+  <span class="logo-text">Inkspire Studio</span>
+</a>
 
-  <h2 class="auth-title">Register</h2>
+<h2 class="auth-title">Create Account</h2>
 
-  <form id="registerForm">
+<form id="signupForm">
 
-    <input type="text" placeholder="Full Name" class="input" id="name">
-    <div class="error" id="nameError">Name required</div>
+<input type="text" placeholder="Full Name" class="input" id="name">
+<div class="error" id="nameError">Enter name</div>
 
-    <input type="email" placeholder="Email" class="input" id="email">
-    <div class="error" id="emailError">Enter valid email</div>
+<input type="email" placeholder="Email" class="input" id="email">
+<div class="error" id="emailError">Enter valid email</div>
 
-    <input type="password" placeholder="Password" class="input" id="password">
-    <div class="error" id="passError">Password required</div>
+<div class="input-group">
+  <input type="password" placeholder="Password" class="input" id="password">
+  <i class="fa-solid fa-eye toggle-pass" id="eye1"></i>
+</div>
 
-    <input type="password" placeholder="Confirm Password" class="input" id="confirmPassword">
-    <div class="error" id="confirmError">Passwords do not match</div>
+<div class="input-group">
+  <input type="password" placeholder="Confirm Password" class="input" id="confirm">
+  <i class="fa-solid fa-eye toggle-pass" id="eye2"></i>
+</div>
+<div class="error" id="passError">Passwords do not match</div>
 
-    <button class="btn">Register</button>
+<button class="btn">Sign Up</button>
 
-  </form>
+</form>
 
-  <div class="divider">or continue with</div>
+<div class="social-row">
+  <button class="social-btn"><i class="fab fa-google"></i></button>
+  <button class="social-btn"><i class="fab fa-apple"></i></button>
+  <button class="social-btn"><i class="fab fa-facebook-f"></i></button>
+</div>
 
-  <button class="google-btn">
-    <i class="fab fa-google"></i> Continue with Google
-  </button>
-
-  <div class="auth-link">
-    Already have an account? <a href="login.html">Login here</a>
-  </div>
+<div class="auth-link">
+  Already have an account? <a href="login.html">Login</a>
+</div>
 
 </div>
 
 <script>
-  document.getElementById("registerForm").addEventListener("submit", function(e){
+
+
+document.getElementById("signupForm").addEventListener("submit", function(e){
   e.preventDefault();
 
   let name = document.getElementById("name");
   let email = document.getElementById("email");
   let pass = document.getElementById("password");
-  let confirm = document.getElementById("confirmPassword");
+  let confirm = document.getElementById("confirm");
 
   let valid = true;
 
+  if(name.value===""){ nameError.style.display="block"; valid=false;}
+  else nameError.style.display="none";
 
-  if(name.value === ""){
-    document.getElementById("nameError").style.display="block";
+  if(!email.value.includes("@")){ emailError.style.display="block"; valid=false;}
+  else emailError.style.display="none";
+
+  if(pass.value !== confirm.value){
+    passError.style.display="block";
     valid=false;
-  } else {
-    document.getElementById("nameError").style.display="none";
-  }
+  } else passError.style.display="none";
 
-
-  if(email.value === "" || !email.value.includes("@")){
-    document.getElementById("emailError").style.display="block";
-    valid=false;
-  } else {
-    document.getElementById("emailError").style.display="none";
-  }
-
-
-  if(pass.value === ""){
-    document.getElementById("passError").style.display="block";
-    valid=false;
-  } else {
-    document.getElementById("passError").style.display="none";
-  }
-
-
-  if(confirm.value === "" || confirm.value !== pass.value){
-    document.getElementById("confirmError").style.display="block";
-    valid=false;
-  } else {
-    document.getElementById("confirmError").style.display="none";
-  }
-
-  if(valid){
-    alert("Registration Successful!");
-  }
+  if(valid) alert("Signup Successful!");
 });
 
-const toggleBtn = document.getElementById("themeToggle");
 
-toggleBtn.addEventListener("click", () => {
+function toggle(id,eyeId){
+  const input = document.getElementById(id);
+  const eye = document.getElementById(eyeId);
+
+  eye.onclick = () => {
+    input.type = input.type === "password" ? "text" : "password";
+  }
+}
+
+toggle("password","eye1");
+toggle("confirm","eye2");
+
+
+themeToggle.onclick = () => {
   document.body.classList.toggle("light-mode");
+  themeToggle.querySelector("i").classList.toggle("fa-sun");
+};
 
-  // change icon
-  const icon = toggleBtn.querySelector("i");
-  if(document.body.classList.contains("light-mode")){
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
-  } else {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
-  }
-});
+
+rtlToggle.onclick = () => {
+  document.body.classList.toggle("rtl");
+};
+
 </script>
+
 
 </body>
 </html>

@@ -648,7 +648,7 @@ body:not(.dark-mode) .process-step p{
   }
 
   .process-timeline::before{
-    display:none;   /* remove line */
+    display:none;   
   }
 
   .process-circle{
