@@ -89,15 +89,16 @@ body:not(.dark-mode) .blog-hero .hero-overlay{
 
 
 .blog-hero h1{
-  font-size:42px;
+    font-size:60px;
   font-weight:700;
-  line-height:1.3;
-  margin-bottom:12px;
+  line-height:1.2;
+  margin-bottom:20px;
   color:#fff;
+  font-family:'Playfair Display', serif;
 }
 
 body:not(.dark-mode) .blog-hero h1{
-  color:#111;
+  color:#000;
 }
 
 
@@ -105,11 +106,11 @@ body:not(.dark-mode) .blog-hero h1{
   font-size:18px;
   font-weight:500;
   margin-bottom:10px;
-  color:#eee;
+  color:#fff;
 }
 
 body:not(.dark-mode) .hero-hook{
-  color:#333;
+  color:#000;
 }
 
 
@@ -120,22 +121,22 @@ body:not(.dark-mode) .hero-hook{
   flex-wrap:wrap;
   font-size:14px;
   margin-bottom:15px;
-  color:#ccc;
+  color:#fff;
 }
 
 body:not(.dark-mode) .blog-meta{
-  color:#555;
+  color:#000;
 }
 
 
 .hero-subtext{
   font-size:15px;
   margin-bottom:25px;
-  color:#ccc;
+  color:#fff;
 }
 
 body:not(.dark-mode) .hero-subtext{
-  color:#555;
+  color:#000;
 }
 
 
@@ -505,7 +506,41 @@ body:not(.dark-mode) .featured-content p{
 
 
 .btn.primary{
-  display:inline-block;
+  display:block;
+  width:fit-content;
+  margin:15px auto 0;
+  padding:10px 22px;
+  border-radius:25px;
+  font-size:13px;
+  text-decoration:none;
+  background:linear-gradient(135deg,#d3b016,#a01b1b);
+  color:#fff;
+  transition:0.3s;
+}
+
+.btn.primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+.btn.primary{
+  display:block;
+  width:fit-content;
+  margin:15px auto 0;
+  padding:10px 22px;
+  border-radius:25px;
+  font-size:13px;
+  text-decoration:none;
+  background:linear-gradient(135deg,#d3b016,#a01b1b);
+  color:#fff;
+  transition:0.3s;
+}
+
+.btn.primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+.btn.primarys{
+display:inline-block;
   padding:10px 22px;
   border-radius:25px;
   font-size:13px;
@@ -514,9 +549,9 @@ body:not(.dark-mode) .featured-content p{
   background:linear-gradient(135deg,#d3b016,#a01b1b);
   color:#fff;
   transition:0.3s;
+  border:1px solid #d3b016;
 }
-
-.btn.primary:hover{
+.btn.primarys:hover{
   transform:translateY(-2px);
   box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }

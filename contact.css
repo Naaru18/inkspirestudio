@@ -59,15 +59,16 @@ body:not(.dark-mode) .contact-hero .hero-overlay{
 
 
 .contact-hero h1{
-  font-size:40px;
+   font-size:60px;
   font-weight:700;
-  line-height:1.3;
-  margin-bottom:12px;
+  line-height:1.2;
+  margin-bottom:20px;
   color:#fff;
+  font-family:'Playfair Display', serif;
 }
 
 body:not(.dark-mode) .contact-hero h1{
-  color:#111;
+  color:#000;
 }
 
 
@@ -75,22 +76,22 @@ body:not(.dark-mode) .contact-hero h1{
   font-size:18px;
   font-weight:500;
   margin-bottom:10px;
-  color:#eee;
+  color:#fff;
 }
 
 body:not(.dark-mode) .hero-hook{
-  color:#333;
+  color:#000;
 }
 
 
 .hero-subtext{
   font-size:15px;
   margin-bottom:25px;
-  color:#ccc;
+  color:#fff;
 }
 
 body:not(.dark-mode) .hero-subtext{
-  color:#555;
+  color:#000;
 }
 
 

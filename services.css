@@ -86,28 +86,29 @@ body:not(.dark-mode) .services-hero .hero-overlay{
 
 
 .services-hero h1{
-  font-size:40px;
+   font-size:60px;
   font-weight:700;
-  line-height:1.3;
-  margin-bottom:15px;
+  line-height:1.2;
+  margin-bottom:20px;
   color:#fff;
+  font-family:'Playfair Display', serif;
 }
 
 
 body:not(.dark-mode) .services-hero h1{
-  color:#111;
+  color:#000;
 }
 
 
 .services-hero p{
   font-size:17px;
   margin-bottom:25px;
-  color:#ddd;
+  color:#fff;
 }
 
 
 body:not(.dark-mode) .services-hero p{
-  color:#444;
+  color:#000;
 }
 
 

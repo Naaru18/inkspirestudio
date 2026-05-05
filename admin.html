@@ -19,13 +19,15 @@
 <aside class="sidebar" id="sidebar">
  <i class="fa-solid fa-xmark close-btn" id="closeBtn"></i>
   <div class="logo-area">
-    <i class="fa fa-bars hamburger" id="menuBtn"></i>
-
+   
+<div class="logo-area">
+  <a href="index.html" class="logo-link">
     <div class="logo">
       <i class="fa-solid fa-dragon logo-icon"></i>
       <h2>Inkspire Studio</h2>
     </div>
-  </div>
+  </a>
+</div>
 
   <ul class="nav-menu">
     <li class="active"><i class="fa fa-chart-line"></i><span>Dashboard</span></li>
@@ -42,13 +44,17 @@
 <div class="main-wrapper">
 
 <header class="top-bar">
-
+<div class="top-left">
+ 
   <h2 class="gradient-text">Admin Dashboard</h2>
+   <i class="fa fa-bars hamburger" id="menuBtn"></i>
+</div>
 
   <div class="right">
     <input type="text" placeholder="Search...">
 
     <i class="fa fa-bell"></i>
+    <i class="fa-solid fa-right-left" id="rtlToggle"></i>
     <i class="fa fa-moon" id="themeToggle"></i>
 
     <img src="https://i.pravatar.cc/40" class="profile" id="profileBtn">
@@ -71,9 +77,15 @@
 
 <section class="grid">
   <div class="card">
-    <h3 class="gradient-text">Revenue Analytics</h3>
-    <canvas id="chart"></canvas>
-  </div>
+  <h3 class="gradient-text">Revenue Analytics</h3>
+
+  <table class="revenue-table">
+    <tr><td>Today</td><td>₹12,000</td></tr>
+    <tr><td>This Week</td><td>₹48,000</td></tr>
+    <tr><td>This Month</td><td>₹2,45,000</td></tr>
+    <tr><td>Pending</td><td>₹18,000</td></tr>
+  </table>
+</div>
 
   <div class="card">
     <h3 class="gradient-text">Today's Schedule</h3>
@@ -102,87 +114,133 @@
 </section>
 
 </div>
-
 <script>
-    const sidebar = document.getElementById("sidebar");
+
+const sidebar = document.getElementById("sidebar");
 const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+const overlay = document.getElementById("overlay");
 const profileBtn = document.getElementById("profileBtn");
 const themeToggle = document.getElementById("themeToggle");
+const rtlToggle = document.getElementById("rtlToggle");
+const logoutBtn = document.querySelector(".logout-btn");
+const ctx = document.getElementById("chart");
 
 
-menuBtn.onclick = () => {
-  if(window.innerWidth > 768){
+menuBtn.addEventListener("click", () => {
+  if (window.innerWidth > 768) {
     sidebar.classList.toggle("collapsed");
   } else {
-    sidebar.classList.toggle("show");
+    sidebar.classList.add("show");
+    overlay.classList.add("show");
   }
-};
+});
 
 
-profileBtn.onclick = () => {
-  if(window.innerWidth <= 768){
-    sidebar.classList.toggle("show");
+function closeSidebar() {
+  sidebar.classList.remove("show");
+  overlay.classList.remove("show");
+}
+
+closeBtn.addEventListener("click", closeSidebar);
+overlay.addEventListener("click", closeSidebar);
+
+
+profileBtn.addEventListener("click", () => {
+  if (window.innerWidth <= 768) {
+    sidebar.classList.add("show");
+    overlay.classList.add("show");
   }
-};
+});
 
 
-if(localStorage.getItem("theme")==="light"){
+if (localStorage.getItem("theme") === "light") {
   document.body.classList.add("light");
 }
 
-themeToggle.onclick = () => {
-  document.body.classList.toggle("light");
-  localStorage.setItem(
-    "theme",
-    document.body.classList.contains("light") ? "light" : "dark"
-  );
-};
-
-
-function getChartColor(){
+function getChartColor() {
   return document.body.classList.contains("light")
     ? "#999"
     : "#444";
 }
 
-const ctx = document.getElementById("chart");
 
-let chart = new Chart(ctx,{
-  type:"line",
-  data:{
-    labels:["Jan","Feb","Mar","Apr"],
-    datasets:[{
-      data:[120,180,220,260],
-      borderColor:"#d3b016",
-      tension:0.4
+const chart = new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [{
+      data: [220, 220, 220, 220, 220, 220],   // constant values
+      borderColor: "#d3b016",
+      backgroundColor: "rgba(211,176,22,0.15)",
+      fill: true,
+      tension: 0,                             // straight line
+      pointBackgroundColor: "#d3b016",
+      pointBorderColor: "#fff",
+      pointRadius: 5
     }]
   },
-  options:{
-    scales:{
-      x:{
-        ticks:{ color:getChartColor() },
-        grid:{ color:getChartColor() }
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false }
+    },
+    scales: {
+      x: {
+        ticks: { color: getChartColor() },
+        grid: { color: getChartColor() }
       },
-      y:{
-        ticks:{ color:getChartColor() },
-        grid:{ color:getChartColor() }
+      y: {
+        ticks: { color: getChartColor() },
+        grid: { color: getChartColor() }
       }
     }
   }
 });
 
 
-themeToggle.addEventListener("click",()=>{
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("light") ? "light" : "dark"
+  );
+
   chart.options.scales.x.ticks.color = getChartColor();
   chart.options.scales.y.ticks.color = getChartColor();
   chart.options.scales.x.grid.color = getChartColor();
   chart.options.scales.y.grid.color = getChartColor();
+
   chart.update();
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
+if (localStorage.getItem("rtl") === "true") {
+  document.documentElement.setAttribute("dir", "rtl");
+}
 
+rtlToggle.addEventListener("click", () => {
+  const isRTL = document.documentElement.getAttribute("dir") === "rtl";
+
+  document.documentElement.setAttribute(
+    "dir",
+    isRTL ? "ltr" : "rtl"
+  );
+
+  localStorage.setItem("rtl", !isRTL);
+});
+
+
+logoutBtn.addEventListener("click", () => {
+  alert("Logged out successfully");
+  localStorage.clear();
+  window.location.href = "index.html";
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".grid .card");
 
   cards.forEach((card, i) => {
@@ -195,28 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.transform = "translateY(0)";
     }, i * 150);
   });
-
 });
-const overlay = document.getElementById("overlay");
-
-profileBtn.onclick = () => {
-  if(window.innerWidth <= 768){
-    sidebar.classList.add("show");
-    overlay.classList.add("show");
-  }
-};
-
-closeBtn.onclick = () => {
-  sidebar.classList.remove("show");
-  overlay.classList.remove("show");
-};
-
-overlay.onclick = () => {
-  sidebar.classList.remove("show");
-  overlay.classList.remove("show");
-};
-
-
 </script>
 
 </body>

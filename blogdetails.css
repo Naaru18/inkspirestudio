@@ -63,25 +63,26 @@ body:not(.dark-mode) .blog-hero-editorial .hero-overlay{
 }
 
 .blog-hero-editorial h1{
-  font-size:42px;
+   font-size:60px;
   font-weight:700;
-  line-height:1.3;
-  margin-bottom:15px;
+  line-height:1.2;
+  margin-bottom:20px;
   color:#fff;
+  font-family:'Playfair Display', serif;
 }
 
 body:not(.dark-mode) .blog-hero-editorial h1{
-  color:#111;
+  color:#000;
 }
 
 
 .blog-meta{
   font-size:14px;
-  color:#ccc;
+  color:#fff;
 }
 
 body:not(.dark-mode) .blog-meta{
-  color:#444;
+  color:#000;
 }
 
 .blog-meta span{

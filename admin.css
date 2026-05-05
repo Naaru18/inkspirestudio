@@ -102,7 +102,15 @@ body{
 .sidebar.collapsed li span{
   display:none;
 }
+.logo-link{
+  text-decoration:none;
+  color:inherit;
+  display:inline-block;
+}
 
+.logo-link:hover{
+  text-decoration:none;
+}
 .nav-menu li:hover{
   background:rgba(255,255,255,0.08);
 }
@@ -154,7 +162,20 @@ body.light .nav-menu li:hover{
   min-width:220px;
 }
 
-
+.hamburger{
+   display:none;
+  font-size:22px;
+  cursor:pointer;
+  color:var(--text);
+  margin-left:auto;
+  
+}
+.top-left{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+}
 .profile{
   width:35px;
   height:35px;
@@ -272,7 +293,8 @@ body.light .card{
 @media(max-width:768px){
 
   
-  .sidebar{
+  
+.sidebar{
     position:fixed;
     top:0;
     left:-100%;
@@ -287,6 +309,7 @@ body.light .card{
     left:0;
   }
 
+ 
   
   .main-wrapper{
     margin-left:0;
@@ -326,10 +349,7 @@ body.light .card{
     z-index:1001;
   }
 
-  .hamburger{
-    display:none;
-  }
-
+  
 }
 
 
@@ -356,9 +376,63 @@ body.light .card{
     color:var(--text);
     z-index:1001;
   }
+.hamburger{
+  display:block;
+}
+.close-btn{
+  display:block;
+}
+ 
 
-  .hamburger{
-    display:none;
+}
+
+
+html[dir="rtl"] body{
+  direction: rtl;
+}
+
+
+html[dir="rtl"] .sidebar{
+  left:auto;
+  right:0;
+}
+
+
+html[dir="rtl"] .main-wrapper{
+  margin-left:0;
+  margin-right:220px;
+}
+
+html[dir="rtl"] .sidebar.collapsed ~ .main-wrapper{
+  margin-right:70px;
+}
+
+
+@media(max-width:768px){
+  html[dir="rtl"] .sidebar{
+    left:auto;
+    right:-100%;
   }
 
+  html[dir="rtl"] .sidebar.show{
+    right:0;
+  }
+
+  html[dir="rtl"] .main-wrapper{
+    margin-right:0;
+  }
+}
+
+.revenue-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.revenue-table td{
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+body.light .revenue-table td{
+  border-bottom:1px solid rgba(0,0,0,0.08);
 }

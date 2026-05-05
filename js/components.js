@@ -1,72 +1,67 @@
+function loadHeader() {
+  const headerContainer = document.getElementById("header");
 
-function loadHeader(){
   fetch("../components/header.html")
-  .then(res=>res.text())
-  .then(data=>{
-    document.getElementById("header").innerHTML=data;
-    initHeader();
-  });
+    .then(res => res.text())
+    .then(data => {
+      headerContainer.innerHTML = data;
+
+      requestAnimationFrame(() => {
+        headerContainer.classList.remove("header-loading");
+        headerContainer.classList.add("header-loaded");
+
+        initHeader(); // IMPORTANT: run AFTER header inserted
+      });
+    });
 }
 
 
-function toggleMenu(){
-  const nav=document.getElementById("navLinks");
-  const icon=document.querySelector("#menuToggle i");
-
-  nav.classList.toggle("active");
-
-  if(nav.classList.contains("active")){
-    icon.classList.remove("fa-bars");
-    icon.classList.add("fa-xmark");
-  }else{
-    icon.classList.remove("fa-xmark");
-    icon.classList.add("fa-bars");
-  }
-}
-
-
-function setActiveLink(){
-  const links=document.querySelectorAll(".nav-links a");
-  const current=window.location.pathname.split("/").pop();
-
-  links.forEach(link=>{
-    if(link.getAttribute("href")===current){
-      link.classList.add("active");
-    }
-  });
-}
-
-
-function initHeader(){
+function initHeader() {
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  const themeBtn = document.getElementById("theme-toggle");
+  const rtlBtn = document.getElementById("rtl-toggle");
 
   
-  const themeBtn=document.getElementById("theme-toggle");
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
 
-  if(localStorage.getItem("theme")==="dark"){
+    const icon = menuToggle.querySelector("i");
+
+    if (navLinks.classList.contains("active")) {
+      icon.classList.replace("fa-bars", "fa-xmark");
+    } else {
+      icon.classList.replace("fa-xmark", "fa-bars");
+    }
+  });
+
+  
+  setActiveLink();
+
+  
+  if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
-    themeBtn.textContent="☀️";
+    themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
   }
 
-  themeBtn.addEventListener("click",()=>{
+  themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 
-    if(document.body.classList.contains("dark-mode")){
-      localStorage.setItem("theme","dark");
-      themeBtn.textContent="☀️";
-    }else{
-      localStorage.setItem("theme","light");
-      themeBtn.textContent="🌙";
-    }
+    const dark = document.body.classList.contains("dark-mode");
+
+    localStorage.setItem("theme", dark ? "dark" : "light");
+
+    themeBtn.innerHTML = dark
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
   });
 
   
-  const rtlBtn=document.getElementById("rtl-toggle");
-
-  if(localStorage.getItem("rtl")==="true"){
+  if (localStorage.getItem("rtl") === "true") {
     document.body.classList.add("rtl");
   }
 
-  rtlBtn.addEventListener("click",()=>{
+  rtlBtn.addEventListener("click", () => {
     document.body.classList.toggle("rtl");
 
     localStorage.setItem(
@@ -75,36 +70,34 @@ function initHeader(){
     );
   });
 
-  setActiveLink();
+  
+  document.querySelectorAll(".dropdown > a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.parentElement.classList.toggle("open");
+
+        const menu = this.nextElementSibling;
+        menu.classList.toggle("show");
+      }
+    });
+  });
 }
 
 
-document.addEventListener("click", function(e){
+function setActiveLink() {
+  const links = document.querySelectorAll(".nav-links a");
+  const current = window.location.pathname.split("/").pop();
 
-  if(window.innerWidth <= 480){
+  links.forEach(link => {
+    if (link.getAttribute("href") === current) {
+      link.classList.add("active");
+    }
+  });
+}
 
-    const dropdowns = document.querySelectorAll(".dropdown");
 
-    dropdowns.forEach(drop => {
-
-      const link = drop.querySelector("a");
-
-      if(link.contains(e.target)){
-        e.preventDefault();
-
-        drop.classList.toggle("open");
-
-        const menu = drop.querySelector(".dropdown-menu");
-        menu.classList.toggle("show");
-      }
-
-    });
-
-  }
-
-});
-
-document.addEventListener("DOMContentLoaded",loadHeader);
+document.addEventListener("DOMContentLoaded", loadHeader);
 
 
 function initFooter() {

@@ -15,110 +15,134 @@
 </head>
 <body>
 
-<div class="bg">
-  <span></span>
-  <span></span>
-</div>
 
-<button id="rtlToggle" class="rtl-toggle">RTL</button>
+  <div class="page-controls">
+    <button id="themeBtn" class="control-btn">
+      <i class="fas fa-moon"></i>
+    </button>
 
-<button id="themeToggle" class="theme-toggle">
-  <i class="fa-solid fa-moon"></i>
-</button>
+    <button id="rtlBtn" class="control-btn">
+      RTL
+    </button>
+  </div>
 
-<div class="auth-box">
+  <section class="auth-layout">
 
-<a href="index.html" class="logo">
-  <span class="logo-text">Inkspire Studio</span>
-</a>
+    
+    <div class="auth-left">
+      <div class="form-container">
 
-<h2 class="auth-title">Create Account</h2>
+        <a href="index.html" class="logo">
+          <i class="fa-solid fa-dragon logo-icon"></i>
+          <h2>Inkspire Studio</h2>
+        </a>
 
-<form id="signupForm">
+        <h1>Create Account</h1>
+        <p class="subtitle">Join the creative tattoo & piercing community</p>
 
-<input type="text" placeholder="Full Name" class="input" id="name">
-<div class="error" id="nameError">Enter name</div>
+        <div class="social-login">
+          <button><i class="fab fa-google"></i></button>
+          <button><i class="fab fa-apple"></i></button>
+          <button><i class="fab fa-facebook-f"></i></button>
+          <button><i class="fab fa-instagram"></i></button>
+        </div>
 
-<input type="email" placeholder="Email" class="input" id="email">
-<div class="error" id="emailError">Enter valid email</div>
+        <p class="divider-text">Or register with email</p>
 
-<div class="input-group">
-  <input type="password" placeholder="Password" class="input" id="password">
-  <i class="fa-solid fa-eye toggle-pass" id="eye1"></i>
-</div>
+        <form>
 
-<div class="input-group">
-  <input type="password" placeholder="Confirm Password" class="input" id="confirm">
-  <i class="fa-solid fa-eye toggle-pass" id="eye2"></i>
-</div>
-<div class="error" id="passError">Passwords do not match</div>
+          <div class="input-group">
+            <input type="text" placeholder="Full Name">
+            <span><i class="fas fa-user"></i></span>
+          </div>
 
-<button class="btn">Sign Up</button>
+          <div class="input-group">
+            <input type="email" placeholder="Email Address">
+            <span><i class="fas fa-envelope"></i></span>
+          </div>
 
-</form>
+          <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+            <span id="togglePassword">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
 
-<div class="social-row">
-  <button class="social-btn"><i class="fab fa-google"></i></button>
-  <button class="social-btn"><i class="fab fa-apple"></i></button>
-  <button class="social-btn"><i class="fab fa-facebook-f"></i></button>
-</div>
+          <div class="input-group">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <span id="toggleConfirmPassword">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
 
-<div class="auth-link">
-  Already have an account? <a href="login.html">Login</a>
-</div>
+          <button class="btn primary auth-btn">Create Account</button>
 
-</div>
+        </form>
 
+        <p class="bottom-link">
+          Already have an account?
+          <a href="login.html">Sign In</a>
+        </p>
+
+      </div>
+    </div>
+
+    
+    <div class="auth-right">
+      <div class="right-content">
+        <h2>Start Your Journey</h2>
+        <a href="login.html" class="signup-btn">Sign In</a>
+      </div>
+    </div>
+
+  </section>
 <script>
+const body = document.body;
+const themeBtn = document.getElementById("themeBtn");
+const rtlBtn = document.getElementById("rtlBtn");
+
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+
+const togglePassword = document.getElementById("togglePassword");
+const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
 
 
-document.getElementById("signupForm").addEventListener("submit", function(e){
-  e.preventDefault();
+themeBtn.addEventListener("click", () => {
+  body.classList.toggle("light");
 
-  let name = document.getElementById("name");
-  let email = document.getElementById("email");
-  let pass = document.getElementById("password");
-  let confirm = document.getElementById("confirm");
-
-  let valid = true;
-
-  if(name.value===""){ nameError.style.display="block"; valid=false;}
-  else nameError.style.display="none";
-
-  if(!email.value.includes("@")){ emailError.style.display="block"; valid=false;}
-  else emailError.style.display="none";
-
-  if(pass.value !== confirm.value){
-    passError.style.display="block";
-    valid=false;
-  } else passError.style.display="none";
-
-  if(valid) alert("Signup Successful!");
+  themeBtn.innerHTML = body.classList.contains("light")
+    ? '<i class="fas fa-sun"></i>'
+    : '<i class="fas fa-moon"></i>';
 });
 
 
-function toggle(id,eyeId){
-  const input = document.getElementById(id);
-  const eye = document.getElementById(eyeId);
-
-  eye.onclick = () => {
-    input.type = input.type === "password" ? "text" : "password";
-  }
-}
-
-toggle("password","eye1");
-toggle("confirm","eye2");
+rtlBtn.addEventListener("click", () => {
+  document.documentElement.dir =
+    document.documentElement.dir === "ltr" ? "rtl" : "ltr";
+});
 
 
-themeToggle.onclick = () => {
-  document.body.classList.toggle("light-mode");
-  themeToggle.querySelector("i").classList.toggle("fa-sun");
-};
+togglePassword.addEventListener("click", () => {
+  password.type =
+    password.type === "password" ? "text" : "password";
+
+  togglePassword.innerHTML =
+    password.type === "password"
+      ? '<i class="fas fa-eye"></i>'
+      : '<i class="fas fa-eye-slash"></i>';
+});
 
 
-rtlToggle.onclick = () => {
-  document.body.classList.toggle("rtl");
-};
+toggleConfirmPassword.addEventListener("click", () => {
+  confirmPassword.type =
+    confirmPassword.type === "password" ? "text" : "password";
+
+  toggleConfirmPassword.innerHTML =
+    confirmPassword.type === "password"
+      ? '<i class="fas fa-eye"></i>'
+      : '<i class="fas fa-eye-slash"></i>';
+});
 
 </script>
 

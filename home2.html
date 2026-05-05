@@ -11,74 +11,84 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </head>
 <body>
  <div id="header"></div>
-<section class="banner">
+ <section class="hero-booking">
 
-  <div class="banner-container">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-booking-content">
+
+    <span class="tag">Top Rated Tattoo Studio</span>
+
+    <h1>
+      Premium Tattoo Artistry <br>
+      <span>Made Personal</span>
+    </h1>
+
+    <p>
+      Experience custom tattoos, safe piercings, and expert artists delivering
+      unique designs with precision and hygiene.
+    </p>
 
     
-    <div class="banner-left">
-      <h1>
-        It’s Easy to Get <br>
-        Your <span>Perfect Tattoo</span>
-      </h1>
+    <div class="booking-bar">
 
-      <p>
-        Explore thousands of tattoo designs and connect with expert artists 
-        to bring your vision to life.
-      </p>
-
-      
-      <div class="banner-box">
-        <div>
-          <label>Style</label>
-          <p>Minimal / Realistic</p>
-        </div>
-
-        <div>
-          <label>Location</label>
-          <p>Bangalore</p>
-        </div>
-<a href="contact.html" class="btn primary">Explore</a>
+      <div class="field">
+        <label>Style</label>
+        <input type="text" placeholder="Minimal, Tribal, Realism">
       </div>
+
+      <div class="field">
+        <label>Appointment Date</label>
+        <input type="date">
+      </div>
+
+      <div class="field">
+        <label>Time</label>
+        <input type="time">
+      </div>
+
+      <div class="field">
+        <label>Service</label>
+        <select>
+          <option>Tattoo</option>
+          <option>Piercing</option>
+        </select>
+      </div>
+
+      <button class="btn primary">Book Now</button>
+
     </div>
 
     
-    <div class="banner-right">
+    <div class="hero-features">
 
-      <img src="../Images/blog5.jpg" alt="Tattoo Model">
+      <div class="feature">
+        <span>✔</span>
+        <p>100% Hygienic</p>
+      </div>
 
-      
-      <div class="card card1">5000+ Tattoos Done</div>
-      <div class="card card2">10+ Artists</div>
-      <div class="card card3">Top Rated Studio</div>
+      <div class="feature">
+        <span>★</span>
+        <p>500+ Designs</p>
+      </div>
+
+      <div class="feature">
+        <span>🔥</span>
+        <p>4.9 Rating</p>
+      </div>
 
     </div>
 
-  </div>
-
-  
-  <div class="banner-stats">
-    <div>
-      <h3>5000+</h3>
-      <p>Tattoos Done</p>
-    </div>
-    <div>
-      <h3>2000+</h3>
-      <p>Happy Clients</p>
-    </div>
-    <div>
-      <h3>50+</h3>
-      <p>Design Styles</p>
-    </div>
   </div>
 
 </section>
 <script>
-
-document.querySelector(".btn.primary").onclick = () => {
-  document.querySelector("#services").scrollIntoView({ behavior: "smooth" });
-};
+  document.querySelector(".btn.primary").addEventListener("click", function(e){
+  e.preventDefault();
+  alert("Booking feature coming soon!");
+});
 </script>
+
 <section class="about-studio">
 
   <div class="about-container">
@@ -190,137 +200,6 @@ featured.style.opacity = "0";
 featured.style.transform = "translateY(40px)";
 featured.style.transition = "0.7s ease";
 </script>
-
-<section class="trending">
-
-  <div class="trending-container">
-
-    <h2 class="section-title">Top Designs This Year</h2>
-
-    <div class="trending-wrapper">
-
-      
-      <button class="nav prev">&#10094;</button>
-      <button class="nav next">&#10095;</button>
-
-      
-      <div class="trending-track">
-
-        
-        <div class="trend-card active">
-          <img src="../Images/tattoo.jpg">
-          <span class="badge">🔥 Trending</span>
-          <div class="trend-overlay">
-            <h3>Realistic Sleeve</h3>
-            <p>High-detail shading artwork</p>
-          </div>
-        </div>
-
-        <div class="trend-card">
-          <img src="../Images/Piercing5.jpg">
-          <span class="badge">Popular</span>
-          <div class="trend-overlay">
-            <h3>Minimal Tattoo</h3>
-            <p>Simple & elegant designs</p>
-          </div>
-        </div>
-
-        <div class="trend-card">
-          <img src="../Images/tattoo3.jpg">
-          <span class="badge">Hot</span>
-          <div class="trend-overlay">
-            <h3>Bold Art Style</h3>
-            <p>Creative & modern tattoos</p>
-          </div>
-        </div>
-
-        <div class="trend-card">
-          <img src="../Images/Piercing2.jpg">
-          <span class="badge">New</span>
-          <div class="trend-overlay">
-            <h3>Couple Tattoos</h3>
-            <p>Meaningful matching designs</p>
-          </div>
-        </div>
-        <div class="trend-card active">
-          <img src="../Images/tattoo.jpg">
-          <span class="badge">🔥 Trending</span>
-          <div class="trend-overlay">
-            <h3>Realistic Sleeve</h3>
-            <p>High-detail shading artwork</p>
-          </div>
-        </div>
-
-        <div class="trend-card">
-          <img src="../Images/Piercing5.jpg">
-          <span class="badge">Popular</span>
-          <div class="trend-overlay">
-            <h3>Minimal Tattoo</h3>
-            <p>Simple & elegant designs</p>
-          </div>
-        </div>
-
-        <div class="trend-card">
-          <img src="../Images/tattoo3.jpg">
-          <span class="badge">Hot</span>
-          <div class="trend-overlay">
-            <h3>Bold Art Style</h3>
-            <p>Creative & modern tattoos</p>
-          </div>
-        </div>
-
-        <div class="trend-card">
-          <img src="../Images/Piercing2.jpg">
-          <span class="badge">New</span>
-          <div class="trend-overlay">
-            <h3>Couple Tattoos</h3>
-            <p>Meaningful matching designs</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-<script>
-  const track = document.querySelector(".trending-track");
-const cards = document.querySelectorAll(".trend-card");
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
-
-let index = 0;
-
-
-function updateActive(){
-  cards.forEach(card => card.classList.remove("active"));
-  cards[index].classList.add("active");
-
-  const offset = index * 285;
-  track.style.transform = `translateX(-${offset}px)`;
-}
-
-
-nextBtn.onclick = () => {
-  index = (index + 1) % cards.length;
-  updateActive();
-};
-
-
-prevBtn.onclick = () => {
-  index = (index - 1 + cards.length) % cards.length;
-  updateActive();
-};
-
-
-setInterval(() => {
-  index = (index + 1) % cards.length;
-  updateActive();
-}, 3000);
-</script>
-
 <section class="process-section">
   <div class="process-container">
     

@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="../Images/logo.png">
     <link rel="stylesheet" 
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preload" href="index.css" as="style">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -15,32 +16,59 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
   <div class="hero-overlay"></div>
 
-  <div class="hero-content">
+  <div class="hero-container">
 
-    <h1>
-      MG Road’s Premier Tattoo & Piercing Studio
-    </h1>
+    
+    <div class="hero-left">
+      <h1>
+        MG Road’s Premier Tattoo & Piercing Studio
+      </h1>
 
-    <p>
-      Experience world-class tattoo artistry and safe professional piercings in Bangalore.
-    </p>
+      <p>
+        Experience world-class tattoo artistry and safe professional piercings in Bangalore.
+      </p>
 
-    <div class="hero-buttons">
-      <a href="contact.html" class="btn primary">Book Appointment</a>
-      <a href="services.html" class="btn secondary">Explore Designs</a>
+      <div class="hero-buttons">
+        <a href="#" class="btn primary">Book Appointment</a>
+        <a href="services.html" class="btn secondary">Explore Designs</a>
+      </div>
+
+      
+      <div class="hero-review">
+        <div class="avatars">
+          <img src="../Images/user1.jpg">
+          <img src="../Images/user2.jpg">
+          <img src="../Images/user3.jpg">
+        </div>
+        <p><strong>4.9 ★★★★★</strong><br>30K, Total Review</p>
+      </div>
+    </div>
+
+    
+    <div class="hero-right">
+
+      <div class="shape-main">
+        <img src="../Images/tattoo.jpg" alt="">
+      </div>
+
+      <div class="shape-small">
+        <img src="../Images/tattoo2.jpg" alt="">
+      </div>
+
+      <div class="discount-badge">
+        <span>UP TO 70% OFF</span>
+      </div>
+
     </div>
 
   </div>
 
 </section>
-
 <script>
-
-
-document.querySelector(".btn.primary").addEventListener("click", function(e){
+  document.querySelector(".btn.primary").addEventListener("click", function(e){
   e.preventDefault();
   window.open("https://wa.me/919876543210", "_blank");
-}); 
+});
 </script>
 <section class="why">
 
@@ -401,7 +429,7 @@ artistCards.forEach(card => {
 
 </section>
 <script>
-    const track = document.querySelector(".testimonial-track");
+   const track = document.querySelector(".testimonial-track");
 const cards = document.querySelectorAll(".testimonial-card");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
@@ -409,31 +437,48 @@ const prevBtn = document.querySelector(".prev");
 let index = 0;
 const gap = 20;
 
-function updateSlide(){
+function getVisibleCards() {
+  const sliderWidth = document.querySelector(".testimonial-slider").offsetWidth;
   const cardWidth = cards[0].offsetWidth + gap;
+
+  return Math.floor(sliderWidth / cardWidth);
+}
+
+function updateSlide() {
+  const cardWidth = cards[0].offsetWidth + gap;
+  const visibleCards = getVisibleCards();
+
+  const maxIndex = cards.length - visibleCards;
+
+  if (index > maxIndex) index = 0;
+  if (index < 0) index = maxIndex;
+
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 }
 
 
 nextBtn.addEventListener("click", () => {
   index++;
-  if(index >= cards.length) index = 0;
   updateSlide();
 });
 
 
 prevBtn.addEventListener("click", () => {
   index--;
-  if(index < 0) index = cards.length - 1;
   updateSlide();
 });
 
 
 setInterval(() => {
   index++;
-  if(index >= cards.length) index = 0;
   updateSlide();
 }, 3000);
+
+
+window.addEventListener("resize", updateSlide);
+
+
+updateSlide();
 </script>
 <section class="stats">
 
@@ -441,9 +486,8 @@ setInterval(() => {
 
     <h2 class="section-title">Our Achievements</h2>
 
-    
     <div class="stat-item">
-      <div class="stat-number">5000+</div>
+      <div class="stat-number" data-target="5000">5000+</div>
       <div class="stat-content">
         <h3>Tattoos Crafted</h3>
         <p>
@@ -453,9 +497,8 @@ setInterval(() => {
       </div>
     </div>
 
-    
     <div class="stat-item reverse">
-      <div class="stat-number">10+</div>
+      <div class="stat-number" data-target="10">10+</div>
       <div class="stat-content">
         <h3>Expert Artists</h3>
         <p>
@@ -465,9 +508,8 @@ setInterval(() => {
       </div>
     </div>
 
-    
     <div class="stat-item">
-      <div class="stat-number">8+</div>
+      <div class="stat-number" data-target="8">8+</div>
       <div class="stat-content">
         <h3>Years of Experience</h3>
         <p>
@@ -477,9 +519,8 @@ setInterval(() => {
       </div>
     </div>
 
-    
     <div class="stat-item reverse">
-      <div class="stat-number">100%</div>
+      <div class="stat-number" data-target="100">100%</div>
       <div class="stat-content">
         <h3>Client Satisfaction</h3>
         <p>
@@ -492,6 +533,43 @@ setInterval(() => {
   </div>
 
 </section>
+<script>
+  const counters = document.querySelectorAll(".stat-number");
+
+const animateCounters = () => {
+  counters.forEach(counter => {
+    const target = +counter.getAttribute("data-target");
+    let count = 0;
+
+    const updateCounter = () => {
+      const increment = target / 100;
+
+      if(count < target){
+        count += increment;
+        counter.innerText = Math.ceil(count) + (
+          counter.innerText.includes("%") ? "%" : "+"
+        );
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.innerText = target + (
+          counter.getAttribute("data-target") == 100 ? "%" : "+"
+        );
+      }
+    };
+
+    updateCounter();
+  });
+};
+
+const observer = new IntersectionObserver(entries => {
+  if(entries[0].isIntersecting){
+    animateCounters();
+    observer.disconnect();
+  }
+});
+
+observer.observe(document.querySelector(".stats"));
+</script>
 <section class="blogs">
 
   <div class="blogs-container">
