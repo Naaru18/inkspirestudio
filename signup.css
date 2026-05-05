@@ -82,6 +82,7 @@ body{
   align-items:center;
   padding:24px;
   background:var(--left-bg);
+ 
 }
 
 
@@ -293,6 +294,9 @@ html[dir="rtl"] .input-group input{
   .right-content h2{
     font-size:34px;
   }
+  .auth-left{
+    margin-top: 50px;
+  }
 }
 
 @media(max-width:360px){
@@ -306,5 +310,8 @@ html[dir="rtl"] .input-group input{
 
   .right-content h2{
     font-size:28px;
+  }
+  .auth-left{
+    margin-top: 50px;
   }
 }
