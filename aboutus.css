@@ -900,45 +900,36 @@ body:not(.dark-mode) .highlight{
 }
 
 
-
-
-
 .cta-section{
   padding:50px 20px;
   text-align:center;
-
-  background:linear-gradient(135deg, rgba(211,176,22,0.1), rgba(160,27,27,0.1));
+  background:var(--card);
+  border-radius:20px;
+  margin:40px 20px;
+  border:1px solid rgba(211,176,22,0.15);
 }
-
 
 .cta-container{
   max-width:800px;
   margin:auto;
 }
 
-
 .cta-title{
   font-size:36px;
   font-weight:700;
   margin-bottom:20px;
-
   background:linear-gradient(135deg,#d3b016,#a01b1b);
   -webkit-background-clip:text;
-   background-clip: text;
+  background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-
 .cta-text{
   font-size:15px;
-  color:#ccc;
+  color:var(--muted);
   margin-bottom:30px;
+  line-height:1.7;
 }
-
-body:not(.dark-mode) .cta-text{
-  color:#555;
-}
-
 
 .cta-buttons{
   display:flex;
@@ -948,56 +939,47 @@ body:not(.dark-mode) .cta-text{
   margin-bottom:25px;
 }
 
-
-.cta-btn{
+.cta-buttons .btn{
   padding:14px 25px;
   border-radius:30px;
-  font-weight:bold;
+  font-weight:600;
   text-decoration:none;
-  transition:0.3s;
+  transition:0.3s ease;
 }
 
-
-.cta-btn.primary{
+.cta-buttons .primary{
   background:linear-gradient(135deg,#d3b016,#a01b1b);
   color:#fff;
 }
 
-
-.cta-btn.secondary{
+.cta-buttons .secondary{
   border:1px solid #d3b016;
-  color:#d3b016;
+  color:var(--text);
+  background:transparent;
 }
 
-
-.cta-btn.primary:hover{
-  transform:scale(1.05);
-  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+.cta-buttons .primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.25);
 }
 
-.cta-btn.secondary:hover{
-  background:#d3b016;
-  color:#111;
+.cta-buttons .secondary:hover{
+  background:linear-gradient(135deg,#d3b016,#a01b1b);
+  color:#fff;
 }
-
 
 .cta-note{
   font-size:13px;
-  color:#aaa;
+  color:var(--muted);
   line-height:1.8;
 }
-
-body:not(.dark-mode) .cta-note{
-  color:#666;
-}
-
 
 @media(max-width:480px){
   .cta-title{
     font-size:28px;
   }
 
-  .cta-btn{
+  .cta-buttons .btn{
     width:100%;
   }
 }

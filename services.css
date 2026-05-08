@@ -82,6 +82,8 @@ body:not(.dark-mode) .services-hero .hero-overlay{
   position:relative;
   max-width:800px; 
   z-index:2;
+  
+  font-weight: 500;
 }
 
 
