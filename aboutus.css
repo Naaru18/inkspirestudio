@@ -415,7 +415,8 @@ body:not(.dark-mode) .mv-card p{
 
 
 .mv-card ul{
-  padding-left:18px;
+ 
+ list-style: none;
 }
 
 .mv-card li{

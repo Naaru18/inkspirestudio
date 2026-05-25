@@ -215,11 +215,12 @@ body:not(.dark-mode) .icon-btn{
 }
 
 
-.btn.primary{
+.btn.primary{ 
   background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:#fff;
-}
+   color:#fff; 
+  }
 
+  
 .btn.primary:hover{
   transform:translateY(-1px);
   box-shadow:0 4px 12px rgba(0,0,0,0.2);
