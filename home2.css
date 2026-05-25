@@ -35,10 +35,8 @@ body.dark-mode{
   text-align:center;
   padding:120px 20px 40px;
   overflow:hidden;
-
   background:url("../Images/tattoo.jpg") center/cover no-repeat;
 }
-
 
 .hero-overlay{
   position:absolute;
@@ -214,12 +212,12 @@ body:not(.dark-mode) .feature{
     font-size:26px;
   }
 }
+
 .about-studio{
   padding:100px 20px 50px;
   background:#111;
   transition:0.3s;
 }
-
 
 body:not(.dark-mode) .about-studio{
   background:#f8f8f8;
@@ -300,8 +298,6 @@ body:not(.dark-mode) .about-text{
   transform:translateY(-2px);
   box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
-
-
 
 
 @media(max-width:480px){
@@ -522,175 +518,7 @@ body:not(.dark-mode) .featured-work{
     font-size:30px;
   }
 }
-.trending{
-  padding:50px 20px;
-  background:#111;
-}
 
-body:not(.dark-mode) .trending{
-  background:#f8f8f8;
-}
-
-.trending-container{
-  max-width:1200px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  font-size:36px;
-  margin-bottom:60px;
-  font-weight:700;
-  background:linear-gradient(135deg,#d3b016,#a01b1b);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-
-.trending-wrapper{
-  position:relative;
-  overflow:hidden;
-  padding:20px 55px;
-}
-
-
-.trending-track{
-  display:flex;
-  gap:25px;
-  align-items:center;
-  transition:transform 0.7s ease;
-}
-
-
-.trend-card{
-  min-width:calc((100% - 50px) / 3);
-  height:400px;
-  border-radius:20px;
-  overflow:hidden;
-  position:relative;
-  flex-shrink:0;
-
-  opacity:.5;
-  transform:scale(.88);
-  filter:blur(1px);
-  transition:all .6s ease;
-}
-
-
-.trend-card.active{
-  opacity:1;
-  transform:scale(1.08);
-  filter:blur(0);
-  z-index:5;
-  box-shadow:0 15px 35px rgba(211,176,22,0.35);
-}
-
-
-.trend-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .8s ease;
-}
-
-
-.trend-card.rotate img{
-  transform:rotateY(360deg) scale(1.08);
-}
-
-
-.trend-overlay{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:22px 18px;
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,.92) 10%,
-    rgba(0,0,0,.55) 60%,
-    transparent 100%
-  );
-  color:#fff;
-}
-
-.trend-overlay h3{
-  font-size:22px;
-  margin-bottom:8px;
-  font-weight:700;
-}
-
-.trend-overlay p{
-  font-size:14px;
-  line-height:1.5;
-  color:#f0f0f0;
-}
-
-
-.nav{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:46px;
-  height:46px;
-  border:none;
-  border-radius:50%;
-  cursor:pointer;
-  z-index:10;
-  font-size:18px;
-  background:#1a1a1a;
-  color:#fff;
-  transition:.3s;
-}
-
-body:not(.dark-mode) .nav{
-  background:#fff;
-  color:#111;
-}
-
-.nav.prev{ left:0; }
-.nav.next{ right:0; }
-
-.nav:hover{
-  background:linear-gradient(135deg,#d3b016,#a01b1b);
-  color:#fff;
-}
-
-
-@media(max-width:1024px){
-  .trend-card{
-    min-width:calc((100% - 25px) / 2);
-  }
-}
-
-
-@media(max-width:768px){
-  .trend-card{
-    min-width:100%;
-    height:340px;
-  }
-
-  .trending-wrapper{
-    padding:20px 40px;
-  }
-}
-
-@media(max-width:480px){
-  .section-title{
-    font-size:28px;
-  }
-
-  .trend-card{
-    height:300px;
-  }
-
-  .trend-overlay h3{
-    font-size:18px;
-  }
-
-  .trend-overlay p{
-    font-size:13px;
-  }
-}
 
 .process-section{
   padding:50px 20px;
@@ -714,7 +542,6 @@ body:not(.dark-mode) .process-section{
   text-align:center;
   font-size:34px;
   margin-bottom:50px;
-
   background:linear-gradient(135deg,#d3b016,#a01b1b);
   -webkit-background-clip:text;
    background-clip: text;
@@ -1122,8 +949,8 @@ body:not(.dark-mode) .pricing-card ul li{
   border:none;
   border-radius:25px;
   cursor:pointer;
-  font-weight:bold;
-
+  text-decoration: none;
+  font-size: 12px;
   background:linear-gradient(135deg,#d3b016,#a01b1b);
   color:#fff;
   transition:0.3s;

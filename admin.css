@@ -151,7 +151,6 @@ body.light .nav-menu li:hover{
   gap:15px;
 }
 
-
 .right input{
   padding:10px 15px;
   border-radius:25px;
@@ -162,14 +161,15 @@ body.light .nav-menu li:hover{
   min-width:220px;
 }
 
+
 .hamburger{
    display:none;
   font-size:22px;
   cursor:pointer;
   color:var(--text);
   margin-left:auto;
-  
 }
+
 .top-left{
   display:flex;
   align-items:center;

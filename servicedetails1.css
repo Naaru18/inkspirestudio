@@ -203,7 +203,6 @@ body:not(.dark-mode) .highlight-card{
     linear-gradient(135deg,#d3b016,#a01b1b) border-box;
 }
 
-
 .icon-box{
   width:55px;
   height:55px;
@@ -211,8 +210,8 @@ body:not(.dark-mode) .highlight-card{
   align-items:center;
   justify-content:center;
   border-radius:12px;
-  margin-bottom:15px;
-
+  margin:0 auto 15px; /* centers the icon box */
+  
   background:rgba(255,255,255,0.05);
 }
 
@@ -235,6 +234,7 @@ body:not(.dark-mode) .icon-box{
   font-size:18px;
   margin-bottom:10px;
   color:#fff;
+  text-align: center;
 }
 
 body:not(.dark-mode) .highlight-card h3{
@@ -471,9 +471,6 @@ body:not(.dark-mode) .styles-list li{
   opacity:0.2;
 }
 
-
-
-
 @media(max-width:370px){
   .styles-alt{
     padding:60px 12px;
@@ -568,10 +565,8 @@ body:not(.dark-mode) .process{
   display:flex;
   align-items:center;
   justify-content:center;
-
   font-weight:600;
   color:#fff;
-
   background:linear-gradient(135deg,#d3b016,#a01b1b);
 }
 
@@ -607,9 +602,6 @@ body:not(.dark-mode) .process-step p{
   transform:translateY(-6px);
   transition:0.3s;
 }
-
-
-
 
 @media(max-width:370px){
 
@@ -697,8 +689,7 @@ body:not(.dark-mode) .hygiene{
   font-size:36px;
   font-weight:700;
   margin-bottom:60px;
-
-  background:linear-gradient(135deg,#d3b016,#a01b1b);
+background:linear-gradient(135deg,#d3b016,#a01b1b);
   -webkit-background-clip:text;
   background-clip: text;
   -webkit-text-fill-color:transparent;

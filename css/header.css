@@ -76,6 +76,7 @@ body{
   opacity:1;
   transition:opacity 0.25s ease;
 }
+
 .nav-links{
   display:flex;
   gap:30px;
@@ -126,7 +127,6 @@ body{
   padding:10px 0;
   min-width:160px;
   border-radius:6px;
-
   opacity:0;
   visibility:hidden;
   transform:translateY(10px);
@@ -188,6 +188,7 @@ body:not(.dark-mode) .icon-btn{
   align-items:center;
   justify-content:center;
 }
+
 .icon-btn{
   width:38px;
   border-radius:50%;

@@ -229,9 +229,9 @@ filterButtons.forEach(btn => {
 
 
     if(filter === "all"){
-      grid.classList.remove("filtered"); // normal layout
+      grid.classList.remove("filtered"); 
     } else {
-      grid.classList.add("filtered"); // 2 per row layout
+      grid.classList.add("filtered"); 
     }
 
     items.forEach(item => {
@@ -292,19 +292,17 @@ filterButtons.forEach(btn => {
 
 </section>
 <script>
-    const artistCards = document.querySelectorAll(".artist-card");
+  const artistCards = document.querySelectorAll(".artist-card");
 
 window.addEventListener("scroll", () => {
   artistCards.forEach(card => {
     const rect = card.getBoundingClientRect();
-
     if(rect.top < window.innerHeight - 50){
       card.style.opacity = "1";
       card.style.transform = "translateY(0)";
     }
   });
 });
-
 
 artistCards.forEach(card => {
   card.style.opacity = "0";
@@ -373,6 +371,7 @@ artistCards.forEach(card => {
           <div class="stars">★★★★★</div>
           <h4>Megha Nair</h4>
         </div>
+
          <div class="testimonial-card">
           <p>"Amazing experience! The artist understood exactly what I wanted."</p>
           <div class="stars">★★★★★</div>
@@ -447,9 +446,7 @@ function getVisibleCards() {
 function updateSlide() {
   const cardWidth = cards[0].offsetWidth + gap;
   const visibleCards = getVisibleCards();
-
   const maxIndex = cards.length - visibleCards;
-
   if (index > maxIndex) index = 0;
   if (index < 0) index = maxIndex;
 
@@ -543,7 +540,6 @@ const animateCounters = () => {
 
     const updateCounter = () => {
       const increment = target / 100;
-
       if(count < target){
         count += increment;
         counter.innerText = Math.ceil(count) + (

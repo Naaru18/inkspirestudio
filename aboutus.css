@@ -37,8 +37,6 @@ body.dark-mode{
   justify-content:center;
   text-align:center;
   padding:160px 20px 100px;
-
-  
   background:url("../Images/about.jpg") center/cover no-repeat;
 }
 
@@ -815,8 +813,7 @@ body:not(.dark-mode) .video-section{
   -webkit-background-clip:text;
    background-clip: text;
   -webkit-text-fill-color:transparent;
-
-  letter-spacing:1px;
+   letter-spacing:1px;
   position:relative;
 }
 

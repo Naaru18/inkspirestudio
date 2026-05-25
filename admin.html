@@ -165,39 +165,6 @@ function getChartColor() {
 }
 
 
-const chart = new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    datasets: [{
-      data: [220, 220, 220, 220, 220, 220],   // constant values
-      borderColor: "#d3b016",
-      backgroundColor: "rgba(211,176,22,0.15)",
-      fill: true,
-      tension: 0,                             // straight line
-      pointBackgroundColor: "#d3b016",
-      pointBorderColor: "#fff",
-      pointRadius: 5
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false }
-    },
-    scales: {
-      x: {
-        ticks: { color: getChartColor() },
-        grid: { color: getChartColor() }
-      },
-      y: {
-        ticks: { color: getChartColor() },
-        grid: { color: getChartColor() }
-      }
-    }
-  }
-});
 
 
 themeToggle.addEventListener("click", () => {
@@ -208,12 +175,7 @@ themeToggle.addEventListener("click", () => {
     document.body.classList.contains("light") ? "light" : "dark"
   );
 
-  chart.options.scales.x.ticks.color = getChartColor();
-  chart.options.scales.y.ticks.color = getChartColor();
-  chart.options.scales.x.grid.color = getChartColor();
-  chart.options.scales.y.grid.color = getChartColor();
-
-  chart.update();
+  
 });
 
 

@@ -28,19 +28,7 @@ body.dark-mode{
   --btn-border:#ffffff;
 }
 
-:root{
-  --hero-text:#000000;
-  --hero-overlay:rgba(255,255,255,0.35);
-  --btn-color:#000000;
-  --btn-border:#000000;
-}
 
-body.dark-mode{
-  --hero-text:#ffffff;
-  --hero-overlay:rgba(0,0,0,0.55);
-  --btn-color:#ffffff;
-  --btn-border:#ffffff;
-}
 
 
 .hero{
@@ -247,9 +235,7 @@ color:#fff;
 body:not(.dark-mode) .discount-badge{
   color:#000;
 }
-/* =========================
-   1024px (TABLETS / SMALL LAPTOPS)
-========================= */
+
 @media (max-width:1024px){
 
   .hero{
@@ -298,9 +284,6 @@ body:not(.dark-mode) .discount-badge{
 }
 
 
-/* =========================
-   768px (TABLETS)
-========================= */
 @media (max-width:768px){
 
   .hero{
@@ -338,10 +321,6 @@ body:not(.dark-mode) .discount-badge{
   }
 }
 
-
-/* =========================
-   360px (MOBILE)
-========================= */
 @media (max-width:360px){
 
   .hero{
@@ -397,6 +376,7 @@ body:not(.dark-mode) .discount-badge{
     font-size:9px;
   }
 }
+
 .why{
   padding:100px 20px 50px;
   background:#111;
@@ -459,22 +439,24 @@ body:not(.dark-mode) .why-card{
     linear-gradient(135deg,#d3b016,#a01b1b) border-box;
 }
 
-
 .why-card i{
-  font-size:30px;
-  margin-bottom:15px;
+    display:block;
+    text-align:center;
+    font-size:30px;
+    margin-bottom:15px;
 
-  background:linear-gradient(135deg,#d3b016,#a01b1b);
-  -webkit-background-clip:text;
-   background-clip: text;
-  -webkit-text-fill-color:transparent;
+    background:linear-gradient(135deg,#d3b016,#a01b1b);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
-
 
 .why-card h3{
   font-size:20px;
   margin-bottom:12px;
   color:#fff;
+   display:block;
+    text-align:center;
 }
 
 
@@ -992,6 +974,7 @@ body:not(.dark-mode) .artist-overlay span{
     height:230px;
   }
 }
+
 
 .testimonials{
   padding:50px 20px;
