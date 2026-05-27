@@ -505,7 +505,7 @@ body:not(.dark-mode) .featured-content p{
 .btn.primary{
   display:block;
   width:fit-content;
-  margin:15px auto 0;
+ 
   padding:10px 22px;
   border-radius:25px;
   font-size:13px;
@@ -522,7 +522,6 @@ body:not(.dark-mode) .featured-content p{
 .btn.primary{
   display:block;
   width:fit-content;
-  margin:15px auto 0;
   padding:10px 22px;
   border-radius:25px;
   font-size:13px;
