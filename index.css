@@ -469,6 +469,7 @@ body:not(.dark-mode) .why-card h3{
   font-size:14.5px;
   line-height:1.7;
   color:#ccc;
+text-align: center;
 }
 
 
@@ -1297,9 +1298,7 @@ body:not(.dark-mode) .blog-item{
 }
 
 
-.blog-item:hover{
-  transform:translateY(-5px);
-}
+
 
 
 .blog-item.reverse{
@@ -1332,16 +1331,19 @@ body:not(.dark-mode) .blog-item{
   flex:1;
 }
 
-
 .blog-tag{
   display:inline-block;
-  margin-bottom:10px;
-  padding:5px 14px;
-  border-radius:20px;
-  font-size:12px;
+  position:relative;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:1px;
+  color:var(--hero-text);
+   background:linear-gradient(135deg,#d3b016,#a01b1b);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 
-  background:linear-gradient(135deg,#d3b016,#a01b1b);
-  color:#fff;
+  padding-bottom: 10px;
 }
 
 
@@ -1359,18 +1361,40 @@ body:not(.dark-mode) .blog-item{
   line-height:1.6;
 }
 
-
 .blog-link{
   text-decoration:none;
   font-size:14px;
   font-weight:500;
+  display:inline-block;
+  position:relative;
+  transition:transform 0.3s ease, letter-spacing 0.3s ease;
 
   background:linear-gradient(135deg,#d3b016,#a01b1b);
   -webkit-background-clip:text;
-   background-clip: text;
+  background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
+.blog-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  border-radius:10px;
+  transition:0.3s ease;
+  background:linear-gradient(135deg,#d3b016,#a01b1b);
+}
+
+.blog-link:hover{
+  transform:translateX(5px);
+  letter-spacing:1px;
+}
+
+.blog-link:hover::after{
+  width:100%;
+}
 
 body:not(.dark-mode) .blog-content h3{
   color:#111;

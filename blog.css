@@ -55,6 +55,40 @@ body {
   background:url("../Images/blogbg.jpg") center/cover no-repeat;
 }
 
+.blog-link{
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  display:inline-block;
+  position:relative;
+  transition:transform 0.3s ease, letter-spacing 0.3s ease;
+
+  background:linear-gradient(135deg,#d3b016,#a01b1b);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.blog-link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  border-radius:10px;
+  transition:0.3s ease;
+  background:linear-gradient(135deg,#d3b016,#a01b1b);
+}
+
+.blog-link:hover{
+  transform:translateX(5px);
+  letter-spacing:1px;
+}
+
+.blog-link:hover::after{
+  width:100%;
+}
 
 .blog-hero .hero-overlay{
   position:absolute;

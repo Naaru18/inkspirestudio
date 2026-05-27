@@ -470,14 +470,18 @@ body:not(.dark-mode) .featured-work{
   position:absolute;
   top:15px;
   left:15px;
-  padding:5px 12px;
-  border-radius:20px;
+  padding:6px 14px;
+  border-radius:30px;
   font-size:12px;
+  font-weight:600;
 
-  background:linear-gradient(135deg,#d3b016,#a01b1b);
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.25);
+
   color:#fff;
+  letter-spacing:0.5px;
 }
-
 
 
 

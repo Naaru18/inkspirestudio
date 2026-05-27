@@ -246,6 +246,7 @@ body:not(.dark-mode) .highlight-card h3{
   font-size:14px;
   line-height:1.7;
   color:#ccc;
+  text-align: center;
 }
 
 body:not(.dark-mode) .highlight-card p{

@@ -275,6 +275,7 @@ body:not(.dark-mode) .service-card h3{
   line-height:1.7;
   color:#ccc;
   margin-bottom:15px;
+  text-align: center;
 }
 
 body:not(.dark-mode) .service-card p{
@@ -309,7 +310,60 @@ body:not(.dark-mode) .service-card p{
 .service-card:hover::before{
   opacity:0.2;
 }
+.blog-link{
+  position:relative;
 
+  display:block;
+  width:fit-content;
+
+  margin:0 auto;
+
+  text-decoration:none;
+
+  font-size:14px;
+  font-weight:500;
+
+  background:linear-gradient(135deg,#d3b016,#a01b1b);
+
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  transition:
+    transform 0.3s ease,
+    letter-spacing 0.3s ease;
+}
+
+/* underline */
+
+.blog-link::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:-4px;
+
+  width:0;
+  height:2px;
+
+  border-radius:10px;
+
+  background:linear-gradient(135deg,#d3b016,#a01b1b);
+
+  transition:width 0.3s ease;
+}
+
+/* hover */
+
+.blog-link:hover{
+  transform:translateX(5px);
+  letter-spacing:1px;
+}
+
+.blog-link:hover::after{
+  width:100%;
+}
 
 
 
@@ -438,6 +492,7 @@ body:not(.dark-mode) .highlight-card h3{
   font-size:14px;
   line-height:1.6;
   color:#ccc;
+  text-align: center;
 }
 
 body:not(.dark-mode) .highlight-card p{
