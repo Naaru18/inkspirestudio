@@ -11,62 +11,140 @@
 </head>
 <body>
    
- <div id="header"></div>
-   
-<section class="details-hero blog-hero">
+<div id="header"></div>
 
-  <div class="hero-overlay"></div>
+<section id="page-hero">
+  <div class="hero-bg-photo"></div>
+  <div class="hero-bg-scrim"></div>
+  <canvas class="hero-canvas"></canvas>
 
-  <div class="hero-content">
+  <div class="hero-dec-line hl1"></div>
+  <div class="hero-dec-line hl2"></div>
+  <div class="hero-dec-line hl3"></div>
+  <div class="hero-bg-num">JOURNAL</div>
 
 
-    <h1>Complete Tattoo Aftercare Guide</h1>
-
-    <p class="hero-hook">
-      Protect your ink. Heal faster. Keep it looking perfect.
-    </p>
-
-    
-    <div class="blog-meta">
-      <span>✍️ By John Artist</span>
-      <span>📅 March 20, 2026</span>
+  <div class="hero-inner">
+    <div class="page-breadcrumb">
+      <span class="bc-home">Home</span>
+      <span class="bc-sep">●</span>
+      <span class="bc-active">Blog</span>
     </div>
 
-    
-    <p class="hero-subtext">
-      Learn everything you need to know about tattoo aftercare to avoid infections and maintain vibrant results.
+    <h1 class="page-title">Stories etched in <em>ink &amp; time</em></h1>
+
+    <p class="page-sub">
+      Aftercare guides, artist spotlights, design inspiration and behind-the-scenes notes
+      from the studio floor — everything you need between sittings.
     </p>
 
-    
-    <div class="hero-buttons">
-      <a href="contact.html" class="btn primary">Book Appointment</a>
-
+    <div class="hero-cta-row">
+      <a href="#" class="btn-primary">Read Latest Posts</a>
+      <a href="#" class="btn-secondary">Browse Categories</a>
     </div>
 
+    <div class="scroll-cue">
+      <span class="scroll-line"></span>
+      <span>Scroll to read</span>
+      <span class="scroll-line right"></span>
+    </div>
   </div>
-
 </section>
 <script>
+  (function(){
+  const canvas = document.querySelector('#page-hero .hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let w, h, bubbles = [];
 
-document.addEventListener("DOMContentLoaded", () => {
-  const content = document.querySelector(".blog-hero .hero-content");
+  function resize(){
+    const rect = canvas.parentElement.getBoundingClientRect();
+    w = canvas.width = rect.width * devicePixelRatio;
+    h = canvas.height = rect.height * devicePixelRatio;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+  }
+  window.addEventListener('resize', resize);
+  resize();
 
-  content.style.opacity = "0";
-  content.style.transform = "translateY(40px)";
+  function makeBubble(){
+    return {
+      x: Math.random() * w,
+      y: h + Math.random() * 100,
+      r: (Math.random() * 14 + 4) * devicePixelRatio,
+      speed: (Math.random() * 0.6 + 0.15) * devicePixelRatio,
+      drift: (Math.random() - 0.5) * 0.4 * devicePixelRatio,
+      alpha: Math.random() * 0.25 + 0.06,
+      hue: Math.random() > 0.5 ? '212,160,23' : '176,26,26',
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: Math.random() * 0.02 + 0.005
+    };
+  }
 
-  setTimeout(() => {
-    content.style.transition = "all 0.8s ease";
-    content.style.opacity = "1";
-    content.style.transform = "translateY(0)";
-  }, 200);
+  const BUBBLE_COUNT = 28;
+  for(let i=0;i<BUBBLE_COUNT;i++){
+    const b = makeBubble();
+    b.y = Math.random() * h;
+    bubbles.push(b);
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(const b of bubbles){
+      b.y -= b.speed;
+      b.wobble += b.wobbleSpeed;
+      b.x += b.drift + Math.sin(b.wobble) * 0.4 * devicePixelRatio;
+
+      if(b.y < -b.r * 2){
+        Object.assign(b, makeBubble());
+        b.y = h + b.r;
+      }
+
+      const grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+      grad.addColorStop(0, `rgba(${b.hue}, ${b.alpha})`);
+      grad.addColorStop(0.7, `rgba(${b.hue}, ${b.alpha * 0.4})`);
+      grad.addColorStop(1, `rgba(${b.hue}, 0)`);
+
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = `rgba(${b.hue}, ${b.alpha * 1.5})`;
+      ctx.lineWidth = 1 * devicePixelRatio;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+function getBubbleCount(){
+  const width = window.innerWidth;
+  if (width <= 360) return 12;
+  if (width <= 768) return 18;
+  if (width <= 1024) return 22;
+  return 28;
+}
+
+let BUBBLE_COUNT = getBubbleCount();
+
+window.addEventListener('resize', () => {
+  resize();
+  const target = getBubbleCount();
+  if (target > bubbles.length){
+    while (bubbles.length < target) bubbles.push(makeBubble());
+  } else {
+    bubbles.length = target;
+  }
 });
-    
 </script>
+
 <section class="blog-filter">
 
   <div class="services-container">
 
-    <h2 class="section-title">Explore Blogs</h2>
+    <h2 class="section-title">Explore <em>Blogs</em></h2>
 
     
     <div class="search-box">
@@ -162,10 +240,11 @@ document.getElementById("searchInput").addEventListener("keyup", function(){
 });
 </script>
 <section class="featured-blog">
+  
 
   <div class="container">
 
-    <h2 class="section-title">Featured Blog</h2>
+    <h2>Featured <em>Blog</em></h2>
 
     
     <div class="featured-wrapper">
@@ -183,6 +262,14 @@ document.getElementById("searchInput").addEventListener("keyup", function(){
           From ultra-minimal fine line tattoos to bold blackout art, 2026 is redefining self-expression.
           Explore the most in-demand styles, placements, and creative ideas.
         </p>
+        <p>
+  This year, micro tattoos, geometric patterns, realistic portraits, and nature-inspired designs are gaining immense popularity.
+  Many clients are also choosing meaningful symbols, personalized lettering, and custom artwork that reflects their unique stories and experiences.
+</p>
+
+<p>
+  Popular placements include the forearm, wrist, collarbone, back, and ankle, offering the perfect balance of visibility and style.
+</p>
 
         <a href="blogdetails.html" class="btn primarys">Read More</a>
       </div>
@@ -306,7 +393,7 @@ document.getElementById("searchInput").addEventListener("keyup", function(){
 
   <div class="services-container">
 
-    <h2 class="section-title">Get Tattoo Tips & Offers</h2>
+    <h2 class="section-title">Get Tattoo <em>Tips & Offers</em></h2>
 
     <p class="newsletter-text">
       Stay updated with the latest tattoo trends, care tips, and exclusive offers directly to your inbox.
@@ -315,7 +402,7 @@ document.getElementById("searchInput").addEventListener("keyup", function(){
     
     <form class="newsletter-form" id="newsletterForm">
       <input type="email" placeholder="Enter your email address" required>
-      <button type="submit" class="btn primarys">Subscribe</button>
+      <button type="submit" class="submit-btn">Subscribe</button>
     </form>
 
   </div>

@@ -9,80 +9,229 @@
     <link rel="preload" href="../css/header.css" as="style">
     <link rel="stylesheet" href="servicedetails1.css">
 </head>
-<body  class="dark-mode">
+
    
  <div id="header"></div>
-<section class="services-hero details-hero">
+<section id="service-hero">
+  <div class="sh-bg-photo"></div>
+  <div class="sh-scrim"></div>
+  <canvas class="sh-canvas"></canvas>
 
-  <div class="hero-overlay"></div>
+  <div class="hero-dec-line hl1"></div>
+  <div class="hero-dec-line hl3"></div>
+  <div class="sh-bg-num">SERVICES</div>
 
-  <div class="hero-content">
+ 
 
-    
+  <div class="sh-inner">
 
-    <h1>Minimal Tattoo Design</h1>
-
-    <p class="hero-hook">
-      Simple. Elegant. Timeless.
-    </p>
-
-    <p class="hero-subtext">
-      Perfect for those who love subtle yet meaningful tattoos crafted with precision and style.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="contact.html" class="btn primary">Book Now</a>
-      <a href="services.html" target="_blank" class="btn secondary">
-        Back to Services
-      </a>
+    <!-- LEFT: text -->
+    <div class="sh-text-col">
+      <div class="page-breadcrumb">
+        <span class="bc-home">Home</span>
+        <span class="bc-sep">●</span>
+        <span class="bc-active">Services</span>
+      </div>
+      <p class="sh-eyebrow">What we offer</p>
+      <h1 class="page-title">Crafted services for <em>every kind  art</em></h1>
+      <p class="page-sub">
+        From first-session fine-line tattoos to surface piercings and full cover-up
+        restorations — every service is performed by certified artists in private,
+        sterilised studio suites.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#" class="btn-primary">View Full Price List</a>
+        <a href="#" class="btn-secondary">Book a Free Consult</a>
+      </div>
     </div>
 
-  </div>
-  </section>
+    <!-- RIGHT: cards -->
+    <div class="service-cards">
+
+      <div class="s-card">
+        <div class="s-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5z"/><path d="M19 14l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></svg>
+        </div>
+        <div class="s-card-title">Custom Tattoo</div>
+        <p class="s-card-desc">Bespoke fine-line, blackwork &amp; realism designs sketched to fit your story.</p>
+        <div class="s-card-foot">
+          <span class="s-card-price">From ₹3,500</span>
+          <a href="#" class="s-card-link">Explore →</a>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <div class="s-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
+        <div class="s-card-title">Piercing</div>
+        <p class="s-card-desc">Sterile, precise ear, facial &amp; body piercing with premium implant-grade jewellery.</p>
+        <div class="s-card-foot">
+          <span class="s-card-price">From ₹900</span>
+          <a href="#" class="s-card-link">Explore →</a>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <div class="s-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 5v7h7"/></svg>
+        </div>
+        <div class="s-card-title">Cover-Up &amp; Rework</div>
+        <p class="s-card-desc">Transform old or unwanted ink into a fresh design through expert rework.</p>
+        <div class="s-card-foot">
+          <span class="s-card-price">From ₹6,000</span>
+          <a href="#" class="s-card-link">Explore →</a>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <div class="s-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="s-card-title">Private Consult</div>
+        <p class="s-card-desc">One-on-one design planning with our resident artist — no obligation.</p>
+        <div class="s-card-foot">
+          <span class="s-card-price">Free</span>
+          <a href="#" class="s-card-link">Explore →</a>
+        </div>
+      </div>
+
+    </div><!-- /service-cards -->
+  </div><!-- /sh-inner -->
+</section>
+<script>
+  document.querySelectorAll('.rail-item').forEach(item=>{
+    item.addEventListener('click', ()=>{
+      document.querySelectorAll('.rail-item').forEach(i=>i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+  (function(){
+    const canvas = document.querySelector('#service-hero .sh-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, bubbles = [];
+
+    function resize(){
+      const rect = canvas.parentElement.getBoundingClientRect();
+      w = canvas.width = rect.width * devicePixelRatio;
+      h = canvas.height = rect.height * devicePixelRatio;
+      canvas.style.width = rect.width + 'px';
+      canvas.style.height = rect.height + 'px';
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function makeBubble(){
+      return {
+        x: Math.random() * w,
+        y: h + Math.random() * 100,
+        r: (Math.random() * 12 + 3) * devicePixelRatio,
+        speed: (Math.random() * 0.5 + 0.12) * devicePixelRatio,
+        drift: (Math.random() - 0.5) * 0.35 * devicePixelRatio,
+        alpha: Math.random() * 0.22 + 0.05,
+        hue: Math.random() > 0.5 ? '212,160,23' : '176,26,26',
+        wobble: Math.random() * Math.PI * 2,
+        wobbleSpeed: Math.random() * 0.02 + 0.005
+      };
+    }
+
+    function getBubbleCount(){
+      const width = window.innerWidth;
+      if (width <= 360) return 10;
+      if (width <= 768) return 16;
+      if (width <= 1024) return 20;
+      return 26;
+    }
+
+    let BUBBLE_COUNT = getBubbleCount();
+    for(let i=0;i<BUBBLE_COUNT;i++){
+      const b = makeBubble();
+      b.y = Math.random() * h;
+      bubbles.push(b);
+    }
+
+    window.addEventListener('resize', () => {
+      const target = getBubbleCount();
+      if (target > bubbles.length){
+        while (bubbles.length < target) bubbles.push(makeBubble());
+      } else {
+        bubbles.length = target;
+      }
+    });
+
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(const b of bubbles){
+        b.y -= b.speed;
+        b.wobble += b.wobbleSpeed;
+        b.x += b.drift + Math.sin(b.wobble) * 0.4 * devicePixelRatio;
+
+        if(b.y < -b.r * 2){
+          Object.assign(b, makeBubble());
+          b.y = h + b.r;
+        }
+
+        const grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+        grad.addColorStop(0, `rgba(${b.hue}, ${b.alpha})`);
+        grad.addColorStop(0.7, `rgba(${b.hue}, ${b.alpha * 0.4})`);
+        grad.addColorStop(1, `rgba(${b.hue}, 0)`);
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = `rgba(${b.hue}, ${b.alpha * 1.5})`;
+        ctx.lineWidth = 1 * devicePixelRatio;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+</script>
 <section class="highlights overview">
 
   <div class="highlights-container">
 
-    <h2 class="highlights-title">About This Service</h2>
+    <h2 class="highlights-title">About This <em>Service</em></h2>
 
     <div class="highlights-grid overview-grid">
 
-      
-      <div class="highlight-card">
-        <div class="icon-box">
-          <i class="fas fa-pen"></i>
-        </div>
-        <h3>What It Is</h3>
-        <p>
-          Minimal tattoos focus on clean lines and subtle details, creating elegant 
-          designs that are simple yet deeply meaningful.
-        </p>
-      </div>
+    <div class="highlight-card">
+  <div class="icon-box">
+    <img src="../Images/sdetails1.png" alt="What It Is">
+  </div>
+  <h3>What It Is</h3>
+  <p>
+    Minimal tattoos focus on clean lines and subtle details, creating elegant
+    designs that are simple yet deeply meaningful.
+  </p>
+</div>
 
-      
-      <div class="highlight-card">
-        <div class="icon-box">
-          <i class="fas fa-user"></i>
-        </div>
-        <h3>Who It’s For</h3>
-        <p>
-          Perfect for first-timers or anyone who prefers a subtle and stylish tattoo 
-          that blends effortlessly into everyday life.
-        </p>
-      </div>
+<div class="highlight-card">
+  <div class="icon-box">
+    <img src="../Images/sdetaails3.png" alt="Who It's For">
+  </div>
+  <h3>Who It’s For</h3>
+  <p>
+    Perfect for first-timers or anyone who prefers a subtle and stylish tattoo
+    that blends effortlessly into everyday life.
+  </p>
+</div>
 
-      
-      <div class="highlight-card">
-        <div class="icon-box">
-          <i class="fas fa-heart"></i>
-        </div>
-        <h3>Why People Choose It</h3>
-        <p>
-          Minimal tattoos are timeless, less painful, and easy to maintain — making 
-          them one of the most loved modern tattoo styles.
-        </p>
-      </div>
-
+<div class="highlight-card">
+  <div class="icon-box">
+    <img src="../Images/sdetails2.png" alt="Why People Choose It">
+  </div>
+  <h3>Why People Choose It</h3>
+  <p>
+    Minimal tattoos are timeless, less painful, and easy to maintain — making
+    them one of the most loved modern tattoo styles.
+  </p>
+</div>
     </div>
 
   </div>
@@ -111,119 +260,420 @@
 
 });
 </script>
-<section class="styles-alt">
+<section class="sa-section">
+  <div class="sa-deco-v l"></div>
+  <div class="sa-deco-v r"></div>
+  <div class="sa-deco-h t"></div>
+    <h2 class="highlights-title">Styles &amp; <em>Options</em></h2>
 
-  <div class="styles-alt-container">
 
-    <h2 class="styles-alt-title">Styles & Options</h2>
+  <div class="sa-inner">
+    <div class="sa-header">
 
-    <div class="styles-alt-wrapper" id="stylesWrapper">
-
-      <div class="styles-column">
-        <h3 class="styles-heading">Tattoo Styles</h3>
-
-        <ul class="styles-list">
-          <li><span>01</span> Line Art</li>
-          <li><span>02</span> Geometric</li>
-          <li><span>03</span> Script</li>
-          <li><span>04</span> Micro Tattoos</li>
-          <li><span>05</span> Minimal Symbols</li>
-          <li><span>06</span> Fine Line Designs</li>
-        </ul>
-      </div>
-
-    
-      <div class="styles-column">
-        <h3 class="styles-heading">Piercing Options</h3>
-
-        <ul class="styles-list">
-          <li><span>01</span> Stud Piercing</li>
-          <li><span>02</span> Hoop Piercing</li>
-          <li><span>03</span> Nose Rings</li>
-          <li><span>04</span> Cartilage Piercing</li>
-          <li><span>05</span> Belly Piercing</li>
-          <li><span>06</span> Industrial Piercing</li>
-        </ul>
-      </div>
-
-      <div class="styles-column">
-        <h3 class="styles-heading">Advanced Tattoo Styles</h3>
-
-        <ul class="styles-list">
-          <li><span>01</span> Realism Tattoos</li>
-          <li><span>02</span> Portrait Tattoos</li>
-          <li><span>03</span> 3D Tattoos</li>
-          <li><span>04</span> Black & Grey</li>
-          <li><span>05</span> Color Tattoos</li>
-          <li><span>06</span> Cover-Up Tattoos</li>
-        </ul>
-      </div>
-
-      <!-- Column 4 -->
-      <div class="styles-column">
-        <h3 class="styles-heading">Jewelry Options</h3>
-
-        <ul class="styles-list">
-          <li><span>01</span> Gold Jewelry</li>
-          <li><span>02</span> Silver Jewelry</li>
-          <li><span>03</span> Titanium Jewelry</li>
-          <li><span>04</span> Diamond Studs</li>
-          <li><span>05</span> Custom Jewelry</li>
-          <li><span>06</span> Hypoallergenic Options</li>
-        </ul>
-      </div>
-
+      <p class="sa-sub">Premium artistry tailored to your skin — explore our full range of tattoo styles, piercing options, and fine jewellery.</p>
     </div>
 
+    <div class="sa-tabs">
+      <button class="sa-tab active" data-panel="tattoo">Tattoo Styles</button>
+      <button class="sa-tab" data-panel="piercing">Piercing Options</button>
+      <button class="sa-tab" data-panel="advanced">Advanced Styles</button>
+      <button class="sa-tab" data-panel="jewelry">Jewelry Options</button>
+    </div>
+
+    <div class="sa-panel visible" id="panel-tattoo">
+      <div class="sa-grid">
+
+        <div class="sa-card anim" style="animation-delay:.05s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#1a120a,#251808);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="90" x2="100" y2="20" stroke="rgba(212,160,23,0.55)" stroke-width="1"/>
+              <line x1="20" y1="20" x2="100" y2="90" stroke="rgba(176,26,26,0.45)" stroke-width="0.8"/>
+              <circle cx="60" cy="55" r="28" stroke="rgba(212,160,23,0.35)" stroke-width="0.7" fill="none"/>
+              <circle cx="60" cy="55" r="14" stroke="rgba(176,26,26,0.3)" stroke-width="0.7" fill="none"/>
+              <path d="M60 27 L60 83" stroke="rgba(212,160,23,0.2)" stroke-width="0.6"/>
+              <path d="M32 55 L88 55" stroke="rgba(212,160,23,0.2)" stroke-width="0.6"/>
+              <circle cx="60" cy="55" r="4" fill="rgba(212,160,23,0.6)"/>
+              <circle cx="60" cy="27" r="2.5" fill="rgba(212,160,23,0.4)"/>
+              <circle cx="60" cy="83" r="2.5" fill="rgba(212,160,23,0.4)"/>
+              <circle cx="32" cy="55" r="2.5" fill="rgba(176,26,26,0.4)"/>
+              <circle cx="88" cy="55" r="2.5" fill="rgba(176,26,26,0.4)"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Style 01 — 02</div>
+            <div class="sa-card-title">Line Art &amp; Geometric</div>
+            <ul class="sa-card-list">
+              <li>Line Art</li>
+              <li>Geometric Patterns</li>
+              <li>Sacred Geometry</li>
+              <li>Dotwork Mandala</li>
+            </ul>
+            <span class="sa-card-tag">Most Popular</span>
+          </div>
+        </div>
+
+        <div class="sa-card anim" style="animation-delay:.12s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#100d08,#1e1408);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 75 Q45 30 60 55 Q75 80 90 35" stroke="rgba(212,160,23,0.6)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <path d="M35 80 Q50 38 65 60 Q80 85 95 40" stroke="rgba(176,26,26,0.3)" stroke-width="0.6" fill="none" stroke-linecap="round"/>
+              <text x="40" y="65" font-family="'Playfair Display',serif" font-size="22" fill="rgba(212,160,23,0.45)" font-style="italic" font-weight="700">Ac</text>
+              <circle cx="30" cy="75" r="3" fill="rgba(176,26,26,0.5)"/>
+              <circle cx="90" cy="35" r="3" fill="rgba(212,160,23,0.5)"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Style 03 — 04</div>
+            <div class="sa-card-title">Script &amp; Micro Tattoos</div>
+            <ul class="sa-card-list">
+              <li>Calligraphy Script</li>
+              <li>Micro Fine Text</li>
+              <li>Micro Tattoos</li>
+              <li>Minimalist Lettering</li>
+            </ul>
+            <span class="sa-card-tag">Trending Now</span>
+          </div>
+        </div>
+
+        <div class="sa-card anim" style="animation-delay:.19s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#0e0c0a,#1a1308);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="55" r="32" stroke="rgba(212,160,23,0.22)" stroke-width="0.7" fill="none" stroke-dasharray="4 3"/>
+              <path d="M60 23 L68 47 L94 47 L73 62 L81 86 L60 71 L39 86 L47 62 L26 47 L52 47 Z" stroke="rgba(212,160,23,0.5)" stroke-width="0.9" fill="rgba(212,160,23,0.06)" stroke-linejoin="round"/>
+              <path d="M60 33 L65 48 L80 48 L69 57 L73 72 L60 63 L47 72 L51 57 L40 48 L55 48 Z" stroke="rgba(176,26,26,0.35)" stroke-width="0.6" fill="none"/>
+              <circle cx="60" cy="55" r="5" fill="rgba(212,160,23,0.5)"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Style 05 — 06</div>
+            <div class="sa-card-title">Minimal &amp; Fine Line</div>
+            <ul class="sa-card-list">
+              <li>Minimal Symbols</li>
+              <li>Single Needle Work</li>
+              <li>Fine Line Designs</li>
+              <li>Whisper Ink</li>
+            </ul>
+            <span class="sa-card-tag">Signature Style</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sa-panel" id="panel-piercing">
+      <div class="sa-grid">
+
+        <div class="sa-card anim" style="animation-delay:.05s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#0e0c0a,#1c1310);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <circle cx="60" cy="55" r="22" stroke="rgba(212,160,23,0.5)" stroke-width="1.2" fill="none"/>
+              <circle cx="60" cy="33" r="5" fill="rgba(212,160,23,0.55)"/>
+              <circle cx="60" cy="33" r="3" fill="rgba(212,160,23,0.9)"/>
+              <path d="M60 38 L60 55" stroke="rgba(212,160,23,0.3)" stroke-width="1"/>
+              <circle cx="60" cy="55" r="8" stroke="rgba(176,26,26,0.35)" stroke-width="0.7" fill="none"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Piercing 01 — 02</div>
+            <div class="sa-card-title">Stud &amp; Hoop Piercing</div>
+            <ul class="sa-card-list">
+              <li>Flat Back Studs</li>
+              <li>Seamless Hoops</li>
+              <li>Clicker Rings</li>
+              <li>Captive Bead Rings</li>
+            </ul>
+            <span class="sa-card-tag">Best Seller</span>
+          </div>
+        </div>
+
+        <div class="sa-card anim" style="animation-delay:.12s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#0d0b09,#1a1410);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <path d="M45 40 Q60 20 75 40 Q85 55 75 70 Q60 90 45 70 Q35 55 45 40Z" stroke="rgba(212,160,23,0.45)" stroke-width="1" fill="rgba(212,160,23,0.04)"/>
+              <circle cx="60" cy="32" r="4" fill="rgba(176,26,26,0.5)"/>
+              <circle cx="60" cy="32" r="2" fill="rgba(176,26,26,0.85)"/>
+              <path d="M48 50 Q60 45 72 50" stroke="rgba(212,160,23,0.3)" stroke-width="0.7" fill="none"/>
+              <circle cx="60" cy="78" r="3" fill="rgba(212,160,23,0.4)"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Piercing 03 — 04</div>
+            <div class="sa-card-title">Nose &amp; Cartilage</div>
+            <ul class="sa-card-list">
+              <li>Nose Rings &amp; Studs</li>
+              <li>Cartilage Piercing</li>
+              <li>Helix &amp; Tragus</li>
+              <li>Daith Piercing</li>
+            </ul>
+            <span class="sa-card-tag">Premium Care</span>
+          </div>
+        </div>
+
+        <div class="sa-card anim" style="animation-delay:.19s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#0f0c08,#1d1508);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <path d="M40 38 L80 38" stroke="rgba(212,160,23,0.5)" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="40" cy="38" r="5" fill="rgba(212,160,23,0.45)"/>
+              <circle cx="80" cy="38" r="5" fill="rgba(212,160,23,0.45)"/>
+              <path d="M60 45 Q60 72 60 75" stroke="rgba(176,26,26,0.35)" stroke-width="0.8"/>
+              <circle cx="60" cy="75" r="4" fill="rgba(176,26,26,0.5)"/>
+              <circle cx="60" cy="75" r="2" fill="rgba(176,26,26,0.8)"/>
+              <circle cx="40" cy="38" r="2.5" fill="rgba(212,160,23,0.8)"/>
+              <circle cx="80" cy="38" r="2.5" fill="rgba(212,160,23,0.8)"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Piercing 05 — 06</div>
+            <div class="sa-card-title">Belly &amp; Industrial</div>
+            <ul class="sa-card-list">
+              <li>Belly Button Rings</li>
+              <li>Industrial Bar</li>
+              <li>Scaffold Piercing</li>
+              <li>Body Surface Work</li>
+            </ul>
+            <span class="sa-card-tag">Bold &amp; Edgy</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sa-panel" id="panel-advanced">
+      <div class="sa-grid">
+
+        <div class="sa-card anim" style="animation-delay:.05s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#0f0b09,#1e1410);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <ellipse cx="60" cy="52" rx="26" ry="34" stroke="rgba(212,160,23,0.3)" stroke-width="0.7" fill="none"/>
+              <ellipse cx="55" cy="48" rx="10" ry="13" stroke="rgba(212,160,23,0.5)" stroke-width="0.9" fill="rgba(212,160,23,0.06)"/>
+              <path d="M45 60 Q55 72 70 68 Q82 64 78 52 Q74 40 65 38" stroke="rgba(176,26,26,0.45)" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+              <circle cx="55" cy="48" r="5" fill="rgba(212,160,23,0.35)"/>
+              <path d="M42 42 Q50 35 62 38" stroke="rgba(212,160,23,0.25)" stroke-width="0.6" fill="none"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Advanced 01 — 02</div>
+            <div class="sa-card-title">Realism &amp; Portrait</div>
+            <ul class="sa-card-list">
+              <li>Photorealism</li>
+              <li>Portrait Tattoos</li>
+              <li>Animal Realism</li>
+              <li>Hyper-Detail Work</li>
+            </ul>
+            <span class="sa-card-tag">Master Level</span>
+          </div>
+        </div>
+
+        <div class="sa-card anim" style="animation-delay:.12s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#0d0b09,#191310);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <rect x="35" y="30" width="50" height="50" rx="4" stroke="rgba(212,160,23,0.4)" stroke-width="0.8" fill="none"/>
+              <rect x="42" y="37" width="36" height="36" rx="3" stroke="rgba(176,26,26,0.35)" stroke-width="0.6" fill="none"/>
+              <path d="M35 50 L50 42 L70 58 L85 46" stroke="rgba(212,160,23,0.55)" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <circle cx="50" cy="42" r="3.5" fill="rgba(212,160,23,0.5)"/>
+              <circle cx="70" cy="58" r="3.5" fill="rgba(176,26,26,0.5)"/>
+              <path d="M35 58 L42 80 L78 80 L85 58" stroke="rgba(212,160,23,0.2)" stroke-width="0.6" fill="none"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Advanced 03 — 04</div>
+            <div class="sa-card-title">3D &amp; Black &amp; Grey</div>
+            <ul class="sa-card-list">
+              <li>3D Illusion Tattoos</li>
+              <li>Black &amp; Grey Wash</li>
+              <li>Depth Shading</li>
+              <li>Negative Space</li>
+            </ul>
+            <span class="sa-card-tag">Speciality</span>
+          </div>
+        </div>
+
+        <div class="sa-card anim" style="animation-delay:.19s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#100d0a,#1c1510);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <path d="M30 75 Q60 20 90 75" stroke="rgba(212,160,23,0.5)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <path d="M38 70 Q60 32 82 70" stroke="rgba(176,26,26,0.4)" stroke-width="0.8" fill="rgba(176,26,26,0.04)" stroke-linecap="round"/>
+              <circle cx="60" cy="47" r="9" stroke="rgba(212,160,23,0.4)" stroke-width="0.8" fill="rgba(212,160,23,0.08)"/>
+              <path d="M54 47 Q57 43 60 47 Q63 51 66 47" stroke="rgba(212,160,23,0.6)" stroke-width="0.8" fill="none"/>
+              <circle cx="60" cy="47" r="2.5" fill="rgba(176,26,26,0.6)"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Advanced 05 — 06</div>
+            <div class="sa-card-title">Colour &amp; Cover-Up</div>
+            <ul class="sa-card-list">
+              <li>Full Colour Tattoos</li>
+              <li>Watercolour Style</li>
+              <li>Cover-Up Reworks</li>
+              <li>Laser Prep Covers</li>
+            </ul>
+            <span class="sa-card-tag">Transformation</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sa-panel" id="panel-jewelry">
+      <div class="sa-grid">
+
+        <div class="sa-card anim" style="animation-delay:.05s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#120f08,#1f1a08);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <polygon points="60,22 74,46 100,50 80,70 84,96 60,82 36,96 40,70 20,50 46,46" stroke="rgba(212,160,23,0.55)" stroke-width="1" fill="rgba(212,160,23,0.06)" stroke-linejoin="round"/>
+              <circle cx="60" cy="55" r="14" stroke="rgba(212,160,23,0.4)" stroke-width="0.8" fill="rgba(212,160,23,0.08)"/>
+              <circle cx="60" cy="55" r="6" fill="rgba(212,160,23,0.45)"/>
+              <line x1="60" y1="22" x2="60" y2="41" stroke="rgba(212,160,23,0.25)" stroke-width="0.6"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Jewelry 01 — 02</div>
+            <div class="sa-card-title">Gold &amp; Silver</div>
+            <ul class="sa-card-list">
+              <li>14K &amp; 18K Gold</li>
+              <li>Solid Silver Pieces</li>
+              <li>Rose Gold Options</li>
+              <li>White Gold Studs</li>
+            </ul>
+            <span class="sa-card-tag">Luxury Range</span>
+          </div>
+        </div>
+
+        <div class="sa-card anim" style="animation-delay:.12s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#0f0d0a,#1c1812);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <circle cx="60" cy="55" r="26" stroke="rgba(212,160,23,0.3)" stroke-width="0.6" fill="none" stroke-dasharray="3 3"/>
+              <path d="M46 38 L60 28 L74 38 L80 55 L74 72 L60 82 L46 72 L40 55 Z" stroke="rgba(212,160,23,0.5)" stroke-width="0.9" fill="rgba(212,160,23,0.06)"/>
+              <circle cx="60" cy="55" r="8" fill="rgba(176,26,26,0.4)"/>
+              <circle cx="60" cy="55" r="4" fill="rgba(176,26,26,0.7)"/>
+              <circle cx="60" cy="28" r="2.5" fill="rgba(212,160,23,0.6)"/>
+              <circle cx="74" cy="38" r="2" fill="rgba(212,160,23,0.5)"/>
+              <circle cx="46" cy="38" r="2" fill="rgba(212,160,23,0.5)"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Jewelry 03 — 04</div>
+            <div class="sa-card-title">Titanium &amp; Diamond</div>
+            <ul class="sa-card-list">
+              <li>ASTM F136 Titanium</li>
+              <li>Diamond Studs</li>
+              <li>CZ Crystal Tops</li>
+              <li>Implant Grade Steel</li>
+            </ul>
+            <span class="sa-card-tag">Hypoallergenic</span>
+          </div>
+        </div>
+
+        <div class="sa-card anim" style="animation-delay:.19s">
+          <div class="sa-card-art">
+            <div class="art-bg" style="background:linear-gradient(135deg,#100e0a,#1e1a10);"></div>
+            <svg width="120" height="110" viewBox="0 0 120 110" fill="none">
+              <path d="M40 55 Q60 30 80 55 Q60 80 40 55Z" stroke="rgba(212,160,23,0.5)" stroke-width="1" fill="rgba(212,160,23,0.07)"/>
+              <path d="M48 55 Q60 38 72 55 Q60 72 48 55Z" stroke="rgba(176,26,26,0.4)" stroke-width="0.7" fill="rgba(176,26,26,0.05)"/>
+              <circle cx="60" cy="55" r="5" fill="rgba(212,160,23,0.6)"/>
+              <line x1="40" y1="55" x2="30" y2="55" stroke="rgba(212,160,23,0.3)" stroke-width="0.8"/>
+              <line x1="80" y1="55" x2="90" y2="55" stroke="rgba(212,160,23,0.3)" stroke-width="0.8"/>
+              <circle cx="30" cy="55" r="3" fill="rgba(212,160,23,0.4)"/>
+              <circle cx="90" cy="55" r="3" fill="rgba(212,160,23,0.4)"/>
+              <path d="M50 42 Q60 35 70 42" stroke="rgba(212,160,23,0.2)" stroke-width="0.6" fill="none"/>
+            </svg>
+            <div class="sa-card-accent"></div>
+          </div>
+          <div class="sa-card-body">
+            <div class="sa-card-num">Jewelry 05 — 06</div>
+            <div class="sa-card-title">Custom &amp; Safe Options</div>
+            <ul class="sa-card-list">
+              <li>Bespoke Custom Jewelry</li>
+              <li>Hypoallergenic Metals</li>
+              <li>Sensitive Skin Safe</li>
+              <li>Surgical Grade Only</li>
+            </ul>
+            <span class="sa-card-tag">Custom Order</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sa-footer-line">
+      <div class="sa-fl-item"><div class="sa-fl-dot"></div>Walk-ins Welcome</div>
+      <div class="sa-fl-sep"></div>
+      <div class="sa-fl-item"><div class="sa-fl-dot"></div>All Styles Available</div>
+      <div class="sa-fl-sep"></div>
+      <div class="sa-fl-item"><div class="sa-fl-dot"></div>Free Consultation</div>
+      <div class="sa-fl-sep"></div>
+      <div class="sa-fl-item"><div class="sa-fl-dot"></div>Sterile Studio</div>
+    </div>
   </div>
-
 </section>
+
 <script>
+(function(){
+  const tabs = document.querySelectorAll('.sa-tab');
+  const panels = document.querySelectorAll('.sa-panel');
 
-function animateStyles(){
-
-  const cols = document.querySelectorAll(".styles-column");
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function(){
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('visible'));
+      this.classList.add('active');
+      const target = document.getElementById('panel-' + this.dataset.panel);
+      if(target){
+        target.classList.add('visible');
+        target.querySelectorAll('.sa-card').forEach((card, i) => {
+          card.classList.remove('anim');
+          void card.offsetWidth;
+          card.style.animationDelay = (i * 0.08 + 0.04) + 's';
+          card.classList.add('anim');
+        });
+      }
+    });
+  });
 
   const observer = new IntersectionObserver((entries) => {
-
     entries.forEach(entry => {
-
       if(entry.isIntersecting){
-
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
       }
-
     });
+  }, {threshold: 0.1});
 
+  document.querySelectorAll('.sa-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.55s ease ' + (i * 0.1) + 's, transform 0.55s ease ' + (i * 0.1) + 's, border-color 0.25s, translateY 0.22s';
+    observer.observe(card);
   });
-
-  cols.forEach((col, i) => {
-
-    col.style.opacity = "0";
-    col.style.transform = "translateY(40px)";
-    col.style.transition =
-      "all 0.6s ease " + (i * 0.2) + "s";
-
-    observer.observe(col);
-
-  });
-
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  animateStyles();
-
-});
-
+})();
 </script>
 <section class="process">
 
   <div class="process-container">
 
-    <h2 class="process-title">Our Process</h2>
+    <h2 class="highlights-title">Our <em>Process</em></h2>
 
     <div class="process-timeline" id="processWrapper">
 
@@ -345,57 +795,93 @@ document.addEventListener(
 
   <div class="hygiene-container">
 
-    <h2 class="hygiene-title">Hygiene & Safety</h2>
+    <h2 class="highlights-title">Hygiene & <em>Safety</em></h2>
 
-    <div class="hygiene-wrapper" id="hygieneWrapper">
+    <div class="hygiene-wrapper">
+  <div class="hygiene-list">
 
-      <div class="hygiene-list">
-
-        <ul>
-
-          <li>
-            <i class="fas fa-check-circle"></i>
-            Sterilized Tools for Every Session
-          </li>
-
-          <li>
-            <i class="fas fa-check-circle"></i>
-            100% Disposable Needles
-          </li>
-
-          <li>
-            <i class="fas fa-check-circle"></i>
-            Certified Equipment & Safety Standards
-          </li>
-
-          <li>
-            <i class="fas fa-check-circle"></i>
-            Clean & Sanitized Studio Environment
-          </li>
-
-        </ul>
-
-      </div>
-
-      <!-- Highlight Box -->
-      <div class="hygiene-highlight">
-
-        <h3>Your Safety Matters</h3>
-
-        <p>
-          We follow strict hygiene protocols and
-          industry standards to ensure every tattoo
-          and piercing is performed safely,
-          professionally, and with complete care.
-        </p>
-
-        <p class="strong-line">
-          Your safety is our top priority.
-        </p>
-
-      </div>
-
+    <div class="box-header">
+      <h3>Safety & Hygiene Standards</h3>
+      <p>Every procedure follows strict professional protocols.</p>
     </div>
+
+    <ul>
+      <li>
+        <i class="fas fa-shield-check"></i>
+        Hospital-Grade Sterilization for All Equipment
+      </li>
+
+      <li>
+        <i class="fas fa-syringe"></i>
+        Single-Use Disposable Needles & Supplies
+      </li>
+
+      <li>
+        <i class="fas fa-award"></i>
+        Certified Artists Following Industry Standards
+      </li>
+
+      <li>
+        <i class="fas fa-soap"></i>
+        Sanitized Workstations Before Every Session
+      </li>
+
+      <li>
+        <i class="fas fa-hand-sparkles"></i>
+        Medical-Grade Gloves & Protective Barriers
+      </li>
+
+      <li>
+        <i class="fas fa-heart-circle-check"></i>
+        Comprehensive Aftercare Guidance & Support
+      </li>
+    </ul>
+
+  </div>
+
+  
+  <div class="hygiene-highlight">
+
+  
+
+    <h3>Your Health Comes First</h3>
+
+    <p>
+      We are committed to maintaining the highest standards of hygiene,
+      cleanliness, and professional care. Every tattoo and piercing session
+      is conducted in a controlled, sanitized environment using premium
+      equipment and safe practices.
+    </p>
+
+    <p>
+      Our artists undergo regular training to ensure compliance with the
+      latest safety guidelines and industry best practices.From hygiene standards and infection prevention.
+    </p>
+
+    <div class="trust-stats">
+      <div>
+        <strong>5000+</strong>
+        <span>Safe Sessions</span>
+      </div>
+
+      <div>
+        <strong>8+</strong>
+        <span>Years Experience</span>
+      </div>
+
+      <div>
+        <strong>100%</strong>
+        <span>Client Trust</span>
+      </div>
+    </div>
+
+    <p class="strong-line">
+      Safe Procedures • Professional Care • Complete Confidence
+    </p>
+
+  </div>
+
+</div>
 
   </div>
 
@@ -459,115 +945,99 @@ animateHygiene();
 
   <div class="pricing-container">
 
-    <h2 class="pricing-title">
-      Pricing, Duration & Pain Level
+    <h2 class="highlights-title">
+      Pricing, <em>Duration & Pain Level</em>
     </h2>
 
-    <div class="pricing-wrapper" id="pricingWrapper">
+  <div class="pricing-wrapper">
 
-      <div class="pricing-card">
+  
+  <div class="pricing-card">
 
-        <h3>Pricing Details</h3>
-
-        <p>
-          Our pricing depends on design complexity,
-          size, and placement.
-        </p>
-
-        <ul class="pricing-list">
-
-          <li>
-            Starting Price
-            <span class="tag">₹999+</span>
-          </li>
-
-          <li>
-            Small Tattoo
-            <span class="tag">₹999 - ₹3000</span>
-          </li>
-
-          <li>
-            Medium Tattoo
-            <span class="tag">₹3000 - ₹8000</span>
-          </li>
-
-          <li>
-            Large Tattoo
-            <span class="tag">₹8000+</span>
-          </li>
-
-        </ul>
-
-        <p>
-          <strong>Factors affecting cost:</strong>
-        </p>
-
-        <ul class="pricing-list">
-
-          <li>Size of the design</li>
-
-          <li>Complexity & detailing</li>
-
-          <li>Body placement</li>
-
-        </ul>
-
-        <div class="pricing-cta">
-
-          <a href="#" class="btn">
-            Get Custom Quote
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="pricing-card">
-
-        <h3>Duration & Pain Level</h3>
-
-        <p>
-          Time and comfort level depend on the
-          tattoo style and placement.
-        </p>
-
-        <ul class="pricing-list">
-
-          <li>
-            Small Tattoo
-            <span class="tag">30 - 60 mins</span>
-          </li>
-
-          <li>
-            Medium Tattoo
-            <span class="tag">1 - 3 hrs</span>
-          </li>
-
-          <li>
-            Large Tattoo
-            <span class="tag">3+ hrs</span>
-          </li>
-
-          <li>
-            Pain Level
-            <span class="tag">
-              Low - Medium - High
-            </span>
-          </li>
-
-        </ul>
-
-        <div class="pricing-cta">
-
-          <a href="#" class="btn">
-            Consult Artist
-          </a>
-
-        </div>
-
-      </div>
-
+    <div class="pricing-header">
+      <h3>Estimated Pricing</h3>
+      <span class="price-badge">Starting at ₹999</span>
     </div>
+
+    <p>
+      Pricing varies based on size, detailing, color work,
+      placement, and customization requirements.
+    </p>
+
+    <div class="pricing-row">
+      <span>Small Tattoo</span>
+      <strong>₹999 - ₹3,000</strong>
+    </div>
+
+    <div class="pricing-row">
+      <span>Medium Tattoo</span>
+      <strong>₹3,000 - ₹8,000</strong>
+    </div>
+
+    <div class="pricing-row">
+      <span>Large Tattoo</span>
+      <strong>₹8,000+</strong>
+    </div>
+
+    <div class="pricing-row">
+      <span>Custom Artwork</span>
+      <strong>Quote Based</strong>
+    </div>
+
+    <div class="pricing-features">
+      <span><i class="fas fa-check"></i> Free Consultation</span>
+      <span><i class="fas fa-check"></i> Design Assistance</span>
+      <span><i class="fas fa-check"></i> Aftercare Guidance</span>
+    </div>
+
+    <a href="#" class="btn">Get Custom Quote</a>
+
+  </div>
+
+  
+  <div class="pricing-card">
+
+    <div class="pricing-header">
+      <h3>Session Details</h3>
+      <span class="price-badge">Artist Consultation</span>
+    </div>
+
+    <p>
+      Session duration and discomfort level depend on
+      tattoo size, placement, and complexity.
+    </p>
+
+    <div class="pricing-row">
+      <span>Small Tattoo</span>
+      <strong>30 - 60 Min</strong>
+    </div>
+
+    <div class="pricing-row">
+      <span>Medium Tattoo</span>
+      <strong>1 - 3 Hours</strong>
+    </div>
+
+    <div class="pricing-row">
+      <span>Large Tattoo</span>
+      <strong>3+ Hours</strong>
+    </div>
+
+    <div class="pricing-row">
+      <span>Pain Level</span>
+      <strong>Low - High</strong>
+    </div>
+
+    <div class="pricing-features">
+      <span><i class="fas fa-clock"></i> Flexible Scheduling</span>
+      <span><i class="fas fa-user-check"></i> Expert Artists</span>
+      <span><i class="fas fa-heart"></i> Personalized Care</span>
+    </div>
+
+    <a href="#" class="btn">Book Consultation</a>
+
+  </div>
+
+</div>
 
   </div>
 
@@ -635,8 +1105,8 @@ document.addEventListener(
 
   <div class="faq-container">
 
-    <h2 class="faq-title">
-      Frequently Asked Questions
+    <h2 class="highlights-title">
+      Frequently <em>Asked Questions</em>
     </h2>
 
     <div class="faq-wrapper" id="faqWrapper">

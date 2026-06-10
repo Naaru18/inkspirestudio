@@ -12,27 +12,152 @@
 <body>
     
  <div id="header"></div>
+<section id="page-hero">
 
-  <section class="hero services-hero">
-  <div class="hero-overlay"></div>
+  
+  <canvas id="heroCanvas"></canvas>
 
-  <div class="hero-content">
-    <h1>Our Tattoo & Piercing Services</h1>
-    <p>
-      Explore custom tattoo artistry and safe, professional piercing services 
-      crafted with precision, hygiene, and creativity.
-    </p>
+  
+  <div class="hero-dec-line hl1"></div>
+  <div class="hero-dec-line hl2"></div>
+  <div class="hero-dec-line hl3"></div>
 
-    <div class="hero-buttons">
-      <a href="contact.html" class="btn primary">Book Appointment</a>
+  
+  <div class="hero-bg-num">03</div>
+  <div class="hero-wrapper">
+
+    
+    <div class="hero-left">
+      <nav class="page-breadcrumb">
+        <span class="bc-home">Home</span>
+        <span class="bc-sep">›</span>
+        <span class="bc-active">Services</span>
+      </nav>
+
+      <div class="pg-pill">
+        <span class="pg-dot"></span>What We Do
+      </div>
+
+      <h1 class="page-title">
+        Tattoos &amp; Piercings<br/>
+        Done <em>Perfectly</em>
+      </h1>
+
+      <p class="page-sub">
+        From hyper-realistic portraits to geometric masterworks and safe body piercings — every service is delivered with medical precision and artistic soul.
+      </p>
+
+      
+      <div class="tag-row">
+        <span class="svc-tag gold">✦ Custom Tattoos</span>
+        <span class="svc-tag gold">✦ Cover-ups</span>
+        <span class="svc-tag gold">✦ Body Piercing</span>
+        <span class="svc-tag gold">✦ Fine Line</span>
+      </div>
+
+      
+      <div class="stat-row">
+        <div class="stat-chip">
+          <div class="sc-num">5K+</div>
+          <div class="sc-lbl">Tattoos</div>
+        </div>
+        <div class="stat-chip">
+          <div class="sc-num">10+</div>
+          <div class="sc-lbl">Artists</div>
+        </div>
+        <div class="stat-chip">
+          <div class="sc-num">4.9★</div>
+          <div class="sc-lbl">Rating</div>
+        </div>
+        <div class="stat-chip">
+          <div class="sc-num">8 Yr</div>
+          <div class="sc-lbl">Legacy</div>
+        </div>
+      </div>
+
+      
+      <div class="hero-cta-row">
+        <button class="btn-primary">
+          <i class="fas fa-pen-nib"></i> Explore Services
+        </button>
+        <button class="btn-secondary">
+          <i class="fas fa-calendar-alt"></i> Book Session
+        </button>
+      </div>
+    </div>
+
+    
+    <div class="hero-right">
+
+      
+      <div class="svc-cards-stack">
+
+        <div class="svc-stack-card" data-index="0">
+          <div class="ssc-left">
+            <div class="ssc-icon"><i class="fas fa-pen-nib"></i></div>
+          </div>
+          <div class="ssc-body">
+            <span class="ssc-num">01</span>
+            <h3 class="ssc-title">Custom Tattoos</h3>
+            <p class="ssc-desc">Unique designs tailored to your story — from fine lines to full sleeves.</p>
+          </div>
+          <div class="ssc-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+
+        <div class="svc-stack-card" data-index="1">
+          <div class="ssc-left">
+            <div class="ssc-icon"><i class="fas fa-ring"></i></div>
+          </div>
+          <div class="ssc-body">
+            <span class="ssc-num">02</span>
+            <h3 class="ssc-title">Body Piercing</h3>
+            <p class="ssc-desc">Safe, hygienic piercings with premium jewellery and aftercare guidance.</p>
+          </div>
+          <div class="ssc-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+
+        <div class="svc-stack-card" data-index="2">
+          <div class="ssc-left">
+            <div class="ssc-icon"><i class="fas fa-paint-brush"></i></div>
+          </div>
+          <div class="ssc-body">
+            <span class="ssc-num">03</span>
+            <h3 class="ssc-title">Cover-up Art</h3>
+            <p class="ssc-desc">Transform old or faded tattoos into stunning new masterpieces.</p>
+          </div>
+          <div class="ssc-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+
+        <div class="svc-stack-card" data-index="3">
+          <div class="ssc-left">
+            <div class="ssc-icon"><i class="fas fa-shield-halved"></i></div>
+          </div>
+          <div class="ssc-body">
+            <span class="ssc-num">04</span>
+            <h3 class="ssc-title">Aftercare &amp; Touch-ups</h3>
+            <p class="ssc-desc">Expert guidance and touch-up sessions to keep your ink looking vibrant.</p>
+          </div>
+          <div class="ssc-arrow"><i class="fas fa-arrow-right"></i></div>
+        </div>
+
+      </div>
+
+      
+      <div class="scroll-cue">
+        <div class="scroll-dot"></div>
+        <div class="scroll-line"></div>
+        <span>Scroll to Services</span>
+      </div>
+
     </div>
   </div>
 </section>
+
 <section class="services">
 
   <div class="services-container">
 
-    <h2 class="section-title">Our Services</h2>
+    <h2 class="section-title">Our <em>Services</em></h2>
 
     <p class="services-subtitle">
       Discover a wide range of tattoo and piercing services crafted with precision, creativity, and safety.
@@ -42,45 +167,45 @@
 
       
       <div class="service-card">
-        <div class="icon-box">
-          <i class="fas fa-pen-nib"></i>
-        </div>
+        <div class="ico-box">
+  <img src="../Images/service1.png" alt="Pen Icon">
+</div>
         <h3>Minimal Tattoos</h3>
         <p>Simple and elegant designs with deep meaning and modern style.</p>
          <a href="servicedetails1.html" class="blog-link">  View Details →</a>
       </div>
 
       <div class="service-card">
-        <div class="icon-box">
-          <i class="fas fa-image"></i>
-        </div>
+        <div class="ico-box">
+  <img src="../Images/service2.png" alt="Pen Icon">
+</div>
         <h3>Realistic Tattoos</h3>
         <p>Highly detailed tattoos that look incredibly lifelike and artistic.</p>
         <a href="servicedetails1.html" class="blog-link">  View Details →</a>
       </div>
 
       <div class="service-card">
-        <div class="icon-box">
-          <i class="fas fa-user"></i>
-        </div>
+        <div class="ico-box">
+  <img src="../Images/service3.png" alt="Pen Icon">
+</div>
         <h3>Portrait Tattoos</h3>
         <p>Capture emotions and memories with precision portrait designs.</p>
          <a href="servicedetails1.html" class="blog-link">  View Details →</a>
       </div>
 
       <div class="service-card">
-        <div class="icon-box">
-          <i class="fas fa-om"></i>
-        </div>
+       <div class="ico-box">
+  <img src="../Images/service4.png" alt="Pen Icon">
+</div>
         <h3>Religious Tattoos</h3>
         <p>Spiritual and meaningful designs crafted with care and respect.</p>
         <a href="servicedetails1.html" class="blog-link">  View Details →</a>
       </div>
 
       <div class="service-card">
-        <div class="icon-box">
-          <i class="fas fa-magic"></i>
-        </div>
+       <div class="ico-box">
+  <img src="../Images/service5.png" alt="Pen Icon">
+</div>
         <h3>Cover-Up Tattoos</h3>
         <p>Transform old tattoos into stunning new artwork seamlessly.</p>
         <a href="servicedetails1.html" class="blog-link">  View Details →</a>
@@ -88,27 +213,27 @@
 
       
       <div class="service-card">
-        <div class="icon-box">
-          <i class="fas fa-dot-circle"></i>
-        </div>
+        <div class="ico-box">
+  <img src="../Images/service6.png" alt="Pen Icon">
+</div>
         <h3>Ear Piercing</h3>
         <p>Safe and stylish ear piercing with high-quality jewelry.</p>
         <a href="servicedetails1.html" class="blog-link">  View Details →</a>
       </div>
 
       <div class="service-card">
-        <div class="icon-box">
-          <i class="fas fa-circle"></i>
-        </div>
+       <div class="ico-box">
+  <img src="../Images/service7.png" alt="Pen Icon">
+</div>
         <h3>Nose Piercing</h3>
         <p>Professional nose piercing with precision and hygiene.</p>
         <a href="servicedetails1.html" class="blog-link">  View Details →</a>
       </div>
 
       <div class="service-card">
-        <div class="icon-box">
-          <i class="fas fa-ring"></i>
-        </div>
+       <div class="ico-box">
+  <img src="../Images/service8.png" alt="Pen Icon">
+</div>
         <h3>Body Piercing</h3>
         <p>Expert body piercing services with complete safety standards.</p>
         <a href="servicedetails1.html" class="blog-link">  View Details →</a>
@@ -123,7 +248,7 @@
 
   <div class="highlights-container">
 
-    <h2 class="highlights-title">Why Our Services Stand Out</h2>
+    <h2 class="highlights-title">Why Our <em>Services Stand Out</em></h2>
 
     <div class="highlights-grid">
 
@@ -168,7 +293,7 @@
 
   <div class="cta-container">
 
-    <h2 class="cta-title">Not sure what to choose?</h2>
+    <h2 class="cta-title">Not sure <em>what to choose?</em></h2>
 
     <p class="cta-subtitle">
       Talk to our expert artists and get personalized suggestions for your perfect tattoo or piercing.

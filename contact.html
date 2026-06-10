@@ -7,139 +7,490 @@
     <link rel="icon" type="image/png" href="../Images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
      <link rel="preload" href="../css/header.css" as="style">
-    <link rel="stylesheet" href="contact.css">
+     <link rel="stylesheet" href="contact.css">
+
+   
 </head>
 <body>
  <div id="header"></div>
- <section class="contact-hero">
-  <div class="hero-overlay"></div>
 
-  <div class="hero-content">
+<div id="page-hero">
+ 
 
-    <h1>Get in Touch with Our Studio</h1>
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-dec-line hl1"></div>
+  <div class="hero-dec-line hl2"></div>
+  <div class="hero-dec-line hl3"></div>
+  <div class="hero-bg-num">05</div>
 
-    <p class="hero-hook">
-      Have questions or ready to start your tattoo journey?
-    </p>
+  <div class="hero-inner">
+    <div class="hero-left reveal-l">
+      <div class="page-breadcrumb">
+        <span class="bc-home">Home</span>
+        <span class="bc-sep">&#9658;</span>
+        <span class="bc-active">Contact Us</span>
+      </div>
+      <h1 class="page-title">
+        Let's Create<br/>
+        <em>Something</em><br/>
+        Permanent
+      </h1>
+      <p class="page-sub">Book an appointment, ask about pricing, or just come say hi. Our artists are ready to turn your idea into a masterpiece — one conversation at a time.</p>
+      <div class="hero-cta-row">
+        <button class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Appointment
+        </button>
+        <button class="btn-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Chat with Us
+        </button>
+      </div>
+    </div>
 
-    <p class="hero-subtext">
-      Our artists are here to guide you — from ideas to aftercare.
-    </p>
+    <div class="hero-right reveal-r">
+      <div class="info-card-grid">
+        <div class="info-card">
+          <div class="ic-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="ic-label">Hours</div>
+            <div class="ic-value">Open 7 Days</div>
+            <div class="ic-sub">11 AM – 9 PM</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="ic-label">Location</div>
+            <div class="ic-value">MG Road</div>
+            <div class="ic-sub">Bangalore, KA</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div>
+            <div class="ic-label">Rating</div>
+            <div class="ic-value">4.9 / 5.0</div>
+            <div class="ic-sub">1,200+ reviews</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="ic-label">Safety</div>
+            <div class="ic-value">ISO Certified</div>
+            <div class="ic-sub">Sterile equipment</div>
+          </div>
+        </div>
+      </div>
 
-    <div class="hero-buttons">
-      <a href="#" class="btn primary">Book Appointment</a>
-      <a href="#" class="btn secondary">WhatsApp Us</a>
+      <div class="scroll-cue">
+        <div class="scroll-dot"></div>
+        <div class="scroll-line"></div>
+        <span>Scroll to Book</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="contact-main">
+  <div class="main-inner">
+
+    
+    <div class="form-panel reveal-l" id="formPanel">
+      <div class="form-top">
+        <h2>Send Us a Message</h2>
+        <p>Fill in your details and we'll get back within 2 hours during studio hours.</p>
+        <div class="form-divider"></div>
+      </div>
+
+      <div class="service-tabs">
+        <button class="s-tab active" data-svc="tattoo">🖋 Tattoo</button>
+        <button class="s-tab" data-svc="piercing">💎 Piercing</button>
+        <button class="s-tab" data-svc="coverup">🔁 Cover-up</button>
+        <button class="s-tab" data-svc="touchup">✨ Touch-up</button>
+        <button class="s-tab" data-svc="query">❓ General Query</button>
+      </div>
+
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="field has-icon">
+            <label>First Name</label>
+            <input type="text" id="fname" placeholder="" required/>
+            <span class="field-icon"><i class="fas fa-user"></i></span>
+          </div>
+          <div class="field has-icon">
+            <label>Last Name</label>
+            <input type="text" id="lname" placeholder=""/>
+            <span class="field-icon"><i class="fas fa-user"></i></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field has-icon">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="" required/>
+            <span class="field-icon"><i class="fas fa-phone"></i></span>
+          </div>
+          <div class="field has-icon">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder=""/>
+            <span class="field-icon"><i class="fas fa-envelope"></i></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field has-icon">
+            <label>Preferred Date</label>
+            <input type="date" id="date"/>
+            <span class="field-icon"><i class="fas fa-calendar"></i></span>
+          </div>
+          <div class="field has-icon">
+            <label>Preferred Time</label>
+            <select id="time">
+              <option value="">Select a slot</option>
+              <option>10:00 AM – 11:30 AM</option>
+              <option>11:30 AM – 01:00 PM</option>
+              <option>02:00 PM – 03:30 PM</option>
+              <option>03:30 PM – 05:00 PM</option>
+              <option>05:00 PM – 06:30 PM</option>
+              <option>06:30 PM – 08:00 PM</option>
+            </select>
+            <span class="field-icon"><i class="fas fa-clock"></i></span>
+          </div>
+        </div>
+        <div class="field has-icon">
+          <label>Preferred Artist</label>
+          <select id="artist">
+            <option value="">Any available artist</option>
+            <option>Rahul InkMaster — Realism & Portraits</option>
+            <option>Priya ArtSkin — Fine Line & Minimal</option>
+            <option>Arjun Needle — Religious & Traditional</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Placement / Body Area</label>
+          <div class="pref-grid" id="prefGrid">
+            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Forearm</label>
+            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Wrist</label>
+            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Upper Arm</label>
+            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Chest</label>
+            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Back</label>
+            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Neck</label>
+            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Ankle</label>
+            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Other</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Tell Us About Your Idea</label>
+          <textarea id="message" placeholder="Describe your design idea, reference images, style preferences, size, and any other details that will help us prepare for your consultation..."></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn-submit">
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          <button type="button" class="wa-btn" title="Chat on WhatsApp" onclick="window.open('https://wa.me/919876543210','_blank')">
+            <i class="fab fa-whatsapp"></i>
+          </button>
+        </div>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon"><i class="fas fa-check"></i></div>
+        <h3>Message Sent!</h3>
+        <p>We've received your booking request. Our team will reach out within 2 hours. You can also WhatsApp us for faster replies.</p>
+        <button class="btn-submit" style="margin:20px auto 0;max-width:220px" onclick="resetForm()">
+          <span>Send Another</span>
+        </button>
+      </div>
+    </div>
+
+    
+    <div class="right-col">
+
+      
+      <div class="info-card reveal-r">
+        <div class="info-card-head">
+          <div class="ic-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><div class="ic-title">Visit the Studio</div><div class="ic-sub">Walk-ins welcome — appointments preferred</div></div>
+        </div>
+        <div class="contact-details">
+          <div class="cd-item">
+            <div class="cd-dot"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <div class="cd-label">Address</div>
+              <div class="cd-val">42, Brigade Road</div>
+              <div class="cd-extra">MG Road, Bangalore — 560001, Karnataka</div>
+            </div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-dot"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="cd-label">Phone</div>
+              <div class="cd-val">+91 98765 43210</div>
+              <div class="cd-extra">+91 91234 56789 (WhatsApp only)</div>
+            </div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-dot"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="cd-label">Email</div>
+              <div class="cd-val">hello@inkspirestudio.in</div>
+              <div class="cd-extra">bookings@inkspirestudio.in</div>
+            </div>
+          </div>
+          <div class="cd-item">
+            <div class="cd-dot"><i class="fab fa-instagram"></i></div>
+            <div>
+              <div class="cd-label">Instagram</div>
+              <div class="cd-val">@inkspire.studio</div>
+              <div class="cd-extra">DMs open for quick queries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="info-card reveal-r" style="transition-delay:.1s">
+        <div class="info-card-head">
+          <div class="ic-icon"><i class="fas fa-clock"></i></div>
+          <div><div class="ic-title">Studio Hours</div><div class="ic-sub">Last booking slot: 7:30 PM</div></div>
+        </div>
+        <div class="hours-grid">
+          <div class="hour-row">
+            <span class="hour-day">Monday – Friday</span>
+            <span class="hour-time"><span class="open-dot"></span>10:00 AM – 9:00 PM</span>
+          </div>
+          <div class="hour-row">
+            <span class="hour-day">Saturday</span>
+            <span class="hour-time"><span class="open-dot"></span>9:00 AM – 10:00 PM</span>
+          </div>
+          <div class="hour-row">
+            <span class="hour-day">Sunday</span>
+            <span class="hour-time"><span class="open-dot"></span>10:00 AM – 8:00 PM</span>
+          </div>
+          <div class="hour-row">
+            <span class="hour-day">Public Holidays</span>
+            <span class="hour-time"><span class="open-dot" style="background:#f59e0b"></span>11:00 AM – 7:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="info-card reveal-r" style="transition-delay:.2s">
+        <div class="info-card-head">
+          <div class="ic-icon"><i class="fas fa-hashtag"></i></div>
+          <div><div class="ic-title">Follow Our Work</div><div class="ic-sub">See daily art drops and client stories</div></div>
+        </div>
+        <div class="social-row">
+          <div class="soc ig" onclick="window.open('#','_blank')"><i class="fab fa-instagram"></i><span>Instagram</span></div>
+          <div class="soc fb" onclick="window.open('#','_blank')"><i class="fab fa-facebook"></i><span>Facebook</span></div>
+          <div class="soc yt" onclick="window.open('#','_blank')"><i class="fab fa-youtube"></i><span>YouTube</span></div>
+          <div class="soc wa" onclick="window.open('https://wa.me/919876543210','_blank')"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></div>
+        </div>
+      </div>
+
+      
+      <div class="map-card reveal-r" style="transition-delay:.3s">
+        <div class="map-placeholder">
+          <div class="map-grid"></div>
+          <div class="map-pin">
+            <div class="pin-icon"><i class="fas fa-pen-nib"></i></div>
+            <div class="pin-label">Inkspire Studio</div>
+            <div class="pin-addr">42 Brigade Rd, MG Road, Bangalore</div>
+          </div>
+        </div>
+        <div class="map-footer">
+          <span><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px"></i>2.1 km from MG Road Metro</span>
+          <button class="map-dir-btn" onclick="window.open('https://maps.google.com','_blank')">
+            <i class="fas fa-directions"></i> Get Directions
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 <script>
-  document.querySelectorAll(".btn").forEach(btn => {
-    btn.addEventListener("click", e => {
-      if(btn.getAttribute("href") === "#"){
-        e.preventDefault();
-        alert("Redirect to booking / WhatsApp integration here");
+document.addEventListener("DOMContentLoaded", () => {
+
+  const elements = document.querySelectorAll(".reveal-l, .reveal-r");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
       }
     });
+  }, {
+    threshold: 0.15
   });
-</script>
-<section class="contact">
 
-  <div class="contact-container">
+  elements.forEach(el => observer.observe(el));
 
-    <h2 class="section-title">Contact Us</h2>
-
-    <div class="contact-grid">
-
-      
-      <div class="contact-info">
-
-        
-        <div class="info-box">
-          <i class="fas fa-phone"></i>
-          <div class="info-box-text">
-            <h3>Call Us</h3>
-            <p>+91 9876543210</p>
-          </div>
-        </div>
-
-        
-        <div class="info-box">
-          <i class="fas fa-envelope"></i>
-          <div class="info-box-text">
-            <h3>Email</h3>
-            <p>tattoostudio@gmail.com</p>
-          </div>
-        </div>
-
-        
-        <div class="info-box">
-          <i class="fas fa-map-marker-alt"></i>
-          <div class="info-box-text">
-            <h3>Location</h3>
-            <p>MG Road, Bangalore</p>
-          </div>
-        </div>
-
-        
-        <div class="info-box">
-          <i class="fas fa-clock"></i>
-          <div class="info-box-text">
-            <h3>Working Hours</h3>
-            <p>Mon - Sun : 10AM - 9PM</p>
-          </div>
-        </div>
-
-      </div>
-
-      
-      <div class="contact-form-card">
-
-        <h3 class="form-title">Send a Message</h3>
-
-        <form>
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <textarea rows="5" placeholder="Your Message"></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  alert("Message sent successfully!");
-  this.reset();
 });
 </script>
-<section class="map-section">
-  <div class="map-container">
-
-    <h2 class="map-title">Visit Our Studio</h2>
-
-    <div class="map-box">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0715856671683!2d77.599011!3d12.975763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1673f3b0b5f7%3A0x2b3c3d6f7c8b8a1e!2sMG%20Road%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v0000000000"
-        width="100%"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
+<section id="faq-strip">
+  <div class="faq-inner">
+    <div class="faq-top">
+      <div class="faq-top-l reveal">
+       
+        <h2 class="section-title">Before <em>You Book</em></h2>
+      </div>
     </div>
-
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <div class="faq-q">How much does a custom tattoo cost? <span class="fq-icon"><i class="fas fa-plus"></i></span></div>
+        <div class="faq-a"><p>Pricing depends on size, complexity, placement, and style. Minimum charge is ₹1,500. Custom designs start from ₹3,000. Full sleeves from ₹25,000. We provide a detailed quote during your free consultation.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.05s">
+        <div class="faq-q">How do I prepare for my first tattoo? <span class="fq-icon"><i class="fas fa-plus"></i></span></div>
+        <div class="faq-a"><p>Eat a good meal 2 hours before, stay hydrated, avoid alcohol for 24 hours, moisturize the skin area, wear comfortable clothing that provides easy access. Get good sleep the night before.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.1s">
+        <div class="faq-q">Do you charge for consultations? <span class="fq-icon"><i class="fas fa-plus"></i></span></div>
+        <div class="faq-a"><p>All consultations are completely free of charge. You can visit the studio in person, video call, or WhatsApp us your reference images and we'll provide honest design feedback and pricing.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.15s">
+        <div class="faq-q">What is your cancellation/rescheduling policy? <span class="fq-icon"><i class="fas fa-plus"></i></span></div>
+        <div class="faq-a"><p>We require 24 hours' notice for cancellations or rescheduling. A 20% booking deposit is required for sessions over ₹5,000, which is fully refundable with sufficient notice or transferable to another date.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.2s">
+        <div class="faq-q">Can I get tattooed if I have sensitive skin? <span class="fq-icon"><i class="fas fa-plus"></i></span></div>
+        <div class="faq-a"><p>Yes, in most cases. We recommend a patch test for highly sensitive or allergy-prone skin. Our inks are vegan-friendly and formulated for sensitive skin types. Discuss your concerns during consultation.</p></div>
+      </div>
+      <div class="faq-item reveal" style="transition-delay:.25s">
+        <div class="faq-q">How long does healing take? <span class="fq-icon"><i class="fas fa-plus"></i></span></div>
+        <div class="faq-a"><p>Surface healing takes 2–3 weeks. Complete deep healing takes 3–6 months. We provide a detailed aftercare kit and guide with every tattoo. Free touch-up is offered within 3 months of your session.</p></div>
+      </div>
+    </div>
   </div>
 </section>
+
 <script>
 
-console.log("Map section loaded");
-</script>
 
+document.getElementById('hamburger')?.addEventListener('click', () => {
+  document.getElementById('mobMenu')?.classList.toggle('open');
+});
+
+
+
+const revealEls = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+revealEls.forEach(el => observer.observe(el));
+
+
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  nav.style.boxShadow = window.scrollY > 40
+    ? '0 4px 28px rgba(0,0,0,.45)'
+    : 'none';
+});
+
+
+
+document.querySelectorAll('.s-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelector('.s-tab.active')?.classList.remove('active');
+    tab.classList.add('active');
+  });
+});
+
+
+
+function togglePref(el) {
+  el.classList.toggle('checked');
+}
+window.togglePref = togglePref;
+
+
+
+document.getElementById('contactForm')?.addEventListener('submit', e => {
+  e.preventDefault();
+
+  const fname = document.getElementById('fname');
+  const phone = document.getElementById('phone');
+
+  let valid = true;
+
+  if (!fname.value.trim()) {
+    fname.style.borderColor = '#ef4444';
+    valid = false;
+    setTimeout(() => fname.style.borderColor = '', 2000);
+  }
+
+  if (!phone.value.trim()) {
+    phone.style.borderColor = '#ef4444';
+    valid = false;
+    setTimeout(() => phone.style.borderColor = '', 2000);
+  }
+
+  if (!valid) return;
+
+  document.getElementById('contactForm').style.display = 'none';
+  document.querySelector('.form-top').style.display = 'none';
+  document.querySelector('.service-tabs').style.display = 'none';
+  document.getElementById('successMsg').classList.add('show');
+});
+
+
+
+function resetForm() {
+  document.getElementById('contactForm').reset();
+  document.getElementById('contactForm').style.display = 'block';
+  document.querySelector('.form-top').style.display = 'block';
+  document.querySelector('.service-tabs').style.display = 'flex';
+  document.getElementById('successMsg').classList.remove('show');
+
+  document.querySelectorAll('.pref-item').forEach(p => p.classList.remove('checked'));
+}
+window.resetForm = resetForm;
+
+
+
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      if (i !== item) i.classList.remove('open');
+    });
+
+
+    item.classList.toggle('open');
+  });
+});
+
+
+
+const dateInput = document.getElementById('date');
+
+if (dateInput) {
+  const today = new Date();
+  today.setDate(today.getDate() + 1);
+  dateInput.min = today.toISOString().split('T')[0];
+}
+
+</script>
 <div id="footer"></div>
 <script src="../js/components.js"></script>
 </body>
