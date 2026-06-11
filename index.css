@@ -464,6 +464,16 @@ body.dark-mode .hero-section,
   display:block;
   transition:.5s ease;
 }
+#premiumBubbleCanvas{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+  }
+  .h-container{
+    position:relative;
+    z-index:1;
+  }
 .bg-slot.split .split-half:hover img{
   transform:scale(1.08);
 }

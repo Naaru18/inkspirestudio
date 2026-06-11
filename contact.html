@@ -100,7 +100,157 @@
     </div>
   </div>
 </div>
+<script>
+(function(){
 
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  const section = document.getElementById('page-hero');
+  let w, h, bubbles = [];
+
+  function getBubbleCount(){
+    const width = window.innerWidth;
+    if (width <= 360) return 12;
+    if (width <= 768) return 18;
+    if (width <= 1024) return 24;
+    if (width <= 1280) return 30;
+    return 36;
+  }
+
+  function resize(){
+    const rect = section.getBoundingClientRect();
+    w = canvas.width = rect.width * devicePixelRatio;
+    h = canvas.height = rect.height * devicePixelRatio;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+  }
+
+  function makeBubble(){
+    return {
+      x: Math.random() * w,
+      y: h + Math.random() * 100,
+      r: (Math.random() * 14 + 3) * devicePixelRatio,
+      speed: (Math.random() * 0.5 + 0.15) * devicePixelRatio,
+      drift: (Math.random() - 0.5) * 0.4 * devicePixelRatio,
+      alpha: Math.random() * 0.25 + 0.06,
+      hue: Math.random() > 0.5 ? '212,160,23' : '176,26,26',
+      wobble: Math.random() * Math.PI * 2,
+      wobbleSpeed: Math.random() * 0.02 + 0.005
+    };
+  }
+
+  resize();
+  let count = getBubbleCount();
+  for (let i = 0; i < count; i++){
+    const b = makeBubble();
+    b.y = Math.random() * h;
+    bubbles.push(b);
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, w, h);
+    bubbles.forEach(b => {
+      b.y -= b.speed;
+      b.wobble += b.wobbleSpeed;
+      b.x += b.drift + Math.sin(b.wobble) * 0.4 * devicePixelRatio;
+
+      if (b.y < -b.r * 2){
+        Object.assign(b, makeBubble());
+        b.y = h + b.r;
+      }
+
+      const grad = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+      grad.addColorStop(0, `rgba(${b.hue}, ${b.alpha})`);
+      grad.addColorStop(0.7, `rgba(${b.hue}, ${b.alpha * 0.4})`);
+      grad.addColorStop(1, `rgba(${b.hue}, 0)`);
+
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = `rgba(${b.hue}, ${b.alpha * 1.5})`;
+      ctx.lineWidth = 1 * devicePixelRatio;
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.stroke();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  window.addEventListener('resize', () => {
+    resize();
+    const target = getBubbleCount();
+    if (target > bubbles.length){
+      while (bubbles.length < target) bubbles.push(makeBubble());
+    } else {
+      bubbles.length = target;
+    }
+  });
+
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .reveal-l, .reveal-r{ opacity:0; }
+    .reveal-l{ animation: heroRevealLeft .9s ease forwards; }
+    .reveal-r{ animation: heroRevealRight .9s ease .15s forwards; }
+
+    @keyframes heroRevealLeft{
+      from{ opacity:0; transform:translateX(-40px); }
+      to{ opacity:1; transform:translateX(0); }
+    }
+    @keyframes heroRevealRight{
+      from{ opacity:0; transform:translateX(40px); }
+      to{ opacity:1; transform:translateX(0); }
+    }
+
+    .hero-right .info-card{
+      opacity:0;
+      animation: heroCardPop .6s ease forwards;
+    }
+    .hero-right .info-card:nth-child(1){ animation-delay:.30s; }
+    .hero-right .info-card:nth-child(2){ animation-delay:.45s; }
+    .hero-right .info-card:nth-child(3){ animation-delay:.60s; }
+    .hero-right .info-card:nth-child(4){ animation-delay:.75s; }
+
+    @keyframes heroCardPop{
+      from{ opacity:0; transform:translateY(24px) scale(.96); }
+      to{ opacity:1; transform:translateY(0) scale(1); }
+    }
+
+    .hero-right .ic-icon{
+      animation: heroIconFloat 4s ease-in-out infinite;
+    }
+    .hero-right .info-card:nth-child(2) .ic-icon{ animation-delay:.4s; }
+    .hero-right .info-card:nth-child(3) .ic-icon{ animation-delay:.8s; }
+    .hero-right .info-card:nth-child(4) .ic-icon{ animation-delay:1.2s; }
+
+    @keyframes heroIconFloat{
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(-5px); }
+    }
+
+    .hero-bg-num{
+      animation: heroNumPulse 6s ease-in-out infinite;
+    }
+    @keyframes heroNumPulse{
+      0%,100%{ opacity:.4; }
+      50%{ opacity:.9; }
+    }
+
+    .scroll-dot{
+      animation: heroDotPulse 1.6s ease-in-out infinite;
+    }
+    @keyframes heroDotPulse{
+      0%,100%{ transform:scale(1); opacity:.6; }
+      50%{ transform:scale(1.6); opacity:1; }
+    }
+  `;
+  document.head.appendChild(style);
+
+})();
+</script>
 <section id="contact-main">
   <div class="main-inner">
 

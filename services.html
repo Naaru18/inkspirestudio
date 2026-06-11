@@ -12,21 +12,18 @@
 <body>
     
  <div id="header"></div>
+
 <section id="page-hero">
 
-  
   <canvas id="heroCanvas"></canvas>
 
-  
   <div class="hero-dec-line hl1"></div>
   <div class="hero-dec-line hl2"></div>
   <div class="hero-dec-line hl3"></div>
 
-  
   <div class="hero-bg-num">03</div>
   <div class="hero-wrapper">
 
-    
     <div class="hero-left">
       <nav class="page-breadcrumb">
         <span class="bc-home">Home</span>
@@ -47,7 +44,6 @@
         From hyper-realistic portraits to geometric masterworks and safe body piercings — every service is delivered with medical precision and artistic soul.
       </p>
 
-      
       <div class="tag-row">
         <span class="svc-tag gold">✦ Custom Tattoos</span>
         <span class="svc-tag gold">✦ Cover-ups</span>
@@ -55,7 +51,6 @@
         <span class="svc-tag gold">✦ Fine Line</span>
       </div>
 
-      
       <div class="stat-row">
         <div class="stat-chip">
           <div class="sc-num">5K+</div>
@@ -75,7 +70,6 @@
         </div>
       </div>
 
-      
       <div class="hero-cta-row">
         <button class="btn-primary">
           <i class="fas fa-pen-nib"></i> Explore Services
@@ -85,64 +79,42 @@
         </button>
       </div>
     </div>
-
-    
     <div class="hero-right">
 
-      
-      <div class="svc-cards-stack">
+      <img class="hero-showcase-img" src="../Images/sbg.png" alt="Tattoo artist at work">
 
-        <div class="svc-stack-card" data-index="0">
-          <div class="ssc-left">
-            <div class="ssc-icon"><i class="fas fa-pen-nib"></i></div>
-          </div>
-          <div class="ssc-body">
-            <span class="ssc-num">01</span>
-            <h3 class="ssc-title">Custom Tattoos</h3>
-            <p class="ssc-desc">Unique designs tailored to your story — from fine lines to full sleeves.</p>
-          </div>
-          <div class="ssc-arrow"><i class="fas fa-arrow-right"></i></div>
+      <div class="float-badge fb-1">
+        <div class="fb-icon"><i class="fas fa-pen-nib"></i></div>
+        <div>
+          <span class="fb-num">01</span>
+          <h3 class="fb-title">Custom Tattoos</h3>
         </div>
-
-        <div class="svc-stack-card" data-index="1">
-          <div class="ssc-left">
-            <div class="ssc-icon"><i class="fas fa-ring"></i></div>
-          </div>
-          <div class="ssc-body">
-            <span class="ssc-num">02</span>
-            <h3 class="ssc-title">Body Piercing</h3>
-            <p class="ssc-desc">Safe, hygienic piercings with premium jewellery and aftercare guidance.</p>
-          </div>
-          <div class="ssc-arrow"><i class="fas fa-arrow-right"></i></div>
-        </div>
-
-        <div class="svc-stack-card" data-index="2">
-          <div class="ssc-left">
-            <div class="ssc-icon"><i class="fas fa-paint-brush"></i></div>
-          </div>
-          <div class="ssc-body">
-            <span class="ssc-num">03</span>
-            <h3 class="ssc-title">Cover-up Art</h3>
-            <p class="ssc-desc">Transform old or faded tattoos into stunning new masterpieces.</p>
-          </div>
-          <div class="ssc-arrow"><i class="fas fa-arrow-right"></i></div>
-        </div>
-
-        <div class="svc-stack-card" data-index="3">
-          <div class="ssc-left">
-            <div class="ssc-icon"><i class="fas fa-shield-halved"></i></div>
-          </div>
-          <div class="ssc-body">
-            <span class="ssc-num">04</span>
-            <h3 class="ssc-title">Aftercare &amp; Touch-ups</h3>
-            <p class="ssc-desc">Expert guidance and touch-up sessions to keep your ink looking vibrant.</p>
-          </div>
-          <div class="ssc-arrow"><i class="fas fa-arrow-right"></i></div>
-        </div>
-
       </div>
 
-      
+      <div class="float-badge fb-2">
+        <div class="fb-icon"><i class="fas fa-ring"></i></div>
+        <div>
+          <span class="fb-num">02</span>
+          <h3 class="fb-title">Body Piercing</h3>
+        </div>
+      </div>
+
+      <div class="float-badge fb-3">
+        <div class="fb-icon"><i class="fas fa-paint-brush"></i></div>
+        <div>
+          <span class="fb-num">03</span>
+          <h3 class="fb-title">Cover-up Art</h3>
+        </div>
+      </div>
+
+      <div class="float-badge fb-4">
+        <div class="fb-icon"><i class="fas fa-shield-halved"></i></div>
+        <div>
+          <span class="fb-num">04</span>
+          <h3 class="fb-title">Aftercare &amp; Touch-ups</h3>
+        </div>
+      </div>
+
       <div class="scroll-cue">
         <div class="scroll-dot"></div>
         <div class="scroll-line"></div>
@@ -153,6 +125,93 @@
   </div>
 </section>
 
+<script>
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  const section = canvas.parentElement;
+  let particles = [];
+  let dpr = window.devicePixelRatio || 1;
+
+  function particleCount(){
+    const w = window.innerWidth;
+    if (w <= 360) return 14;
+    if (w <= 768) return 22;
+    if (w <= 1024) return 30;
+    if (w <= 1280) return 38;
+    return 46;
+  }
+
+  function resize(){
+    dpr = window.devicePixelRatio || 1;
+    const w = section.offsetWidth;
+    const h = section.offsetHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    initParticles();
+  }
+
+  function initParticles(){
+    const w = section.offsetWidth;
+    const h = section.offsetHeight;
+    const count = particleCount();
+    particles = [];
+
+    for(let i=0;i<count;i++){
+      const isGold = Math.random() > 0.45;
+      particles.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        r: Math.random()*5+1.5,
+        speedY: Math.random()*0.4+0.12,
+        wobble: Math.random()*Math.PI*2,
+        wobbleSpeed: Math.random()*0.022+0.006,
+        wobbleAmp: Math.random()*0.7+0.25,
+        color: isGold ? '212,160,23' : '176,26,26',
+        alpha: Math.random()*0.28+0.06
+      });
+    }
+  }
+
+  function animate(){
+    const w = section.offsetWidth;
+    const h = section.offsetHeight;
+    ctx.clearRect(0,0,w,h);
+
+    particles.forEach(p=>{
+      p.y -= p.speedY;
+      p.wobble += p.wobbleSpeed;
+      p.x += Math.sin(p.wobble)*p.wobbleAmp;
+
+      if(p.y < -p.r*2){
+        p.y = h + p.r*2;
+        p.x = Math.random()*w;
+      }
+      if(p.x < -p.r*2) p.x = w + p.r*2;
+      if(p.x > w + p.r*2) p.x = -p.r*2;
+
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', ()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  });
+
+  resize();
+  animate();
+})();
+</script>
 <section class="services">
 
   <div class="services-container">
