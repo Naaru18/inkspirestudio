@@ -14,7 +14,7 @@ body {
 }
 :root {
    --sbg1:#ffffff;
-  --sbg2:#f2f2f2;
+  --sbg2:#f9f6df;
   --bg:      #f3e0c3;
   --bg1:     #fff;
   --bg2:     #fff8f2;
@@ -983,8 +983,12 @@ body:not(.dark-mode) .highlight-card p{
 
 .sa-card-body{
   padding:20px 22px 22px;
-}
 
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
 .sa-card-num{
   font-size:.65rem;
   font-weight:700;

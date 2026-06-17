@@ -9,7 +9,7 @@
 
 
 body:not(.dark-mode){
-  --bg-header:#f2ecec;
+  --bg-header:#ffffff;
   --text-header:#111;
 }
 

@@ -11,7 +11,7 @@
 
 
 body:not(.dark-mode){
-  --footer-bg:#f2ecec;
+  --footer-bg:#F8F1C9;
   --footer-text:#000;
   --footer-subtext:#000;
   --footer-border:#000;

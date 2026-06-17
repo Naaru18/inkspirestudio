@@ -44,7 +44,7 @@ body {
   --grad:    linear-gradient(135deg,#d4a017,#b01a1a);
   --grad-r:  linear-gradient(135deg,#b01a1a,#d4a017);
    --sbg1:#ffffff;
-  --sbg2:#f2f2f2;
+  --sbg2:#f9f6df;
     --scrim:   rgba(8,5,3,.82);
   --scrim-edge: rgba(8,5,3,.35);
  
@@ -941,14 +941,11 @@ body:not(.dark-mode) .blog-content p{
 
 .newsletter{
   padding:50px 20px;
-  background:#111;
+  background:var(--sbg1);
   text-align:center;
 }
 
 
-body:not(.dark-mode) .newsletter{
-  background:#f8f8f8;
-}
 
 
 .newsletter-text{

@@ -238,6 +238,7 @@ body.dark-mode{
 
   margin-bottom:20px;
   max-width:720px;
+  
 }
 
 .bd-title em{
@@ -247,6 +248,9 @@ body.dark-mode{
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
 .bd-meta-row{
@@ -873,7 +877,7 @@ body:not(.dark-mode) .blog-container li{
 }
 
 body:not(.dark-mode) .tip-box{
-  background:#f5f5f5;
+  background:#f9f6df;
   color:#333;
 }
 
@@ -927,7 +931,7 @@ body:not(.dark-mode) .tip-box{
 
 
 body:not(.dark-mode) .blog-visual{
-  background:#f9f9f9;
+  background:#f9f6df;
 }
 
 
@@ -985,6 +989,11 @@ body:not(.dark-mode) .blog-visual{
   background:
     linear-gradient(#1a1a1a,#1a1a1a) padding-box,
     linear-gradient(135deg,#d3b016,#a01b1b) border-box;
+      display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
 

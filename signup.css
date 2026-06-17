@@ -1,4 +1,4 @@
-:root{
+body.dark-mode{
   --primary:#d3b016;
   --secondary:#a01b1b;
 
@@ -14,8 +14,9 @@
   --right-overlay:rgba(0,0,0,0.45);
   --right-filter:brightness(0.9);
 }
-
-body.light{
+:root{
+    --primary:#d3b016;
+  --secondary:#a01b1b;
   --bg:#f4f4f4;
   --left-bg:linear-gradient(135deg,#ffffff,#f3f3f3);
   --text:#111111;
@@ -157,14 +158,13 @@ h1{
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(10px);
   border:2px solid transparent;
-
-  background:
-    linear-gradient(#1a1a1a,#1a1a1a) padding-box,
-    linear-gradient(135deg,#d3b016,#a01b1b) border-box;
-}
- body.light .social-login button{
    background:
     linear-gradient(#ffffff,#ffffff) padding-box,
+    linear-gradient(135deg,#d3b016,#a01b1b) border-box;
+}
+ body.dark-mode .social-login button{
+    background:
+    linear-gradient(#1a1a1a,#1a1a1a) padding-box,
     linear-gradient(135deg,#d3b016,#a01b1b) border-box;
  }
 .social-login button:hover{
@@ -240,10 +240,21 @@ h1{
 }
 
 .right-content{
+  color:#000;
   text-align:center;
-  color:#fff;
-  max-width:400px;
-  padding:24px;
+  max-width:420px;
+  padding:35px;
+
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+
+  border:1px solid rgba(212,176,22,0.25);
+  border-radius:28px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.25),
+    inset 0 1px 1px rgba(255,255,255,.15);
 }
 
 .right-content h2{
@@ -332,5 +343,8 @@ html[dir="rtl"] .input-group input{
   }
   .auth-left{
     margin-top: 50px;
+  }
+  .right-content{
+    max-width: 300px;
   }
 }

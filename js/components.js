@@ -10,7 +10,7 @@ function loadHeader() {
         headerContainer.classList.remove("header-loading");
         headerContainer.classList.add("header-loaded");
 
-        initHeader(); // IMPORTANT: run AFTER header inserted
+        initHeader(); 
       });
     });
 }

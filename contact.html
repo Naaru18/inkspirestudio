@@ -254,238 +254,121 @@
 <section id="contact-main">
   <div class="main-inner">
 
-    
-    <div class="form-panel reveal-l" id="formPanel">
+    <div class="form-panel reveal-l">
       <div class="form-top">
-        <h2>Send Us a Message</h2>
-        <p>Fill in your details and we'll get back within 2 hours during studio hours.</p>
-        <div class="form-divider"></div>
+        <h2>Book a Session</h2>
+        <p>Fill in your details and we'll confirm within 2 hours.</p>
+        <div class="divider"></div>
       </div>
 
-      <div class="service-tabs">
-        <button class="s-tab active" data-svc="tattoo">🖋 Tattoo</button>
-        <button class="s-tab" data-svc="piercing">💎 Piercing</button>
-        <button class="s-tab" data-svc="coverup">🔁 Cover-up</button>
-        <button class="s-tab" data-svc="touchup">✨ Touch-up</button>
-        <button class="s-tab" data-svc="query">❓ General Query</button>
+      <div class="s-tabs">
+        <button class="s-tab active">🖋 Tattoo</button>
+        <button class="s-tab">💎 Piercing</button>
+        <button class="s-tab">🔁 Cover-up</button>
+        <button class="s-tab">✨ Touch-up</button>
+        <button class="s-tab">❓ Query</button>
       </div>
 
-      <form id="contactForm" novalidate>
-        <div class="form-row">
-          <div class="field has-icon">
-            <label>First Name</label>
-            <input type="text" id="fname" placeholder="" required/>
-            <span class="field-icon"><i class="fas fa-user"></i></span>
-          </div>
-          <div class="field has-icon">
-            <label>Last Name</label>
-            <input type="text" id="lname" placeholder=""/>
-            <span class="field-icon"><i class="fas fa-user"></i></span>
-          </div>
+      <form novalidate>
+        <div class="frow">
+          <div class="field"><label>First Name</label><input type="text" placeholder=""/></div>
+          <div class="field"><label>Last Name</label><input type="text" placeholder=""/></div>
         </div>
-        <div class="form-row">
-          <div class="field has-icon">
-            <label>Phone Number</label>
-            <input type="tel" id="phone" placeholder="" required/>
-            <span class="field-icon"><i class="fas fa-phone"></i></span>
-          </div>
-          <div class="field has-icon">
-            <label>Email Address</label>
-            <input type="email" id="email" placeholder=""/>
-            <span class="field-icon"><i class="fas fa-envelope"></i></span>
-          </div>
+        <div class="frow">
+          <div class="field"><label>Phone</label><input type="tel" placeholder=""/></div>
+          <div class="field"><label>Email</label><input type="email" placeholder=""/></div>
         </div>
-        <div class="form-row">
-          <div class="field has-icon">
-            <label>Preferred Date</label>
-            <input type="date" id="date"/>
-            <span class="field-icon"><i class="fas fa-calendar"></i></span>
-          </div>
-          <div class="field has-icon">
-            <label>Preferred Time</label>
-            <select id="time">
+        <div class="frow">
+          <div class="field"><label>Date</label><input type="date"/></div>
+          <div class="field"><label>Time Slot</label>
+            <select>
               <option value="">Select a slot</option>
-              <option>10:00 AM – 11:30 AM</option>
-              <option>11:30 AM – 01:00 PM</option>
-              <option>02:00 PM – 03:30 PM</option>
-              <option>03:30 PM – 05:00 PM</option>
-              <option>05:00 PM – 06:30 PM</option>
-              <option>06:30 PM – 08:00 PM</option>
+              <option>10:00 – 11:30 AM</option>
+              <option>11:30 AM – 1:00 PM</option>
+              <option>2:00 – 3:30 PM</option>
+              <option>3:30 – 5:00 PM</option>
+              <option>5:00 – 6:30 PM</option>
+              <option>6:30 – 8:00 PM</option>
             </select>
-            <span class="field-icon"><i class="fas fa-clock"></i></span>
           </div>
         </div>
-        <div class="field has-icon">
-          <label>Preferred Artist</label>
-          <select id="artist">
-            <option value="">Any available artist</option>
-            <option>Rahul InkMaster — Realism & Portraits</option>
-            <option>Priya ArtSkin — Fine Line & Minimal</option>
-            <option>Arjun Needle — Religious & Traditional</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Placement / Body Area</label>
-          <div class="pref-grid" id="prefGrid">
-            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Forearm</label>
-            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Wrist</label>
-            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Upper Arm</label>
-            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Chest</label>
-            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Back</label>
-            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Neck</label>
-            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Ankle</label>
-            <label class="pref-item" onclick="togglePref(this)"><input type="checkbox"/><span class="pref-dot"></span>Other</label>
-          </div>
-        </div>
-        <div class="field">
-          <label>Tell Us About Your Idea</label>
-          <textarea id="message" placeholder="Describe your design idea, reference images, style preferences, size, and any other details that will help us prepare for your consultation..."></textarea>
+   
+
+        <div class="field-full">
+          <div class="field"><label>Your Idea</label><textarea placeholder="Describe your design — style, size, references, placement details…"></textarea></div>
         </div>
         <div class="submit-row">
-          <button type="submit" class="btn-submit">
-            <span>Send Message</span>
-            <i class="fas fa-paper-plane"></i>
-          </button>
-          <button type="button" class="wa-btn" title="Chat on WhatsApp" onclick="window.open('https://wa.me/919876543210','_blank')">
-            <i class="fab fa-whatsapp"></i>
-          </button>
+          <button type="submit" class="btn-submit"><span>Send Booking</span><i class="fas fa-paper-plane"></i></button>
+          <button type="button" class="wa-btn" title="WhatsApp us"><i class="fab fa-whatsapp"></i></button>
         </div>
       </form>
-
-      <div class="success-msg" id="successMsg">
-        <div class="success-icon"><i class="fas fa-check"></i></div>
-        <h3>Message Sent!</h3>
-        <p>We've received your booking request. Our team will reach out within 2 hours. You can also WhatsApp us for faster replies.</p>
-        <button class="btn-submit" style="margin:20px auto 0;max-width:220px" onclick="resetForm()">
-          <span>Send Another</span>
-        </button>
-      </div>
     </div>
 
-    
     <div class="right-col">
 
-      
-      <div class="info-card reveal-r">
-        <div class="info-card-head">
-          <div class="ic-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div><div class="ic-title">Visit the Studio</div><div class="ic-sub">Walk-ins welcome — appointments preferred</div></div>
+      <div class="card reveal-r">
+        <div class="card-head">
+              
+   
+
+          <div class="card-icon"><i class="fa-solid fa-dragon logo-icon"></i></div>
+          
+          <div><div class="card-title"><h2>Inkspire Studio</h2></div></div>
         </div>
-        <div class="contact-details">
-          <div class="cd-item">
-            <div class="cd-dot"><i class="fas fa-location-dot"></i></div>
-            <div>
-              <div class="cd-label">Address</div>
-              <div class="cd-val">42, Brigade Road</div>
-              <div class="cd-extra">MG Road, Bangalore — 560001, Karnataka</div>
-            </div>
+        <div class="c-list">
+          <div class="c-row">
+            <div class="c-dot"><i class="fas fa-location-dot"></i></div>
+            <div><div class="c-label">Address</div><div class="c-extra">MG Road, Bangalore — 560001</div></div>
           </div>
-          <div class="cd-item">
-            <div class="cd-dot"><i class="fas fa-phone"></i></div>
-            <div>
-              <div class="cd-label">Phone</div>
-              <div class="cd-val">+91 98765 43210</div>
-              <div class="cd-extra">+91 91234 56789 (WhatsApp only)</div>
-            </div>
+          <div class="c-row">
+            <div class="c-dot"><i class="fas fa-phone"></i></div>
+            <div><div class="c-label">Phone</div><div class="c-val">+91 98765 43210</div></div>
           </div>
-          <div class="cd-item">
-            <div class="cd-dot"><i class="fas fa-envelope"></i></div>
-            <div>
-              <div class="cd-label">Email</div>
-              <div class="cd-val">hello@inkspirestudio.in</div>
-              <div class="cd-extra">bookings@inkspirestudio.in</div>
-            </div>
-          </div>
-          <div class="cd-item">
-            <div class="cd-dot"><i class="fab fa-instagram"></i></div>
-            <div>
-              <div class="cd-label">Instagram</div>
-              <div class="cd-val">@inkspire.studio</div>
-              <div class="cd-extra">DMs open for quick queries</div>
-            </div>
+          <div class="c-row">
+            <div class="c-dot"><i class="fas fa-envelope"></i></div>
+            <div><div class="c-label">Email</div><div class="c-val">hello@inkspirestudio.in</div></div>
           </div>
         </div>
       </div>
 
-      
-      <div class="info-card reveal-r" style="transition-delay:.1s">
-        <div class="info-card-head">
-          <div class="ic-icon"><i class="fas fa-clock"></i></div>
-          <div><div class="ic-title">Studio Hours</div><div class="ic-sub">Last booking slot: 7:30 PM</div></div>
+      <div class="card reveal-r" style="transition-delay:.08s">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-clock"></i></div>
+          <div><div class="card-title">Studio Hours</div><div class="card-sub">Last slot at 7:30 PM</div></div>
         </div>
-        <div class="hours-grid">
-          <div class="hour-row">
-            <span class="hour-day">Monday – Friday</span>
-            <span class="hour-time"><span class="open-dot"></span>10:00 AM – 9:00 PM</span>
-          </div>
-          <div class="hour-row">
-            <span class="hour-day">Saturday</span>
-            <span class="hour-time"><span class="open-dot"></span>9:00 AM – 10:00 PM</span>
-          </div>
-          <div class="hour-row">
-            <span class="hour-day">Sunday</span>
-            <span class="hour-time"><span class="open-dot"></span>10:00 AM – 8:00 PM</span>
-          </div>
-          <div class="hour-row">
-            <span class="hour-day">Public Holidays</span>
-            <span class="hour-time"><span class="open-dot" style="background:#f59e0b"></span>11:00 AM – 7:00 PM</span>
-          </div>
+        <div class="h-list">
+          <div class="h-row"><span class="h-day">Mon – Fri</span><span class="h-time"><span class="dot-live"></span>10 AM – 9 PM</span></div>
+
+          <div class="h-row"><span class="h-day">Saturday</span><span class="h-time"><span class="dot-live"></span>9 AM – 10 PM</span></div>
+          <div class="h-row"><span class="h-day">Sunday</span><span class="h-time"><span class="dot-live"></span>10 AM – 8 PM</span></div>
+            <div class="h-row"><span class="h-day">Second Saturday</span><span class="h-time"><span class="dot-live"></span>10 AM – 5 PM</span></div>
+          <div class="h-row"><span class="h-day">Public Holidays</span><span class="h-time"><span class="dot-live" style="background:#f59e0b"></span>11 AM – 7 PM</span></div>
         </div>
       </div>
 
-      
-      <div class="info-card reveal-r" style="transition-delay:.2s">
-        <div class="info-card-head">
-          <div class="ic-icon"><i class="fas fa-hashtag"></i></div>
-          <div><div class="ic-title">Follow Our Work</div><div class="ic-sub">See daily art drops and client stories</div></div>
+      <div class="card reveal-r" style="transition-delay:.16s">
+        <div class="card-head">
+          <div class="card-icon"><i class="fas fa-hashtag"></i></div>
+          <div><div class="card-title">Follow Our Work</div><div class="card-sub">Daily art drops</div></div>
         </div>
-        <div class="social-row">
-          <div class="soc ig" onclick="window.open('#','_blank')"><i class="fab fa-instagram"></i><span>Instagram</span></div>
-          <div class="soc fb" onclick="window.open('#','_blank')"><i class="fab fa-facebook"></i><span>Facebook</span></div>
-          <div class="soc yt" onclick="window.open('#','_blank')"><i class="fab fa-youtube"></i><span>YouTube</span></div>
-          <div class="soc wa" onclick="window.open('https://wa.me/919876543210','_blank')"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></div>
+        <div class="soc-grid">
+          <div class="soc ig"><i class="fab fa-instagram"></i><span>Instagram</span></div>
+          <div class="soc fb"><i class="fab fa-facebook"></i><span>Facebook</span></div>
+          <div class="soc yt"><i class="fab fa-youtube"></i><span>YouTube</span></div>
+          <div class="soc wa"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></div>
         </div>
       </div>
 
-      
-      <div class="map-card reveal-r" style="transition-delay:.3s">
-        <div class="map-placeholder">
-          <div class="map-grid"></div>
-          <div class="map-pin">
-            <div class="pin-icon"><i class="fas fa-pen-nib"></i></div>
-            <div class="pin-label">Inkspire Studio</div>
-            <div class="pin-addr">42 Brigade Rd, MG Road, Bangalore</div>
-          </div>
-        </div>
-        <div class="map-footer">
-          <span><i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:6px"></i>2.1 km from MG Road Metro</span>
-          <button class="map-dir-btn" onclick="window.open('https://maps.google.com','_blank')">
-            <i class="fas fa-directions"></i> Get Directions
-          </button>
-        </div>
-      </div>
+
 
     </div>
   </div>
 </section>
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const elements = document.querySelectorAll(".reveal-l, .reveal-r");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
-
-  elements.forEach(el => observer.observe(el));
-
-});
+document.querySelectorAll('.s-tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.s-tab').forEach(x=>x.classList.remove('active'));t.classList.add('active')}));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('active')}),{threshold:.1});
+document.querySelectorAll('.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
 </script>
 <section id="faq-strip">
   <div class="faq-inner">

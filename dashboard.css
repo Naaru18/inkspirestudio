@@ -4,11 +4,13 @@
     --bg:#121212;
     --card:#1e1e1e;
     --text:#fff;
+    --bg1:#000000;
 }
 
 
 body.light{
-    --bg:#f5f5f5;
+    --bg:#ffffff;
+    --bg1:#f6f1cf;
     --card:#ffffff;
     --text:#111;
 }
@@ -21,9 +23,12 @@ body.light{
 }
 
 body{
-    background:var(--bg);
+
+    background:var(--bg1);
+    min-height:100%;
     color:var(--text);
     transition:.3s;
+    
 }
 
 
@@ -46,13 +51,25 @@ body{
     margin-bottom:30px;
 }
 
-.logo-icon{
-    color:var(--primary);
-    font-size:22px;
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  text-decoration-color: transparent;
 }
 
+.logo-icon{
+  color:var(--primary);
+}
+
+
 .logo h2{
-    font-size:18px;
+  font-size:20px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+   background-clip: text;
+  -webkit-text-fill-color:transparent;
 }
 
 .nav-menu{
@@ -101,12 +118,13 @@ body.light .nav-menu li.active{
 }
 
 
+
 .main-wrapper{
     margin-left:240px;
     padding:20px;
+    background:var(--bg1)  !important;
+    min-height:100%;
 }
-
-
 .top-bar{
     display:flex;
     justify-content:space-between;
@@ -148,6 +166,7 @@ body.light .nav-menu li.active{
 .gradient-text{
     background:linear-gradient(135deg,var(--primary),var(--secondary));
     -webkit-background-clip:text;
+    background-clip: text;
     -webkit-text-fill-color:transparent;
 }
 
