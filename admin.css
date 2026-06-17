@@ -7,10 +7,12 @@
   --muted:#aaa;
   --primary:#d3b016;
   --secondary:#a01b1b;
+  --bg1:#000000;
 }
 
 body.light{
   --bg:#f5f5f5;
+   --bg1:#f6f1cf;
   --sidebar:#ffffff;
   --card:#ffffff;
   --text:#111;
@@ -131,6 +133,7 @@ body.light .nav-menu li:hover{
   padding:5px 25px 25px 25px;
   width:100%;
   transition:margin-left 0.3s ease;
+  background: var(--bg1);
 }
 
 .sidebar.collapsed ~ .main-wrapper{
