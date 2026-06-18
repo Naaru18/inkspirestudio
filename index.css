@@ -550,135 +550,291 @@ body.dark-mode .hero-section,
     right:-25px;
   }
 }
+/* ════════════════════════════════
+   RESPONSIVE — 768px
+════════════════════════════════ */
+@media (max-width: 768px) {
 
-@media (max-width:768px){
-
-  .banner-wrap{
-    flex-direction:column;
-    text-align:center;
-    padding:80px 20px 50px;
+  .hero-section {
+    padding: 90px 20px 48px;
   }
 
-  .banner-content{
-    order:1;
-    width:100%;
+  .h-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
   }
 
-  .banner-right{
-    order:2;
-    margin:40px 0 0;
-    width:100%;
+  .h-left {
+    align-items: center;
+    text-align: center;
   }
 
-  .banner-sub{
-    max-width:650px;
-    margin:0 auto 24px;
+  .h-desc {
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .stat-row{
-    justify-content:center;
+  .h-stats {
+    justify-content: center;
   }
 
-  .ib-btns{
-    justify-content:center;
+  .h-btns {
+    justify-content: center;
   }
 
-  .img-frame-outer,
-  .img-placeholder{
-    width:100%;
-    max-width:500px;
-    height:350px;
-    margin:auto;
+  .h-scroll {
+    justify-content: center;
   }
 
-  .floating-chip{
-    left:10px;
-    bottom:-15px;
+  /* Right side full width */
+  .h-right {
+    width: 100%;
   }
 
-  .floating-chip2{
-    right:10px;
-    top:-15px;
+  .h-main-img {
+    height: 300px;
+    border-radius: 16px;
   }
 
-  .banner-title{
-    font-size:2.6rem;
+  /* Gallery: 3 columns on tablet */
+  .h-bottom-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .bg-slot {
+    height: 160px;
+    border-radius: 10px;
+  }
+
+  /* Hide the split slot and one extra on tablet */
+  .h-bottom-gallery .bg-slot:nth-child(4),
+  .h-bottom-gallery .bg-slot:nth-child(5) {
+    display: none;
   }
 }
 
-@media (max-width:360px){
+/* ════════════════════════════════
+   RESPONSIVE — 480px
+════════════════════════════════ */
+@media (max-width: 480px) {
 
-  .banner-wrap{
-    padding:70px 15px 40px;
+  .hero-section {
+    padding: 80px 16px 44px;
   }
 
-  .pg-pill{
-    font-size:9px;
-    padding:5px 10px;
+  .h-title {
+    font-size: clamp(2rem, 9vw, 2.6rem);
   }
 
-  .banner-title{
-    font-size:1.9rem;
-    line-height:1.15;
+  .h-stats {
+    gap: 0;
+    flex-wrap: nowrap;
   }
 
-  .banner-sub{
-    font-size:14px;
-    line-height:1.7;
+  .h-stat {
+    padding-right: 16px;
+    margin-right: 16px;
   }
 
-  .stat-row{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
+  .h-stat-val {
+    font-size: 1.3rem;
   }
 
-  .stat-chip{
-    width:100%;
-    padding:10px;
+  .h-main-img {
+    height: 260px;
   }
 
-  .sc-num{
-    font-size:1.1rem;
+  /* Gallery: 2 columns on small mobile */
+  .h-bottom-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
   }
 
-  .sc-lbl{
-    font-size:9px;
+  .bg-slot {
+    height: 130px;
+    border-radius: 8px;
   }
 
-  .ib-btns{
-    flex-direction:column;
-    width:100%;
+  /* Show only first 4 slots in 2x2 */
+  .h-bottom-gallery .bg-slot:nth-child(4) {
+    display: block;
+  }
+  .h-bottom-gallery .bg-slot:nth-child(5) {
+    display: none;
   }
 
-  .btn-g,
-  .btn-o{
-    width:100%;
-    justify-content:center;
+  /* Split slot spans both columns for visual balance */
+  .h-bottom-gallery .bg-slot.split {
+    grid-column: span 2;
+    height: 110px;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    display: grid;
   }
 
-  .img-frame-outer,
-  .img-placeholder{
-    width:100%;
-    height:250px;
+  .bg-slot.split .split-half {
+    border-radius: 8px;
+    height: 110px;
+  }
+}
+
+/* ════════════════════════════════
+   RESPONSIVE — 360px
+════════════════════════════════ */
+@media (max-width: 360px) {
+
+  .hero-section {
+    padding: 75px 14px 40px;
   }
 
-  .floating-chip,
-  .floating-chip2{
-    position:static;
-    margin-top:10px;
-    display:inline-block;
+  /* Top strip */
+  .h-strip {
+    padding: 10px 14px;
+  }
+  .h-strip-name,
+  .h-strip-num {
+    font-size: 0.6rem;
+    letter-spacing: 1.4px;
   }
 
-  .corner-badge{
-    top:10px;
-    right:10px;
-    font-size:8px;
-    padding:4px 8px;
+  /* Left content */
+  .h-eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 1.8px;
+    margin-bottom: 14px;
   }
 
-  .img-label{
-    font-size:8px;
+  .h-title {
+    font-size: clamp(1.75rem, 8.5vw, 2.1rem);
+    line-height: 1.1;
+    margin-bottom: 14px;
+  }
+
+  .h-desc {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  /* Stats: 3 in a row, compact */
+  .h-stats {
+    margin-bottom: 22px;
+    gap: 0;
+  }
+
+  .h-stat {
+    padding-right: 12px;
+    margin-right: 12px;
+  }
+
+  .h-stat:last-child {
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .h-stat-val {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  .h-stat-val span {
+    font-size: 0.82rem;
+  }
+
+  .h-stat-lbl {
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+  }
+
+  /* Buttons: stack vertically, full width */
+  .h-btns {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 12.5px;
+  }
+
+  .h-scroll {
+    margin-top: 20px;
+    font-size: 0.6rem;
+  }
+
+  /* Main image */
+  .h-main-img {
+    height: 220px;
+    border-radius: 12px;
+  }
+
+  .ib-text {
+    font-size: 0.65rem;
+  }
+
+  /* Gallery: 2 columns × 2 rows at 360px */
+  .h-bottom-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .bg-slot {
+    height: 110px;
+    border-radius: 7px;
+  }
+
+  /* Hide 5th slot — no space */
+  .h-bottom-gallery .bg-slot:nth-child(5) {
+    display: none;
+  }
+
+  /* Show 4th slot */
+  .h-bottom-gallery .bg-slot:nth-child(4) {
+    display: block;
+  }
+
+  /* Split slot: side by side spanning full row */
+  .h-bottom-gallery .bg-slot.split {
+    grid-column: span 2;
+    height: 100px;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .bg-slot.split .split-half {
+    border-radius: 7px;
+    height: 100px;
+    overflow: hidden;
+  }
+
+  .bg-slot.split .split-half img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Background number — smaller so it doesn't clip */
+  .h-bgnum {
+    font-size: 7rem;
+    opacity: 0.6;
+  }
+
+  /* Decorative lines — hide on tiny screens */
+  .h-dv1,
+  .h-dv2 {
+    display: none;
   }
 }
 .why{
