@@ -550,9 +550,6 @@ body.dark-mode .hero-section,
     right:-25px;
   }
 }
-/* ════════════════════════════════
-   RESPONSIVE — 768px
-════════════════════════════════ */
 @media (max-width: 768px) {
 
   .hero-section {
@@ -586,7 +583,6 @@ body.dark-mode .hero-section,
     justify-content: center;
   }
 
-  /* Right side full width */
   .h-right {
     width: 100%;
   }
@@ -595,8 +591,6 @@ body.dark-mode .hero-section,
     height: 300px;
     border-radius: 16px;
   }
-
-  /* Gallery: 3 columns on tablet */
   .h-bottom-gallery {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
@@ -607,16 +601,12 @@ body.dark-mode .hero-section,
     border-radius: 10px;
   }
 
-  /* Hide the split slot and one extra on tablet */
   .h-bottom-gallery .bg-slot:nth-child(4),
   .h-bottom-gallery .bg-slot:nth-child(5) {
     display: none;
   }
 }
 
-/* ════════════════════════════════
-   RESPONSIVE — 480px
-════════════════════════════════ */
 @media (max-width: 480px) {
 
   .hero-section {
@@ -645,7 +635,6 @@ body.dark-mode .hero-section,
     height: 260px;
   }
 
-  /* Gallery: 2 columns on small mobile */
   .h-bottom-gallery {
     grid-template-columns: 1fr 1fr;
     gap: 7px;
@@ -656,7 +645,6 @@ body.dark-mode .hero-section,
     border-radius: 8px;
   }
 
-  /* Show only first 4 slots in 2x2 */
   .h-bottom-gallery .bg-slot:nth-child(4) {
     display: block;
   }
@@ -664,7 +652,6 @@ body.dark-mode .hero-section,
     display: none;
   }
 
-  /* Split slot spans both columns for visual balance */
   .h-bottom-gallery .bg-slot.split {
     grid-column: span 2;
     height: 110px;
@@ -679,17 +666,12 @@ body.dark-mode .hero-section,
     height: 110px;
   }
 }
-
-/* ════════════════════════════════
-   RESPONSIVE — 360px
-════════════════════════════════ */
 @media (max-width: 360px) {
 
   .hero-section {
     padding: 75px 14px 40px;
   }
 
-  /* Top strip */
   .h-strip {
     padding: 10px 14px;
   }
@@ -699,7 +681,6 @@ body.dark-mode .hero-section,
     letter-spacing: 1.4px;
   }
 
-  /* Left content */
   .h-eyebrow {
     font-size: 0.6rem;
     letter-spacing: 1.8px;
@@ -718,7 +699,6 @@ body.dark-mode .hero-section,
     margin-bottom: 20px;
   }
 
-  /* Stats: 3 in a row, compact */
   .h-stats {
     margin-bottom: 22px;
     gap: 0;
@@ -748,7 +728,6 @@ body.dark-mode .hero-section,
     letter-spacing: 1px;
   }
 
-  /* Buttons: stack vertically, full width */
   .h-btns {
     flex-direction: column;
     gap: 10px;
@@ -768,7 +747,6 @@ body.dark-mode .hero-section,
     font-size: 0.6rem;
   }
 
-  /* Main image */
   .h-main-img {
     height: 220px;
     border-radius: 12px;
@@ -778,7 +756,6 @@ body.dark-mode .hero-section,
     font-size: 0.65rem;
   }
 
-  /* Gallery: 2 columns × 2 rows at 360px */
   .h-bottom-gallery {
     grid-template-columns: 1fr 1fr;
     gap: 6px;
@@ -789,17 +766,14 @@ body.dark-mode .hero-section,
     border-radius: 7px;
   }
 
-  /* Hide 5th slot — no space */
   .h-bottom-gallery .bg-slot:nth-child(5) {
     display: none;
   }
 
-  /* Show 4th slot */
   .h-bottom-gallery .bg-slot:nth-child(4) {
     display: block;
   }
 
-  /* Split slot: side by side spanning full row */
   .h-bottom-gallery .bg-slot.split {
     grid-column: span 2;
     height: 100px;
@@ -825,13 +799,11 @@ body.dark-mode .hero-section,
     object-fit: cover;
   }
 
-  /* Background number — smaller so it doesn't clip */
   .h-bgnum {
     font-size: 7rem;
     opacity: 0.6;
   }
 
-  /* Decorative lines — hide on tiny screens */
   .h-dv1,
   .h-dv2 {
     display: none;
