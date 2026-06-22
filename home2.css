@@ -1309,7 +1309,7 @@ body:not(.dark-mode) .hygiene-card p{
   }
 
   .hygiene-card{
-    padding:20px 15px;
+    padding:0px 0px;
   }
 
   .hygiene-card h3{
