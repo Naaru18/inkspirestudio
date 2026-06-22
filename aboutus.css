@@ -545,8 +545,11 @@ body.dark-mode{
     padding:10px 12px;
   }
   .stat-row{
-    gap:10px;
-  }
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
   .hero-cta-row{
     gap:10px;
   }
@@ -871,69 +874,33 @@ body:not(.dark-mode) .mv-card p{
 body:not(.dark-mode) .mv-card li{
   color:#555;
 }
-@media (max-width:1280px){
+@media screen and (max-width:1024px){
 
   .mv-section{
-    padding:50px 5%;
+    padding:40px 5%;
   }
-
-  .mv-grid{
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-  }
-
-  .mv-card{
-    width:100%;
-  }
-}
-
-@media (max-width:1024px){
 
   .mv-grid{
     grid-template-columns:repeat(2,1fr);
     gap:20px;
-  }
-
-
-
-  .mv-icon,
-  .mv-icon img{
-    height:220px;
-  }
-}
-
-@media (max-width:768px){
-
-  .mv-section{
-    padding:45px 20px;
-  }
-
-  .mv-grid{
-    grid-template-columns:1fr;
-    gap:16px;
+    justify-items:center;
   }
 
   .mv-card{
-    width:100%;
-    padding:12px;
-  }
-
-  .mv-card h3{
-    font-size:18px;
-  }
-
-  .mv-card p,
-  .mv-card li{
-    font-size:13px;
+    max-width:100%;
   }
 
   .mv-icon,
   .mv-icon img{
     height:180px;
   }
+
+  .mv-card h3{
+    font-size:18px;
+  }
 }
 
-@media (max-width:360px){
+@media screen and (max-width:768px){
 
   .mv-section{
     padding:40px 15px;
@@ -941,11 +908,18 @@ body:not(.dark-mode) .mv-card li{
 
   .mv-grid{
     grid-template-columns:1fr;
-    gap:18px;
+    gap:20px;
+    justify-items:center;
   }
 
   .mv-card{
     width:100%;
+    max-width:450px;
+  }
+
+  .mv-icon,
+  .mv-icon img{
+    height:220px;
   }
 
   .mv-card h3{
@@ -954,16 +928,39 @@ body:not(.dark-mode) .mv-card li{
 
   .mv-card p,
   .mv-card li{
-    font-size:13px;
-    line-height:1.6;
+    font-size:14px;
+    line-height:1.7;
+  }
+}
+
+@media screen and (max-width:360px){
+
+  .mv-section{
+    padding:35px 12px;
+  }
+
+  .mv-card{
+    width:100%;
   }
 
   .mv-icon,
   .mv-icon img{
-    height:200px;
+    height:180px;
+  }
+
+  .mv-card h3{
+    font-size:16px;
+  }
+
+  .mv-card p,
+  .mv-card li{
+    font-size:13px;
+  }
+  
+  .mv-card p{
+    padding-bottom: 10px;
   }
 }
-
 .achievements-section{
   padding:50px 20px;
   background:var(--sbg1);

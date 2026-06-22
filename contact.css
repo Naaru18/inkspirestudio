@@ -507,6 +507,13 @@ body.dark-mode{
     .hero-bg-num {
         display: none;
     }
+    .hero-cta-row{
+      
+  display:flex;
+  justify-content:center;
+  align-items:center;
+ 
+    }
 }
 .reveal-l {
     animation: slideL 0.7s cubic-bezier(.22, 1, .36, 1) both;
