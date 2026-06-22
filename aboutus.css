@@ -955,10 +955,7 @@ body:not(.dark-mode) .mv-card li{
   .mv-card p,
   .mv-card li{
     font-size:13px;
-  }
-  
-  .mv-card p{
-    padding-bottom: 10px;
+    padding-bottom: 15px;
   }
 }
 .achievements-section{

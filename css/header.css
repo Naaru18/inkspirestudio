@@ -231,19 +231,23 @@ body:not(.dark-mode) .icon-btn{
 }
 
 
-.btn.primary{ 
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-   color:#fff; 
-  }
+.btn.primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-  
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  text-align:center;
+  line-height:1;
+}
+
 .btn.primary:hover{
-   transform:translateY(-3px);
+  transform:translateY(-3px);
   box-shadow:
     0 8px 20px rgba(211,176,22,.25),
     0 8px 20px rgba(160,27,27,.20);
 }
-
 
 .btn.secondary{
   border:1px solid transparent;
